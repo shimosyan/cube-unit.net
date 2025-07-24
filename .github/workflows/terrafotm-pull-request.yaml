@@ -26,6 +26,16 @@ jobs:
         with:
           aqua_version: v2.53.6
 
+      - id: app-token
+        uses: actions/create-github-app-token@df432ceedc7162793a195dd1713ff69aefc7379e #2.0.6
+        with:
+          app-id: ${{ secrets.TFACTION_APP_ID }}
+          private-key: ${{ secrets.TFACTION_PRIVATE_KEY }}
+
+      - run: github-comment exec -- github-comment hide
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+
       # 変更のあった作業ディレクトリを取得する Action
       - uses: suzuki-shunsuke/tfaction/list-targets@ff86e9200d26a237d1f59953c554804920c27d2f # v1.18.2
         id: list-targets
