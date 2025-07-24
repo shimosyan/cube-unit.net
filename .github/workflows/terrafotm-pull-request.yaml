@@ -1,0 +1,67 @@
+name: terrafotm-pull-request
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  id-token: write
+  contents: read
+  pull-requests: write
+
+jobs:
+  # setup で変更のあった作業ディレクトリを取得する
+  setup:
+    runs-on: ubuntu-latest
+    outputs:
+      targets: ${{ steps.list-targets.outputs.targets }}
+    steps:
+      - uses: actions/checkout@v4
+
+      # aqua を使って必要なツールをインストールする
+      - uses: aquaproj/aqua-installer@v2.2.0
+        with:
+          aqua_version: v2.21.0
+
+      # 変更のあった作業ディレクトリを取得する Action
+      - uses: suzuki-shunsuke/tfaction/list-targets@v0.7.3
+        id: list-targets
+
+  # plan で setup で取得した変更のある作業ディレクトリを並列に実行する
+  plan:
+    name: "terraform plan (${{ matrix.target.target }})"
+    runs-on: ${{ matrix.target.runs_on }}
+    needs: setup
+
+    # setup で取得した変更のある作業ディレクトリが空の場合は実行しない
+    if: join(fromJSON(needs.setup.outputs.targets), '') != ''
+
+    strategy:
+      fail-fast: false
+      matrix:
+        target: ${{ fromJSON(needs.setup.outputs.targets) }}
+    env:
+      TFACTION_TARGET: ${{ matrix.target.target }}
+      TFACTION_JOB_TYPE: terraform
+    steps:
+      - uses: actions/checkout@v4
+      - uses: aquaproj/aqua-installer@v2.2.0
+        with:
+          aqua_version: v2.21.0
+
+      - id: github_app_token
+        uses: tibdex/github-app-token@v2
+        with:
+          app_id: ${{ secrets.TFACTION_APP_ID }}
+          private_key: ${{ secrets.TFACTION_APP_SECRETS }}
+
+      # terraform init などの準備を行う Action
+      - uses: suzuki-shunsuke/tfaction/setup@v0.7.3
+        with:
+          github_app_token: ${{ steps.github_app_token.outputs.token }}
+
+      # terraform plan を実行する Action
+      - uses: suzuki-shunsuke/tfaction/plan@v0.7.3
+        with:
+          github_app_token: ${{ steps.github_app_token.outputs.token }}

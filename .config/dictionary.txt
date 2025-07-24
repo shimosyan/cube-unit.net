@@ -1,0 +1,7 @@
+aquasecurity
+tfaction
+tfvars
+tfstate
+terraformrc
+reviewdog
+suzuki-shunsuke
