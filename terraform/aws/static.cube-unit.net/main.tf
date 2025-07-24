@@ -10,7 +10,7 @@ terraform {
   backend "s3" {
     bucket  = "terraform.cube-unit.net"
     region  = "ap-northeast-1"
-    key     = "cube-unit.net/aws/static.cube-unit.net/terraform.tfstate"
+    key     = "cube-unit.net/aws/%%TARGET%%/terraform.tfstate"
     encrypt = true
   }
 
@@ -24,5 +24,5 @@ terraform {
 
 # Configure the AWS Provider
 provider "aws" {
-  region = "ap-northeast-1"
+  region = local.region
 }
