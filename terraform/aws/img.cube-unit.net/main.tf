@@ -10,7 +10,7 @@ terraform {
   backend "s3" {
     bucket  = "terraform.cube-unit.net"
     region  = "ap-northeast-1"
-    key     = "cube-unit.net/aws/%%TARGET%%/terraform.tfstate"
+    key     = "cube-unit.net/aws/img.cube-unit.net/terraform.tfstate"
     encrypt = true
   }
 
