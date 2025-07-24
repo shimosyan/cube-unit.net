@@ -56,7 +56,7 @@ jobs:
         uses: actions/create-github-app-token@df432ceedc7162793a195dd1713ff69aefc7379e #2.0.6
         with:
           app-id: ${{ secrets.TFACTION_APP_ID }}
-          private-key: ${{ secrets.TFACTION_APP_SECRETS }}
+          private-key: ${{ secrets.TFACTION_PRIVATE_KEY }}
 
       # terraform init などの準備を行う Action
       - uses: suzuki-shunsuke/tfaction/setup@ff86e9200d26a237d1f59953c554804920c27d2f # v1.18.2
