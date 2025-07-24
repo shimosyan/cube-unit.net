@@ -1,5 +1,6 @@
 aquasecurity
 tfaction
+tflint
 tfvars
 tfstate
 terraformrc
