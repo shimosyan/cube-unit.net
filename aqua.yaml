@@ -9,5 +9,5 @@ packages:
   - name: aquasecurity/trivy@86ee3c1176d4707536914dfa65ac8eca452e14cd #v0.64.1
   - name: reviewdog/reviewdog@fd59714416d6d9a1c0692d872e38e7f8448df4fc #v0.20.3
   - name: terraform-docs/terraform-docs@cf462c5da36feb66051cf0a6f1124594ed9adc7c #v0.20.0
-  - name: suzuki-shunsuke/github-comment@d99876e132f2bbbf7b8380b00ee535c121095d64 #v6.3.3
+  - name: suzuki-shunsuke/github-comment@v6.3.3
   - name: int128/ghcp@0ffd6947e59ec63190f9c0cc1b31a8122410c448 #v1.15.0
