@@ -26,7 +26,7 @@ jobs:
           aqua_version: v2.43.1
 
       # 変更のあった作業ディレクトリを取得する Action
-      - uses: suzuki-shunsuke/tfaction/list-targets@v0.7.3
+      - uses: suzuki-shunsuke/tfaction/list-targets@ff86e9200d26a237d1f59953c554804920c27d2f # v1.18.2
         id: list-targets
 
   # apply で setup で取得した変更のある作業ディレクトリを並列に実行する
