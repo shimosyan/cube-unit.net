@@ -62,6 +62,10 @@ jobs:
 
       # terraform init などの準備を行う Action
       - uses: suzuki-shunsuke/tfaction/setup@ff86e9200d26a237d1f59953c554804920c27d2f # v1.18.2
+        with:
+          github_token: ${{ steps.app-token.outputs.token }}
 
       # terraform apply を実行する Action
       - uses: suzuki-shunsuke/tfaction/apply@ff86e9200d26a237d1f59953c554804920c27d2f # v1.18.2
+        with:
+          github_token: ${{ steps.app-token.outputs.token }}
