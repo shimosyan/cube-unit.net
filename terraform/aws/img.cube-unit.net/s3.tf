@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "main" {
-  bucket = "img.cube-unit.net"
+  bucket = local.domain
   region = local.region
 }
 
