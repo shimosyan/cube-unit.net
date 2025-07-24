@@ -3,6 +3,7 @@ resource "aws_s3_bucket" "main" {
   region = local.region
 }
 
+#
 import {
   id = "static.cube-unit.net"
   to = aws_s3_bucket.main
