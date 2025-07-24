@@ -25,7 +25,7 @@ jobs:
       # aqua を使って必要なツールをインストールする
       - uses: aquaproj/aqua-installer@d1fe50798dbadd4eb5b98957290ca175f6b4870f # v4.0.2
         with:
-          aqua_version: v2.53.6
+          aqua_version: a03d8818e53b1f9de3303f154e23ebe49d87b2ee #v2.53.6
 
       # 変更のあった作業ディレクトリを取得する Action
       - uses: suzuki-shunsuke/tfaction/list-targets@ff86e9200d26a237d1f59953c554804920c27d2f # v1.18.2
@@ -52,13 +52,13 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - uses: aquaproj/aqua-installer@d1fe50798dbadd4eb5b98957290ca175f6b4870f # v4.0.2
         with:
-          aqua_version: v2.53.6
+          aqua_version: a03d8818e53b1f9de3303f154e23ebe49d87b2ee #v2.53.6
 
-      - id: github_app_token
-        uses: tibdex/github-app-token@v2
+      - id: app-token
+        uses: actions/create-github-app-token@df432ceedc7162793a195dd1713ff69aefc7379e #2.0.6
         with:
-          app_id: ${{ secrets.TFACTION_APP_ID }}
-          private_key: ${{ secrets.TFACTION_APP_SECRETS }}
+          app-id: ${{ secrets.TFACTION_APP_ID }}
+          private-key: ${{ secrets.TFACTION_APP_SECRETS }}
 
       # terraform init などの準備を行う Action
       - uses: suzuki-shunsuke/tfaction/setup@ff86e9200d26a237d1f59953c554804920c27d2f # v1.18.2
