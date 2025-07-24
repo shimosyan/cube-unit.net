@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    paths:
+      - terraform/**
 
 permissions:
   id-token: write
@@ -18,7 +20,7 @@ jobs:
     outputs:
       targets: ${{ steps.list-targets.outputs.targets }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       # aqua を使って必要なツールをインストールする
       - uses: aquaproj/aqua-installer@d1fe50798dbadd4eb5b98957290ca175f6b4870f # v4.0.2
@@ -47,10 +49,10 @@ jobs:
       TFACTION_TARGET: ${{ matrix.target.target }}
       TFACTION_JOB_TYPE: terraform
     steps:
-      - uses: actions/checkout@v4
-      - uses: aquaproj/aqua-installer@v2.2.0
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: aquaproj/aqua-installer@d1fe50798dbadd4eb5b98957290ca175f6b4870f # v4.0.2
         with:
-          aqua_version: v2.21.0
+          aqua_version: v2.43.1
 
       - id: github_app_token
         uses: tibdex/github-app-token@v2
@@ -59,11 +61,7 @@ jobs:
           private_key: ${{ secrets.TFACTION_APP_SECRETS }}
 
       # terraform init などの準備を行う Action
-      - uses: suzuki-shunsuke/tfaction/setup@v0.7.3
-        with:
-          github_app_token: ${{ steps.github_app_token.outputs.token }}
+      - uses: suzuki-shunsuke/tfaction/setup@ff86e9200d26a237d1f59953c554804920c27d2f # v1.18.2
 
       # terraform apply を実行する Action
-      - uses: suzuki-shunsuke/tfaction/apply@v0.7.3
-        with:
-          github_app_token: ${{ steps.github_app_token.outputs.token }}
+      - uses: suzuki-shunsuke/tfaction/apply@ff86e9200d26a237d1f59953c554804920c27d2f # v1.18.2
