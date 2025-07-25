@@ -1,6 +1,5 @@
 # macOS specific file, used to store custom attributes of a folder
 .DS_Store
-/wordpress
 
 #
 # Hugo
