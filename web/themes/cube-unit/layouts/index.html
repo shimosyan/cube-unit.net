@@ -1,26 +1,92 @@
 {{ define "main" }}
+<div id="index_top_wrap">
+  <div id="index_top" class="clearfix">
+
+    <div id="slider">
+      <div class="flexslider">
+        <ul class="slides clearfix">
+          {{ range .Params.slider }}
+          <li>
+            <a href="{{ .link }}"{{ if eq .target "_blank" }} target="_blank"{{ end }}>
+              <img src="{{ .image }}" alt="{{ .alt }}" />
+            </a>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+    </div>
+
+    <div id="index_banner">
+      <ol class="clearfix">
+      </ol>
+    </div>
+
+  </div>
+</div>
+
 <div id="main_contents_wrap">
   <div id="main_contents" class="clearfix">
 
     <div id="main_col">
-      <div id="main_col_inner">
-        <!-- メインコンテンツ -->
-        <h1>{{ .Site.Title }}</h1>
-        <p>{{ .Site.Params.description }}</p>
 
-        <!-- 最新の投稿やコンテンツをここに表示 -->
-        {{ range first 5 .Site.RegularPages }}
-        <article>
-          <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-          <p>{{ .Summary }}</p>
-        </article>
-        {{ end }}
+      <!-- index news -->
+      <div id="index_news">
+        <h3 class="headline1"><span>NEWS</span></h3>
+        <ol class="clearfix">
+          <li class="clearfix">
+            <p class="date">2018.1.3</p>
+            <p class="title"><a href="#">Amazonに出品されているCube-Unit及びMICMNISの作品について</a></p>
+          </li>
+        </ol>
+        <div class="index_archive_link"><a href="/news/">過去のお知らせ一覧</a></div>
       </div>
+
+      <!-- product list -->
+      <div id="index_product">
+        <h3 class="headline1"><span>NEW PRODUCTS</span></h3>
+        <ol class="clearfix">
+          <li class="num1">
+            <a class="image" href="/product/clear-diary/"><img src="https://img.cube-unit.net/uploads/2024/07/ジャケット-600x600.jpg" alt="" title="" /></a>
+            <h4 class="title"><a href="/product/clear-diary/">Clear Diary</a></h4>
+          </li>
+          <li class="num2">
+            <a class="image" href="/product/selene/"><img src="https://img.cube-unit.net/uploads/2023/08/ジャケット-700-600x600.jpg" alt="" title="" /></a>
+            <h4 class="title"><a href="/product/selene/">SELENE</a></h4>
+          </li>
+          <li class="num3">
+            <a class="image" href="/product/bright-palette/"><img src="https://img.cube-unit.net/uploads/2021/11/ジャケット-600x600.jpg" alt="" title="" /></a>
+            <h4 class="title"><a href="/product/bright-palette/">Bright Palette</a></h4>
+          </li>
+          <li class="num4">
+            <a class="image" href="/product/event-horizon/"><img src="https://img.cube-unit.net/uploads/2019/07/ジャケット.jpg" alt="" title="" /></a>
+            <h4 class="title"><a href="/product/event-horizon/">Event Horizon</a></h4>
+          </li>
+          <li class="num5">
+            <a class="image" href="/product/mystic-pocket-watch/"><img src="https://img.cube-unit.net/uploads/2018/08/ジャケット.jpg" alt="" title="" /></a>
+            <h4 class="title"><a href="/product/mystic-pocket-watch/">Mystic Pocket Watch</a></h4>
+          </li>
+          <li class="num6">
+            <a class="image" href="/product/grace-of-faith/"><img src="https://img.cube-unit.net/uploads/2017/12/ジャケット.jpg" alt="" title="" /></a>
+            <h4 class="title"><a href="/product/grace-of-faith/">GRACE OF FAITH</a></h4>
+          </li>
+        </ol>
+        <div class="index_archive_link"><a href="/product/">作品一覧を見る</a></div>
+      </div>
+
+      <!-- blog list -->
+      <div id="index_blog">
+        <h3 class="headline1"><span>BLOG</span></h3>
+        <ol class="clearfix">
+          <li class="no_post"><p>登録されている記事はございません。</p></li>
+        </ol>
+        <div class="index_archive_link"></div>
+      </div>
+
     </div>
 
     <div id="side_col">
-      <div class="side_widget clearfix widget_block">
-        <!-- Twitterウィジェット -->
+
+      <div class="side_widget clearfix widget_block" id="block-7">
         <figure class="wp-block-embed is-type-rich is-provider-twitter wp-block-embed-twitter">
           <div class="wp-block-embed__wrapper">
             <a class="twitter-timeline" data-width="500" data-height="750" data-dnt="true" href="https://twitter.com/cube_unit?ref_src=twsrc%5Etfw">Tweets by cube_unit</a>
@@ -28,8 +94,25 @@
           </div>
         </figure>
       </div>
+
     </div>
 
   </div>
 </div>
+
+<a id="return_top" href="#header">ページ上部へ戻る</a>
+{{ end }}
+
+{{ define "scripts" }}
+<!-- FlexSlider -->
+<script src="/js/jquery.flexslider-min.js"></script>
+<script src="/js/jquery.easing.js"></script>
+<script>
+jQuery(window).on('load', function() {
+  jQuery('.flexslider').flexslider({
+    directionNav: false,
+    controlNav: false
+  });
+});
+</script>
 {{ end }}
