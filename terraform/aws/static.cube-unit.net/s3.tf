@@ -42,8 +42,3 @@ data "aws_iam_policy_document" "policy_document" {
     }
   }
 }
-
-import {
-  to = aws_s3_bucket_policy.policy
-  id = local.domain
-}

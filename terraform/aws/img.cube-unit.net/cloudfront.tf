@@ -77,8 +77,3 @@ resource "aws_cloudfront_origin_access_control" "s3_distribution" {
   signing_behavior                  = "always"
   signing_protocol                  = "sigv4"
 }
-
-import {
-  to = aws_cloudfront_origin_access_control.s3_distribution
-  id = "E1TWCAGJSMAD3U"
-}
