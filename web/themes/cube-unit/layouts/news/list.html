@@ -1,0 +1,76 @@
+{{ define "main" }}
+<div id="main_contents_wrap">
+  <div id="main_contents" class="clearfix">
+
+    <!-- パンくずナビ -->
+    <ul id="bread_crumb" class="clearfix" itemscope itemtype="http://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="home">
+        <a itemprop="item" href="/"><span itemprop="name">Home</span></a>
+        <meta itemprop="position" content="1" />
+      </li>
+      <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="last">
+        <span itemprop="name">{{ .Title }}</span>
+        <meta itemprop="position" content="2" />
+      </li>
+    </ul>
+
+    <div id="main_col">
+      <h2 class="headline1"><span>{{ .Title }}</span></h2>
+
+      {{ .Content }}
+
+      <ol id="news_list" class="clearfix">
+        {{ range .Pages }}
+        <li class="clearfix">
+          <p class="date">{{ .Date.Format "2006/1/2" }}</p>
+          <p class="title"><a href="{{ .Permalink }}">{{ .Title }}</a></p>
+        </li>
+        {{ end }}
+      </ol>
+
+      <div class="page_navi clearfix">
+        <p class="back"><a href="/">トップページに戻る</a></p>
+      </div>
+    </div>
+
+    <div id="side_col">
+      <div class="side_widget clearfix tcdw_product_list_widget" id="tcdw_product_list_widget-5">
+        <h3 class="side_headline"><span>作品一覧</span></h3>
+        <ol class="product_post_list">
+          <li class="clearfix">
+            <a class="image" href="/product/clear-diary/"><img src="https://img.cube-unit.net/uploads/2024/07/ジャケット-72x72.jpg" alt="" title="" /></a>
+            <div class="info">
+              <a class="title" href="/product/clear-diary/">Clear Diary</a>
+            </div>
+          </li>
+          <li class="clearfix">
+            <a class="image" href="/product/selene/"><img src="https://img.cube-unit.net/uploads/2023/08/ジャケット-700-72x72.jpg" alt="" title="" /></a>
+            <div class="info">
+              <a class="title" href="/product/selene/">SELENE</a>
+            </div>
+          </li>
+          <li class="clearfix">
+            <a class="image" href="/product/bright-palette/"><img src="https://img.cube-unit.net/uploads/2021/11/ジャケット-72x72.jpg" alt="" title="" /></a>
+            <div class="info">
+              <a class="title" href="/product/bright-palette/">Bright Palette</a>
+            </div>
+          </li>
+          <li class="clearfix">
+            <a class="image" href="/product/event-horizon/"><img src="https://img.cube-unit.net/uploads/2019/07/ジャケット-72x72.jpg" alt="" title="" /></a>
+            <div class="info">
+              <a class="title" href="/product/event-horizon/">Event Horizon</a>
+            </div>
+          </li>
+          <li class="clearfix">
+            <a class="image" href="/product/mystic-pocket-watch/"><img src="https://img.cube-unit.net/uploads/2018/08/ジャケット-72x72.jpg" alt="" title="" /></a>
+            <div class="info">
+              <a class="title" href="/product/mystic-pocket-watch/">Mystic Pocket Watch</a>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+
+  </div>
+</div>
+{{ end }}
