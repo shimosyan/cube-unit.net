@@ -2,7 +2,20 @@
 <div id="main_contents_wrap">
   <div id="main_contents" class="clearfix">
 
+    <!-- パンくずナビ -->
+    <ul id="bread_crumb" class="clearfix" itemscope itemtype="http://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="home">
+        <a itemprop="item" href="/"><span itemprop="name">Home</span></a>
+        <meta itemprop="position" content="1" />
+      </li>
+      <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="last">
+        <span itemprop="name">{{ .Title }}</span>
+        <meta itemprop="position" content="2" />
+      </li>
+    </ul>
+
     <div id="main_col">
+      <h2 class="headline1"><span>{{ .Title }}</span></h2>
       <div id="main_col_inner">
         <div class="post">
           {{ .Content }}
@@ -11,11 +24,24 @@
     </div>
 
     <div id="side_col">
-      <div class="side_widget clearfix">
-        <div class="twitter-widget">
-          <a class="twitter-timeline" data-height="750" data-dnt="true" href="https://twitter.com/cube_unit?ref_src=twsrc%5Etfw">Tweets by cube_unit</a>
-          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-        </div>
+      <div class="side_widget clearfix tcdw_product_list_widget" id="tcdw_product_list_widget-4">
+        <h3 class="side_headline"><span>作品一覧</span></h3>
+        <ol class="product_post_list">
+          {{ range first 5 .Site.RegularPages.ByDate.Reverse }}
+          {{ if eq .Section "product" }}
+          <li class="clearfix">
+            <a class="image" href="{{ .Permalink }}">
+              {{ if .Params.image }}
+              <img src="{{ .Params.image }}" alt="{{ .Title }}" title="{{ .Title }}" />
+              {{ end }}
+            </a>
+            <div class="info">
+              <a class="title" href="{{ .Permalink }}">{{ .Title }}</a>
+            </div>
+          </li>
+          {{ end }}
+          {{ end }}
+        </ol>
       </div>
     </div>
 

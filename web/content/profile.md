@@ -3,8 +3,6 @@ title: "PROFILE"
 description: "Cube-Unitのプロフィール"
 ---
 
-## PROFILE
-
 ### しもしゃん
 
 主にハードコアテクノを中心としたクラブミュージック系の楽曲製作と Web 系を中心としたプログラミング、また IaaS や SaaS などを組み合わせたアプリの開発をしています。
