@@ -295,7 +295,7 @@ input[type="text"], input[type="password"], textarea, select { outline: none; }
 .side_widget { margin:0 0 40px 0; font-size:11px; overflow:hidden; }
 .side_widget ul { margin:0; }
 .side_widget li ul { margin:10px 0 0 0; }
-.side_widget li { line-height:170%; margin:0 0 10px 0; padding:0 0 0 9px; background:url(img/common/bullet1.gif) no-repeat left 8px; }
+.side_widget li { line-height:170%; margin:0 0 10px 0; padding:0 0 0 9px; background:url(../img/common/bullet1.gif) no-repeat left 8px; }
 .side_widget a { text-decoration: none; }
 .side_widget img { height:auto; max-width:100%; width:auto; }
 .side_headline { border-bottom:1px solid #ddd; padding:0; margin:0 0 25px 0; font-size:18px; }
@@ -326,7 +326,7 @@ input[type="text"], input[type="password"], textarea, select { outline: none; }
 .widget_search #search-box, .widget_search #s, .google_search #search_input
  { width:238px; height:33px; margin:0 0 10px 0; border:1px solid #ccc; background:#fff; padding:0 10px; box-shadow:2px 2px 3px 0px #ddd inset; }
 .widget_search #search-btn input, .widget_search #searchsubmit, .google_search #search_button
- { border:none; text-indent:-9999px; width:33px; height:33px; background:#222 url(img/common/search.png) no-repeat center; cursor:pointer; display:block; float:right; -webkit-border-radius:3px; -moz-border-radius:3px; border-radius:3px; }
+ { border:none; text-indent:-9999px; width:33px; height:33px; background:#222 url(../img/common/search.png) no-repeat center; cursor:pointer; display:block; float:right; -webkit-border-radius:3px; -moz-border-radius:3px; border-radius:3px; }
 .widget_search #search-btn input:hover, .widget_search #searchsubmit:hover, .google_search #search_button:hover
  { background-color:#00a2d9; }
 

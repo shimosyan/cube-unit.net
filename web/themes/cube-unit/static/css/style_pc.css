@@ -13,9 +13,9 @@ body { margin:0; padding:0;
 #header { width:1140px; height:112px; position:relative; margin:0 auto;}
 
 #index_top_wrap { width:100%; min-width:1140px; background:#f2f2f2; }
-#index_top { width:1140px; positio:relative; margin:0 auto; padding:10px 0 0; }
+#index_top { width:1140px; position:relative; margin:0 auto; padding:10px 0 0; }
 
-#main_contents_wrap { width:100%; min-width:1140px; background:#fff url(img/common/background1.gif) repeat-x left top; }
+#main_contents_wrap { width:100%; min-width:1140px; background:#fff url(../img/common/background1.gif) repeat-x left top; }
 #main_contents { width:1140px; margin:0 auto; }
 
 
@@ -171,10 +171,10 @@ body { margin:0; padding:0;
 #post_list .desc { clear:both; }
 #post_list ul { margin:0; }
 #post_list li li { border:none; margin:0 25px 5px 0; padding:0; float:left; font-size:12px; }
-#post_list li.meta_category { background:url(img/common/icon_category.png) no-repeat left 3px; padding-left:15px; }
-#post_list li.meta_tag { background:url(img/common/icon_tag.png) no-repeat left 3px;  padding-left:15px; }
-#post_list li.meta_comment { background:url(img/common/icon_comment.png) no-repeat left 3px;  padding-left:15px; }
-#post_list li.meta_author { background:url(img/common/icon_author.png) no-repeat left 3px;  padding-left:15px; }
+#post_list li.meta_category { background:url(../img/common/icon_category.png) no-repeat left 3px; padding-left:15px; }
+#post_list li.meta_tag { background:url(../img/common/icon_tag.png) no-repeat left 3px;  padding-left:15px; }
+#post_list li.meta_comment { background:url(../img/common/icon_comment.png) no-repeat left 3px;  padding-left:15px; }
+#post_list li.meta_author { background:url(../img/common/icon_author.png) no-repeat left 3px;  padding-left:15px; }
 
 
 
@@ -209,10 +209,10 @@ body { margin:0; padding:0;
 #post_meta { border-top:1px dotted #727272; margin:0 0 20px 0; padding:15px 0; }
 #post_meta #meta { float:left; width:60%; margin:0; font-size:12px; }
 #post_meta #meta li { padding:0; margin:0 0 6px 0; line-height:160%; }
-#post_meta #meta li.meta_author { background:url(img/common/icon_author.png) no-repeat left 5px; padding:0 0 0 18px; }
-#post_meta #meta li.meta_comment { background:url(img/common/icon_comment.png) no-repeat left 5px; padding:0 0 0 18px; }
-#post_meta #meta li.meta_category { background:url(img/common/icon_category.png) no-repeat 3px 4px; padding:0 0 0 18px; }
-#post_meta #meta li.meta_tag { background:url(img/common/icon_tag.png) no-repeat left 5px; padding:0 0 0 18px; }
+#post_meta #meta li.meta_author { background:url(../img/common/icon_author.png) no-repeat left 5px; padding:0 0 0 18px; }
+#post_meta #meta li.meta_comment { background:url(../img/common/icon_comment.png) no-repeat left 5px; padding:0 0 0 18px; }
+#post_meta #meta li.meta_category { background:url(../img/common/icon_category.png) no-repeat 3px 4px; padding:0 0 0 18px; }
+#post_meta #meta li.meta_tag { background:url(../img/common/icon_tag.png) no-repeat left 5px; padding:0 0 0 18px; }
 #post_meta .bookmark { float:right; margin:0; }
 #post_meta .bookmark li { float:left; margin:0 0 0 10px; }
 
@@ -236,8 +236,8 @@ body { margin:0; padding:0;
 #previous_next_post p { margin:0; padding:0; }
 #previous_next_post a { -moz-box-sizing:border-box; -webkit-box-sizing:border-box; -o-box-sizing:border-box; -ms-box-sizing:border-box; box-sizing:border-box;
  }
-#previous_post a { margin:0; width:50%; float:left; border-right:1px solid #ccc; line-height:140%; font-size:12px; background:url(img/common/arrow_left.gif) no-repeat left 20px; padding:25px 30px; }
-#next_post a { margin:0; left:-1px; position:relative; width:50%; float:right; text-align:right; border-left:1px solid #ccc; line-height:140%; font-size:12px; background:url(img/common/arrow_right.gif) no-repeat right 20px; padding:25px 30px; }
+#previous_post a { margin:0; width:50%; float:left; border-right:1px solid #ccc; line-height:140%; font-size:12px; background:url(../img/common/arrow_left.gif) no-repeat left 20px; padding:25px 30px; }
+#next_post a { margin:0; left:-1px; position:relative; width:50%; float:right; text-align:right; border-left:1px solid #ccc; line-height:140%; font-size:12px; background:url(../img/common/arrow_right.gif) no-repeat right 20px; padding:25px 30px; }
 
 
 
@@ -316,7 +316,7 @@ body { margin:0; padding:0;
 /* ----------------------------------------------------------------------
  footer
 ---------------------------------------------------------------------- */
-#return_top { z-index:999; position:fixed; right:0px; bottom:25px; margin:0; display:block; width:36px; height:100px; text-indent:-9999px; background:#ccc url(img/footer/return_top.png) no-repeat center; }
+#return_top { z-index:999; position:fixed; right:0px; bottom:25px; margin:0; display:block; width:36px; height:100px; text-indent:-9999px; background:#ccc url(../img/footer/return_top.png) no-repeat center; }
 #return_top:hover { }
 
 /* basic setting */
