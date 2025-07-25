@@ -1,53 +1,83 @@
 ---
 title: "CONNECT"
-description: "同人サークルCube-Unit 2nd アルバム"
+description: "同人サークルCube-Unit が贈る PSO2 Fan made トリビュートアルバム！"
 image: "https://img.cube-unit.net/uploads/2016/07/ジャケット.jpg"
 date: 2016-07-17
 ---
 
-同人サークル『Cube-Unit』2nd アルバム！
+同人サークルCube-Unit が贈る PSO2 Fan made トリビュートアルバム！
 
-### [楽曲のダウンロードはこちらから](https://cube-unit.bandcamp.com/album/connect)
+## Demo
+
+{{< soundcloud-track 272725645 >}}
+
+---
 
 ## Info
 
 ### TrackList
 
-01. CONNECT (Shimosyan Remix)
-02. Network (Shimosyan Remix)
-03. 繋がる心 (Shimosyan Remix)
-04. Digital Bridge (Shimosyan Remix)
-05. 電子の絆 (Shimosyan Remix)
-06. Connection Point (Shimosyan Remix)
+Tr.01　Catastrophe or Victory
+アレンジ ： すみょ～ん
+原曲 ： Resonant Catastrophe
+作曲者 ： 小林秀聡/福山光晴/堀田英邦
+
+Tr.02　Steel Tribble
+アレンジ ： みゑふぃーゆ
+原曲 ： Colossal Machinery
+作曲者 ： 小林秀聡
+
+Tr.03　Ooze " Profound Darkness "
+アレンジ ： Dj XEoN
+原曲 ： Ooze
+作曲者 ： 小林秀聡
+
+Tr.04　Neutral Planet
+アレンジ ： Masato Moriya
+原曲 ： 灰ノ光
+作曲者 ： 小林秀聡
+
+Tr.05　Immature Rondo of Strange Fruits
+アレンジ ： cafe au lait bol
+原曲 ： "IDOLA" The Strange Fruits
+作曲者 ： 小林秀聡
+
+Tr.06　終わりなき物語(Yuta Murase remix)
+アレンジ ： 村瀬悠太
+原曲 ： 終わりなき物語
+作曲者 ： 福山光晴
+
+Tr.07　Emerging Sword
+アレンジ ： hama
+原曲 ： Vanishing Sword
+作曲者 ： 小林秀聡
+
+Tr.08　Rebellion to the ruler
+アレンジ ： しもしゃん
+原曲 ： Ia L'inno per il "IDOLA" -Persona di Onnipotente-
+作曲者 ： 小林秀聡
+
+Tr.09　Convergent Dynasty -Dio Hunar-
+アレンジ ： シイナフユキ
+原曲 ： Viel Hunar
+作曲者 ： 福山光晴
+
+### Produce,Direction
+
+しもしゃん (MICMNIS)
 
 ### Illustration
 
-くるん ([X/Twitter](https://twitter.com/kurun_p))
+紅林のえ (Xcube)
 
 ### Mastering
 
-モリヤマサト ([X/Twitter](https://twitter.com/tanso_ss))
+みっつん (Applice)
+
+### Design
+
+Kaoru (KM GRAPH)
 
 ### Original
 
-Original by ZUN
-
-東方Project – Touhou Project –
-公式サイト : <https://www16.big.or.jp/~zun/>
-
----
-
-## Get
-
-### Price
-
-- イベント頒布 1,000円
-- ショップ委託 1,000円 + 税
-
-### Events
-
-- 2016/07/17 博麗神社例大祭(春) N-41b
-
-### Shop
-
-[メロンブックス](https://www.melonbooks.co.jp/detail/detail.php?product_id=7777777)
+(C)SEGA PhantasyStarOnline2

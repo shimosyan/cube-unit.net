@@ -14,23 +14,24 @@ MICMNISが贈るPSO2 5周年記念作品
 
 ## SPECIFICATION
 
-イラスト: A4 26P フルカラー
-楽曲: DL配信
+- イラスト: A4 26P フルカラー
+- 楽曲: DL配信
 
 ## RELEASE DATE
 
-2017-08-11
+- 2017-08-11
 
 ## BOOTH
 
-コミックマーケット92
-一日目チ28a (MonoCuleume様)
-一日目メ38b (Sound Square様)
+### コミックマーケット92
+
+- 一日目チ28a (MonoCuleume様)
+- 一日目メ38b (Sound Square様)
 
 ## PRICE
 
-会場価格: ￥1500
-委託価格: ￥2000(税抜)
+- 会場価格: ￥1500
+- 委託価格: ￥2000(税抜)
 
 ## DLページ
 
@@ -38,39 +39,35 @@ MICMNISが贈るPSO2 5周年記念作品
 
 ## CONTENTS
 
-01 GOKI
-02 Spe(すぺ)
-03 霜月汐
-04 如月紗天
-05 宇榮原
-06 冴木シノ
-07 鈴岡水貴
-08 スピカ
-09 みなせれあち
-10 Sola
-11 .suke
+01. GOKI
+02. Spe(すぺ)
+03. 霜月汐
+04. 如月紗天
+05. 宇榮原
+06. 冴木シノ
+07. 鈴岡水貴
+08. スピカ
+09. みなせれあち
+10. Sola
+11. .suke
 
 ## TRACKLIST
 
-**01 Go Higher**
-モリヤマサト – Challenge Lobby
-**02 Mare Serenitatis**
-しもしゃん – エスカファルス・マザー 追撃戦
-**03 Rappy Fever NT**
-ななちゃん – Rappy Fever
-**04 Quarter million**
-café au lait bol – Spiral Tracker
-**05 ☆14未実装**
-luminous – レアドロ☆KOI☆恋!
-**06 Rose Confession(FdL_Funkot_RMX)**
-FdL_RMX – Rose Confession
-**07 To countless stars**
-墓石 – 集え、八百万の星の下に
-**08 灰ノ心露~散華**
-CraftBrigade – 灰ノ心露
+01. **Go Higher** : モリヤマサト – Challenge Lobby
+02. **Mare Serenitatis** : しもしゃん – エスカファルス・マザー 追撃戦
+03. **Rappy Fever NT** : ななちゃん – Rappy Fever
+04. **Quarter million** : café au lait bol – Spiral Tracker
+05. **☆14未実装** : luminous – レアドロ☆KOI☆恋!
+06. **Rose Confession(FdL_Funkot_RMX)** : FdL_RMX – Rose Confession
+07. **To countless stars** : 墓石 – 集え、八百万の星の下に
+08. **灰ノ心露~散華** : CraftBrigade – 灰ノ心露
+
+### Demo
+
+{{< soundcloud-track 334564908 >}}
+
+---
 
 ## Store
 
-[![メロンブックス](https://www.melonbooks.co.jp/user_data/bnr/banner_200x40.gif)](https://www.melonbooks.co.jp/detail/detail.php?product_id=266733)
-
-<iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/334564908&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true" width="100%" height="166" frameborder="no" scrolling="no"></iframe>
+{{< melonbooks-button 266733 >}}

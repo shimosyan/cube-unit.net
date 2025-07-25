@@ -11,7 +11,9 @@ date: 2024-07-21
 
 ## Demo
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/SvFZViTbDyY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+{{< youtube SvFZViTbDyY >}}
+
+---
 
 ## Info
 
@@ -57,4 +59,4 @@ This album is a fan-made of "Blue Archive" by NEXON Games & Yostar.
 
 ### Shop
 
-[メロンブックス](https://www.melonbooks.co.jp/detail/detail.php?product_id=2474018)
+{{< melonbooks-button 2474018 >}}

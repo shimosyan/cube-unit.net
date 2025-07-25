@@ -16,3 +16,11 @@ description: "Cube-Unitのプロフィール"
 ### ポートフォリオ
 
 <https://shimosyan.github.io/>
+
+### GitHub
+
+<https://github.com/shimosyan>
+
+### SoundCloud
+
+{{< soundcloud-user 5963440 >}}

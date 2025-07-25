@@ -10,7 +10,9 @@ date: 2019-08-12
 
 ## Demo
 
-<iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/652961183&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true" width="100%" height="166" frameborder="no" scrolling="no"></iframe>
+{{< soundcloud-track 652961183 >}}
+
+---
 
 ## Info
 
@@ -33,6 +35,8 @@ date: 2019-08-12
 
 ZUN ([上海アリス幻樂団](http://www16.big.or.jp/~zun/))
 
+---
+
 ## Get
 
 ### Price
@@ -46,9 +50,9 @@ ZUN ([上海アリス幻樂団](http://www16.big.or.jp/~zun/))
 
 ### Shop
 
-[![とらのあな](https://www.toranoana.jp/icon/tora_bn.gif)](https://ec.toranoana.shop/tora/ec/item/040030758620/)
-[![メロンブックス](https://www.melonbooks.co.jp/user_data/bnr/banner_200x40.gif)](https://www.melonbooks.co.jp/detail/detail.php?product_id=528924)
+{{< toranoana-button 040030758620 >}}
+{{< melonbooks-button 528924 >}}
 
 ### Download & Subscription Streaming
 
-[MICMNIS - Event Horizon](https://lnk.to/4580547320978)
+{{< lnkto-button 4580547320978 >}}

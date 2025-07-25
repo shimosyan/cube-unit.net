@@ -1,6 +1,6 @@
 ---
 title: "Shooting Star"
-description: "同人サークルCube-Unit 特別作品"
+description: "同人サークル『MICMNIS』の東方アレンジCD第七弾"
 image: "https://img.cube-unit.net/uploads/2015/12/ジャケット.jpg"
 date: 2015-12-31
 ---
@@ -9,6 +9,14 @@ date: 2015-12-31
 
 同人サークル『MICMNIS』の東方アレンジCD第七弾！
 東方永夜抄のクラブミュージックアレンジをご堪能あれ！！
+
+## Demo
+
+{{< soundcloud-track 235569257 >}}
+
+---
+
+## Info
 
 ### TrackList
 
@@ -25,10 +33,14 @@ date: 2015-12-31
 
 ZUN (上海アリス幻樂団)
 
+---
+
+## Get
+
 ### Price
 
-イベント頒布 \500
-ショップ委託 \700 (税別)
+- イベント頒布 \500
+- ショップ委託 \700 (税別)
 
 ### Events
 
@@ -36,4 +48,4 @@ ZUN (上海アリス幻樂団)
 
 ### Shop
 
-とらのあな あきばお～こく
+{{< toranoana-button 040030367718 >}}

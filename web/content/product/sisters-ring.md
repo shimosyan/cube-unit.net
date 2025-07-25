@@ -1,6 +1,6 @@
 ---
 title: "Sister's Ring"
-description: "同人サークルCube-Unit 特別作品"
+description: "同人サークル『MICMNIS』の東方アレンジCD第五弾"
 image: "https://img.cube-unit.net/uploads/2015/04/ジャケット表Web掲載用.jpg"
 date: 2015-04-25
 ---
@@ -8,6 +8,14 @@ date: 2015-04-25
 ## 妹のための素敵なお茶会
 
 “妹”のテーマを中心にしたクラブミュージックアレンジを一枚のCDにまとめた作品です！同人サークルMICMNISが贈るアレンジCD第5弾！！
+
+## Demo
+
+{{< soundcloud-track 124256366 >}}
+
+---
+
+## Info
 
 ### TrackList
 
@@ -24,4 +32,8 @@ date: 2015-04-25
 
 ZUN (上海アリス幻樂団)
 
-特設サイト：<http://micmnis-c85.tumblr.com/>
+---
+
+## 特設サイト
+
+<http://micmnis-c85.tumblr.com/>

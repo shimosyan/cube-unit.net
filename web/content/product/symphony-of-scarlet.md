@@ -1,6 +1,6 @@
 ---
 title: "Symphony of Scarlet"
-description: "同人サークルCube-Unit 初期作品"
+description: "同人サークル『MICMNIS』の東方アレンジCD第四弾"
 image: "https://img.cube-unit.net/uploads/2015/04/Symphony-of-Scarlet1.jpg"
 date: 2015-04-01
 ---

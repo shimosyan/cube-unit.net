@@ -9,7 +9,9 @@ date: 2023-08-13
 
 ## Demo
 
-<iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1584832339&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true" width="100%" height="166" frameborder="no" scrolling="no"></iframe>
+{{< soundcloud-track 1584832339 >}}
+
+---
 
 ## Info
 
@@ -37,8 +39,8 @@ ZUN ([上海アリス幻樂団](http://www16.big.or.jp/~zun/))
 
 ### Shop
 
-[メロンブックス](https://www.melonbooks.co.jp/detail/detail.php?product_id=2051779)
+{{< melonbooks-button 2051779 >}}
 
 ### Download & Subscription Streaming
 
-[MICMNIS - SELENE](https://lnk.to/4580547339376)
+{{< lnkto-button 4580547339376 >}}
