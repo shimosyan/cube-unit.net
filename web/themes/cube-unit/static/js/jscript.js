@@ -91,7 +91,21 @@ $(window).bind("resize orientationchange", function() {
   mediaQueryClass(document.documentElement.clientWidth);
 })
 
+// ページ上部へ戻るボタンのアニメーション
+$(window).scroll(function() {
+  if ($(this).scrollTop() > 100) {
+    $('#return_top').fadeIn();
+  } else {
+    $('#return_top').fadeOut();
+  }
+});
 
-
+// ページ上部へ戻るボタンのスムーススクロール
+$('#return_top').click(function() {
+  $('body,html').animate({
+    scrollTop: 0
+  }, 800);
+  return false;
+});
 
 });

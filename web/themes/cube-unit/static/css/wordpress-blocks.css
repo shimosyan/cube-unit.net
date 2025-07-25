@@ -1,0 +1,40 @@
+/* WordPress Block Editor compatibility styles */
+
+/* Embed blocks */
+.wp-block-embed {
+    margin: 0 0 1em 0;
+}
+
+.wp-block-embed__wrapper {
+    position: relative;
+    width: 100%;
+}
+
+/* Twitter widget specific styles */
+.twitter-widget {
+    width: 100%;
+    overflow: hidden;
+}
+
+.wp-block-embed-twitter .wp-block-embed__wrapper {
+    overflow: hidden;
+}
+
+/* Ensure Twitter timeline fits side column */
+#side_col .wp-block-embed-twitter,
+#side_col .twitter-widget {
+    width: 100%;
+    max-width: 300px;
+}
+
+#side_col .wp-block-embed-twitter iframe,
+#side_col .twitter-widget iframe {
+    width: 100% !important;
+    max-width: 300px !important;
+}
+
+/* Twitter widget wrapper should not overflow */
+#side_col .twitter-timeline {
+    width: 100% !important;
+    max-width: 300px !important;
+}

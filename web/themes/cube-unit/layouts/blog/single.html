@@ -1,0 +1,45 @@
+{{ define "main" }}
+<div id="main_contents_wrap">
+  <div id="main_contents" class="clearfix">
+
+    <div id="main_col">
+
+      <article class="post">
+        <div id="post_title">
+          <div class="post_date">
+            <span class="date">{{ .Date.Format "2" }}</span>
+            <span class="month">{{ .Date.Format "Jan" }}</span>
+          </div>
+          <h2>{{ .Title }}</h2>
+        </div>
+
+        <div class="post_content">
+          {{ .Content }}
+        </div>
+
+        <div id="post_meta">
+          <ul id="meta">
+            <li class="meta_author">{{ .Site.Title }}</li>
+            <li class="meta_category">
+              <a href="/blog/">Blog</a>
+            </li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+
+    <div id="side_col">
+      <div class="side_widget clearfix">
+        <div class="twitter-widget">
+          <a class="twitter-timeline" data-height="750" data-dnt="true" href="https://twitter.com/cube_unit?ref_src=twsrc%5Etfw">Tweets by cube_unit</a>
+          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<a id="return_top" href="#header">ページ上部へ戻る</a>
+{{ end }}

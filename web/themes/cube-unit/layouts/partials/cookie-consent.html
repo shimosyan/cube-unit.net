@@ -15,3 +15,54 @@ var cli_cookiebar_settings = {"animate_speed_hide":"500","animate_speed_show":"5
 <div id="cookie-law-info-again" data-nosnippet="true">
     <span id="cookie_hdr_showagain">Manage consent</span>
 </div>
+
+<script type="text/javascript">
+// Enhanced cookie consent handling for Google Analytics
+document.addEventListener('DOMContentLoaded', function() {
+    // Function to trigger Google Analytics loading
+    function triggerAnalyticsLoad() {
+        if (typeof window.loadGoogleAnalytics === 'function') {
+            window.loadGoogleAnalytics();
+            console.log('Triggered Google Analytics loading after consent');
+        } else {
+            console.warn('loadGoogleAnalytics function not found');
+        }
+    }
+
+    // Listen for CLI cookie library events
+    document.addEventListener('cli_accept_event', function() {
+        console.log('CLI accept event triggered');
+        triggerAnalyticsLoad();
+    });
+
+    // Direct button click listener as backup
+    var acceptBtn = document.getElementById('cookie_action_close_header');
+    if (acceptBtn) {
+        acceptBtn.addEventListener('click', function(e) {
+            console.log('Accept button clicked');
+            // Give time for cookie to be set by the library
+            setTimeout(function() {
+                triggerAnalyticsLoad();
+            }, 1500);
+        });
+    }
+
+    // Monitor for cookies being set (additional safety check)
+    var checkInterval = setInterval(function() {
+        var cookieConsent = document.cookie.split(';').find(function(cookie) {
+            return cookie.trim().startsWith('viewed_cookie_policy=yes');
+        });
+
+        if (cookieConsent && !window.googleAnalyticsLoaded) {
+            console.log('Cookie consent detected via monitoring');
+            triggerAnalyticsLoad();
+            clearInterval(checkInterval);
+        }
+    }, 1000);
+
+    // Clear interval after 30 seconds to prevent infinite checking
+    setTimeout(function() {
+        clearInterval(checkInterval);
+    }, 30000);
+});
+</script>
