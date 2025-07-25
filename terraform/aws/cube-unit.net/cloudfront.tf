@@ -4,7 +4,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     aws_s3_bucket.main,
   ]
 
-  aliases                         = [
+  aliases = [
     local.domain
   ]
 
