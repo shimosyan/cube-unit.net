@@ -1,0 +1,35 @@
+{{ define "main" }}
+<div id="main_contents_wrap">
+  <div id="main_contents" class="clearfix">
+
+    <div id="main_col">
+      <div id="main_col_inner">
+        <!-- メインコンテンツ -->
+        <h1>{{ .Site.Title }}</h1>
+        <p>{{ .Site.Params.description }}</p>
+
+        <!-- 最新の投稿やコンテンツをここに表示 -->
+        {{ range first 5 .Site.RegularPages }}
+        <article>
+          <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+          <p>{{ .Summary }}</p>
+        </article>
+        {{ end }}
+      </div>
+    </div>
+
+    <div id="side_col">
+      <div class="side_widget clearfix widget_block">
+        <!-- Twitterウィジェット -->
+        <figure class="wp-block-embed is-type-rich is-provider-twitter wp-block-embed-twitter">
+          <div class="wp-block-embed__wrapper">
+            <a class="twitter-timeline" data-width="500" data-height="750" data-dnt="true" href="https://twitter.com/cube_unit?ref_src=twsrc%5Etfw">Tweets by cube_unit</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          </div>
+        </figure>
+      </div>
+    </div>
+
+  </div>
+</div>
+{{ end }}

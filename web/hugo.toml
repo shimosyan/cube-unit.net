@@ -1,0 +1,7 @@
+baseURL = 'https://cube-unit.net/'
+languageCode = 'ja'
+title = 'Cube-Unit'
+theme = 'cube-unit'
+
+[params]
+  description = '楽曲製作を主とする同人サークルです。'
