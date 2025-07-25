@@ -37,7 +37,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 
     function_association {
       event_type   = "viewer-request"
-      function_arn = "arn:aws:cloudfront::158677943024:function/cloudfront-s3-redirect"
+      function_arn = "arn:aws:cloudfront::${local.account_id}:function/cloudfront-s3-redirect"
     }
 
     grpc_config {
@@ -49,7 +49,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     connection_attempts      = 3
     connection_timeout       = 10
     domain_name              = "${local.domain}.s3.amazonaws.com"
-    origin_access_control_id = "E1TWCAGJSMAD3U"
+    origin_access_control_id = aws_cloudfront_origin_access_control.s3_distribution.id
     origin_id                = "${local.domain}.s3.amazonaws.com"
     origin_path              = null
   }
@@ -62,7 +62,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   }
 
   viewer_certificate {
-    acm_certificate_arn            = "arn:aws:acm:us-east-1:158677943024:certificate/046a3b30-3eae-40cc-90bb-19feafd24ff5"
+    acm_certificate_arn            = data.aws_acm_certificate.s3_cloudfront.arn
     cloudfront_default_certificate = false
     iam_certificate_id             = null
     minimum_protocol_version       = "TLSv1.2_2021"
@@ -70,7 +70,15 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   }
 }
 
+resource "aws_cloudfront_origin_access_control" "s3_distribution" {
+  description                       = null
+  name                              = "${local.domain}.s3.amazonaws.com"
+  origin_access_control_origin_type = "s3"
+  signing_behavior                  = "always"
+  signing_protocol                  = "sigv4"
+}
+
 import {
-  to = aws_cloudfront_distribution.s3_distribution
-  id = "E3KENKS175OARZ"
+  to = aws_cloudfront_origin_access_control.s3_distribution
+  id = "E1TWCAGJSMAD3U"
 }
