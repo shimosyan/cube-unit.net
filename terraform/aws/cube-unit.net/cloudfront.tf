@@ -35,7 +35,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     realtime_log_config_arn    = null
     response_headers_policy_id = null
     smooth_streaming           = false
-    target_origin_id           = "${local.domain}.s3.amazonaws.com"
+    target_origin_id           = "${local.domain}.s3-ap-northeast-1.amazonaws.com"
     trusted_key_groups         = []
     trusted_signers            = []
     viewer_protocol_policy     = "allow-all"
@@ -53,9 +53,9 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   origin {
     connection_attempts      = 3
     connection_timeout       = 10
-    domain_name              = "${local.domain}.s3.amazonaws.com"
+    domain_name              = "${local.domain}.s3-ap-northeast-1.amazonaws.com"
     origin_access_control_id = aws_cloudfront_origin_access_control.s3_distribution.id
-    origin_id                = "${local.domain}.s3.amazonaws.com"
+    origin_id                = "${local.domain}.s3-ap-northeast-1.amazonaws.com"
     origin_path              = null
   }
 
@@ -77,7 +77,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 
 resource "aws_cloudfront_origin_access_control" "s3_distribution" {
   description                       = null
-  name                              = "${local.domain}.s3.amazonaws.com"
+  name                              = "${local.domain}.s3-ap-northeast-1.amazonaws.com"
   origin_access_control_origin_type = "s3"
   signing_behavior                  = "always"
   signing_protocol                  = "sigv4"
