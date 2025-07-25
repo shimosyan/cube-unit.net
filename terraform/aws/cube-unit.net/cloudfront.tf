@@ -1,9 +1,10 @@
+
 resource "aws_cloudfront_distribution" "s3_distribution" {
   depends_on = [
     aws_s3_bucket.main,
   ]
 
-  aliases                         = [
+  aliases = [
     local.domain
   ]
 

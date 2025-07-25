@@ -12,7 +12,33 @@ resource "aws_s3_bucket_public_access_block" "main" {
   restrict_public_buckets = true
 }
 
-import {
-  to = aws_s3_bucket_public_access_block.main
-  id = "static.cube-unit.net"
+resource "aws_s3_bucket_policy" "policy" {
+  depends_on = [
+    aws_s3_bucket.main,
+  ]
+  bucket = aws_s3_bucket.main.id
+  policy = data.aws_iam_policy_document.policy_document.json
+}
+
+data "aws_iam_policy_document" "policy_document" {
+  statement {
+    principals {
+      type        = "Service"
+      identifiers = ["cloudfront.amazonaws.com"]
+    }
+
+    actions = [
+      "s3:GetObject",
+    ]
+
+    resources = [
+      aws_s3_bucket.main.arn,
+      "${aws_s3_bucket.main.arn}/*",
+    ]
+    condition {
+      test     = "StringEquals"
+      variable = "aws:SourceArn"
+      values   = [aws_cloudfront_distribution.s3_distribution.arn]
+    }
+  }
 }
