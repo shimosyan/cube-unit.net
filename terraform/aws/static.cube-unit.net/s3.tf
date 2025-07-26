@@ -14,7 +14,8 @@ resource "aws_s3_bucket_public_access_block" "main" {
 
 resource "aws_s3_bucket_policy" "policy" {
   depends_on = [
-    aws_s3_bucket.main,
+    aws_s3_bucket_public_access_block.main,
+    aws_cloudfront_distribution.s3_distribution
   ]
   bucket = aws_s3_bucket.main.id
   policy = data.aws_iam_policy_document.policy_document.json
