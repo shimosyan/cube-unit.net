@@ -49,14 +49,14 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   # カスタムエラーページ設定
   custom_error_response {
     error_code            = 403
-    response_code         = 301
+    response_code         = 200
     response_page_path    = "/redirect-to-404"
     error_caching_min_ttl = 0
   }
 
   custom_error_response {
     error_code            = 404
-    response_code         = 301
+    response_code         = 200
     response_page_path    = "/redirect-to-404"
     error_caching_min_ttl = 0
   }
