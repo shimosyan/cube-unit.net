@@ -2,6 +2,20 @@
 .DS_Store
 
 #
+# Hugo
+#
+
+# Generated files by Hugo
+/web/public/
+/web/resources/_gen/
+
+# Hugo cache
+/web/.hugo_build.lock
+
+# Temporary files
+/web/tmp/
+
+#
 # Terraform
 #
 

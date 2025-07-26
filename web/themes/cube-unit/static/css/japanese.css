@@ -1,0 +1,10 @@
+@charset "utf-8";
+
+/* 日本語サイト用のフォント設定 */
+body { 
+    font-family: "Century Gothic", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "ヒラギノ角ゴ ProN W3", "メイリオ", Meiryo, "游ゴシック", "Yu Gothic", "游ゴシック体", "YuGothic", "ＭＳ Ｐゴシック", "MS PGothic", Arial, sans-serif; 
+}
+
+/* 英数字部分は Century Gothic を優先、日本語部分は適切な日本語フォントにフォールバック */
+
+

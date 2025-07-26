@@ -1,0 +1,92 @@
+{{ define "main" }}
+<div id="main_contents_wrap">
+  <div id="main_contents" class="clearfix">
+
+    <!-- パンくずナビ -->
+    <ul id="bread_crumb" class="clearfix" itemscope itemtype="http://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="home">
+        <a itemprop="item" href="/"><span itemprop="name">Home</span></a>
+        <meta itemprop="position" content="1" />
+      </li>
+      <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+        <a itemprop="item" href="/product/"><span itemprop="name">作品</span></a>
+        <meta itemprop="position" content="2" />
+      </li>
+      <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="last">
+        <span itemprop="name">{{ .Title }}</span>
+        <meta itemprop="position" content="2" />
+      </li>
+    </ul>
+
+    <div id="main_col">
+      <h3 class="product_title"><span>{{ .Title }}</span></h3>
+
+      <!-- sns button top -->
+      <div style="clear:both;">
+        <div id="share_top2">
+          <div class="sns">
+            <ul class="type2 clearfix">
+              <!--Twitterボタン-->
+              <li class="twitter">
+                <a href="https://twitter.com/share?text={{ .Title | urlquery }}&url={{ .Permalink | urlquery }}&via=cube_unit&tw_p=tweetbutton&related=cube_unit" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600');return false;">
+                  <i class="icon-twitter"></i><span class="ttl">Tweet</span><span class="share-count"></span>
+                </a>
+              </li>
+              <!--Facebookボタン-->
+              <li class="facebook">
+                <a href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink | urlquery }}&amp;t={{ .Title | urlquery }}" class="facebook-btn-icon-link" target="_blank" rel="nofollow">
+                  <i class="icon-facebook"></i><span class="ttl">Share</span><span class="share-count"></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- /sns button top -->
+
+      {{ if .Params.image }}
+      <div id="product_image">
+        <img src="{{ .Params.image }}" alt="{{ .Title }}" title="{{ .Title }}" width="575" height="380" />
+      </div>
+      {{ end }}
+
+      <div class="post clearfix">
+        {{ .Content }}
+      </div>
+
+      <!-- 前後の作品ナビゲーション -->
+      <div id="previous_next_post" class="clearfix">
+        {{ with .PrevInSection }}
+        <div id="previous_post"><a href="{{ .Permalink }}" rel="prev">{{ .Title }}</a></div>
+        {{ end }}
+        {{ with .NextInSection }}
+        <div id="next_post"><a href="{{ .Permalink }}" rel="next">{{ .Title }}</a></div>
+        {{ end }}
+      </div>
+    </div>
+
+    <div id="side_col">
+      <div class="side_widget clearfix tcdw_product_list_widget" id="tcdw_product_list_widget-4">
+        <h3 class="side_headline"><span>作品一覧</span></h3>
+        <ol class="product_post_list">
+          {{ range first 5 .Site.RegularPages.ByDate.Reverse }}
+          {{ if eq .Section "product" }}
+          <li class="clearfix">
+            <a class="image" href="{{ .Permalink }}">
+              {{ if .Params.image }}
+              <img src="{{ .Params.image }}" alt="{{ .Title }}" title="{{ .Title }}" />
+              {{ end }}
+            </a>
+            <div class="info">
+              <a class="title" href="{{ .Permalink }}">{{ .Title }}</a>
+            </div>
+          </li>
+          {{ end }}
+          {{ end }}
+        </ol>
+      </div>
+    </div>
+
+  </div>
+</div>
+{{ end }}

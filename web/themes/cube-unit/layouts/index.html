@@ -1,0 +1,122 @@
+{{ define "main" }}
+<div id="index_top_wrap">
+  <div id="index_top" class="clearfix">
+
+    <div id="slider">
+      <div class="flexslider">
+        <ul class="slides clearfix">
+          {{ range .Params.slider }}
+          <li>
+            <a href="{{ .link }}"{{ if eq .target "_blank" }} target="_blank"{{ end }}>
+              <img src="{{ .image }}" alt="{{ .alt }}" />
+            </a>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+    </div>
+
+    <div id="index_banner">
+      <ol class="clearfix">
+      </ol>
+    </div>
+
+  </div>
+</div>
+
+<div id="main_contents_wrap">
+  <div id="main_contents" class="clearfix">
+
+    <div id="main_col">
+
+      <!-- index news -->
+      {{ $news := first 5 (where .Site.RegularPages "Section" "news") }}
+      {{ if $news }}
+      <div id="index_news">
+        <h3 class="headline1"><span>NEWS</span></h3>
+        <ol class="clearfix">
+          {{ range $news }}
+          <li class="clearfix">
+            <p class="date">{{ .Date.Format "2006.1.2" }}</p>
+            <p class="title"><a href="{{ .Permalink }}">{{ .Title }}</a></p>
+          </li>
+          {{ end }}
+        </ol>
+        <div class="index_archive_link"><a href="/news/">過去のお知らせ一覧</a></div>
+      </div>
+      {{ end }}
+
+      <!-- product list -->
+      {{ $products := first 6 (where .Site.RegularPages "Section" "product") }}
+      {{ if $products }}
+      <div id="index_product">
+        <h3 class="headline1"><span>NEW PRODUCTS</span></h3>
+        <ol class="clearfix">
+          {{ range $index, $product := $products }}
+          <li class="num{{ add $index 1 }}">
+            <a class="image" href="{{ $product.Permalink }}">
+              {{ if $product.Params.image }}
+              <img src="{{ $product.Params.image }}" alt="{{ $product.Title }}" title="{{ $product.Title }}" />
+              {{ else }}
+              <img src="https://img.cube-unit.net/uploads/2024/07/ジャケット-600x600.jpg" alt="{{ $product.Title }}" title="{{ $product.Title }}" />
+              {{ end }}
+            </a>
+            <h4 class="title"><a href="{{ $product.Permalink }}">{{ $product.Title }}</a></h4>
+          </li>
+          {{ end }}
+        </ol>
+        <div class="index_archive_link"><a href="/product/">作品一覧を見る</a></div>
+      </div>
+      {{ end }}
+
+      <!-- blog list -->
+      {{ $blog := first 5 (where .Site.RegularPages "Section" "blog") }}
+      {{ if $blog }}
+      <div id="index_blog">
+        <h3 class="headline1"><span>BLOG</span></h3>
+        <ol class="clearfix">
+          {{ range $blog }}
+          <li class="clearfix">
+            <p class="date">{{ .Date.Format "2006.1.2" }}</p>
+            <p class="title"><a href="{{ .Permalink }}">{{ .Title }}</a></p>
+          </li>
+          {{ end }}
+        </ol>
+        <div class="index_archive_link"><a href="/blog/">過去のブログ記事一覧</a></div>
+      </div>
+      {{ end }}
+
+    </div>
+
+    <div id="side_col">
+
+      <div class="side_widget clearfix widget_block" id="block-7">
+        <figure class="wp-block-embed is-type-rich is-provider-twitter wp-block-embed-twitter">
+          <div class="wp-block-embed__wrapper">
+            <a class="twitter-timeline" data-height="750" data-dnt="true" href="https://twitter.com/cube_unit?ref_src=twsrc%5Etfw">Tweets by cube_unit</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          </div>
+        </figure>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<a id="return_top" href="#header">ページ上部へ戻る</a>
+{{ end }}
+
+{{ define "scripts" }}
+<!-- FlexSlider -->
+<script src="/js/jquery.flexslider-min.js"></script>
+<script src="/js/jquery.easing.js"></script>
+<script>
+jQuery(window).on('load', function() {
+  jQuery('.flexslider').flexslider({
+    directionNav: false,
+    controlNav: false
+  });
+});
+</script>
+{{ end }}

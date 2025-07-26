@@ -1,0 +1,46 @@
+/* カスタムリンクスタイル設定 */
+
+/* 基本的なリンクの色設定 */
+a, a:visited {
+    color: #333; /* 通常時の色 - ここを変更してください */
+    outline: none;
+}
+
+.post a {
+    color: #780202; /* 投稿内のリンクの色 - ここを変更してください */
+}
+
+a:hover {
+    color: #D10404; /* ホバー時の色 - ここを変更してください */
+}
+
+/* 特定の要素で既存の色指定を上書きしたい場合の例 */
+/*
+.custom-link-area a, .custom-link-area a:visited {
+    color: #your-normal-color !important;
+}
+
+.custom-link-area a:hover {
+    color: #your-hover-color !important;
+}
+*/
+
+/* パンくずナビのリンクは除外（既存の設定を維持） */
+#bread_crumb li a {
+    color: #888;
+}
+
+/* サイドバーウィジェットのリンクは既存設定を維持 */
+.side_widget a {
+    text-decoration: none;
+}
+
+/* ページネーションは既存設定を維持 */
+#post_pagination a {
+    color: #333;
+}
+
+#post_pagination a:hover {
+    background: #D10404;
+    color: #fff;
+}

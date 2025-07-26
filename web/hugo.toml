@@ -1,0 +1,10 @@
+baseURL = 'https://cube-unit.net/'
+languageCode = 'ja'
+title = 'Cube-Unit'
+theme = 'cube-unit'
+
+# Google Analytics (Google Tag Manager ID or GA4 Measurement ID)
+googleAnalytics = 'G-QGTYH7SE5W'  # Replace with actual GA4 measurement ID
+
+[params]
+  description = '楽曲製作を主とする同人サークルです。'

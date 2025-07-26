@@ -1,0 +1,7 @@
+name = "cube-unit"
+license = "None"
+description = "Cube-Unit website theme migrated from WordPress"
+homepage = "https://cube-unit.net/"
+tags = ["music", "doujin", "band", "responsive"]
+features = ["responsive", "cookie-consent"]
+author.name = "Cube-Unit"

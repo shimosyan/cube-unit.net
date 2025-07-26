@@ -1,0 +1,63 @@
+@charset "utf-8";
+
+body {font-size:12px; color:#333; font-family:'Hiragino Kaku Gothic Pro','ヒラギノ角ゴ Pro W3','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif; }
+a img { border:none; }
+a, a:visited { color:#0066cc; outline:none; }
+a:hover { color:#ff0099; }
+p { margin:0 0 1em 0; padding:0; line-height:240%; }
+ul { list-style-type:none; margin:0 0 2em 0; padding:0; line-height:0%; }
+ul li { margin:0; padding:0; line-height:normal; zoom:1; }
+ol { margin:0 0 2em 19px; padding:0; }
+ol li { padding:0 0 5px 0; line-height:normal; }
+dl { list-style-type:none; margin:0 0 1em 0; padding:0; line-height:0%; }
+dl dt, dl dd { margin:0; padding:0; line-height:normal; zoom:1; }
+dl dt { font-weight:bold; }
+form,table,input,textarea,dl,dt,dd { margin:0; padding:0; }
+table { border-collapse:collapse; width:100%; border:0; }
+cite { text-align:right; display:block; }
+object { display:block; margin:0 auto; }
+del { color:#333; }
+hr { border:1px solid #ccc; margin:40px 0; }
+.wp-caption-text { text-align:center; }
+.alignright { float:right; }
+.alignleft { float:left; }
+.aligncenter { margin-left:auto; margin-right:auto; }
+.centered { margin-left:auto; margin-right:auto; }
+.clear { clear:both; }
+input[type="text"], input[type="password"], textarea, select { outline: none; }
+
+/* image */
+img { height:auto; max-width:100%; }
+img.centered,div.centered { display:block; margin:15px auto; }
+img.aligncenter,div.aligncenter { display:block; margin:15px auto; }
+img.alignright,div.alignright { margin:10px 0 30px 30px; display:inline; }
+img.alignleft,div.alignleft { margin:10px 30px 30px 0; display:inline; }
+.wp-caption { background:#fff; border:1px solid #ccc; max-width:96%; padding:14px 3px 1px; -webkit-border-radius:5px; -moz-border-radius:5px; border-radius:5px; }
+.wp-caption img { display:block; margin:0 auto; max-width:100%; }
+.wp-caption .wp-caption-text { padding:10px 0 0; }
+
+/* table */
+table { margin:0 0 1em 0; }
+td, th { border:1px solid #c1c1c1; padding:15px; }
+th { background:#f2f2f2; font-weight:normal; }
+
+/* block quote */
+blockquote { margin:0 0 24px 0; padding:27px 30px 1px; background:#f2f2f2; -webkit-border-radius:5px; -moz-border-radius:5px; border-radius:5px; position:relative; }
+blockquote:before { content: '"'; font-style:italic; font-size:30px; font-weight:normal; line-height:40px; width:30px; height:30px; position:absolute; top:5px; left:10px; color:#999; }
+blockquote:after { content: '"'; font-style:italic; font-size:30px; font-weight:normal; text-align:left; line-height:60px; width:30px; height:30px; position:absolute; bottom:7px; right:-2px; color:#999; }
+
+/* list */
+ul li, dl dt, dl dd { margin:0; line-height:200%; }
+ul li {  background:url(img/common/bullet1.gif) no-repeat left 11px; padding:0 0 0 9px; }
+ul ul, ol ol  { margin:0 0 0 1em; }
+
+
+
+
+/* ---------- clearfix hack ---------- */
+.clearfix:after { content: "."; display:block; clear:both; height:0; font-size:0.1em; line-height:0; visibility:hidden; overflow:hidden; }
+.clearfix { display: inline-block; }
+/* exlude MacIE5 \*/
+* html .clearfix { height:1% }
+.clearfix {display:block;}
+/* end MacIE5 */

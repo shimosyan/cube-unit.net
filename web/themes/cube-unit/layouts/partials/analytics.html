@@ -1,0 +1,58 @@
+{{ if .Site.GoogleAnalytics }}
+<!-- Google Analytics 4 - Load after cookie consent -->
+<script type="text/javascript">
+// Global function to load Google Analytics
+window.loadGoogleAnalytics = function() {
+    // Prevent multiple loading
+    if (window.googleAnalyticsLoaded) {
+        return;
+    }
+
+    // Initialize dataLayer
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+
+    // Load gtag script
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id={{ .Site.GoogleAnalytics }}';
+    document.head.appendChild(script);
+
+    // Configure GA4
+    script.onload = function() {
+        gtag('js', new Date());
+        gtag('config', '{{ .Site.GoogleAnalytics }}');
+        console.log('Google Analytics loaded successfully');
+    };
+
+    window.googleAnalyticsLoaded = true;
+};
+
+// Check if user has already consented
+document.addEventListener('DOMContentLoaded', function() {
+    // Check existing cookie consent
+    function checkExistingConsent() {
+        var cookieConsent = getCookie('viewed_cookie_policy');
+        var cliConsent = getCookie('CookieLawInfoConsent');
+        
+        if (cookieConsent === 'yes' || (cliConsent && cliConsent.includes('analytics:yes'))) {
+            loadGoogleAnalytics();
+        }
+    }
+    
+    // Simple cookie reader
+    function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for(var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+    }
+    
+    checkExistingConsent();
+});
+</script>
+{{ end }}

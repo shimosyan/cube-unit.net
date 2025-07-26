@@ -1,0 +1,49 @@
+name: web-deploy-production
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - web/**
+
+concurrency:
+  group: ${{ github.workflow }}-web-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    permissions:
+      id-token: write
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - uses: aquaproj/aqua-installer@d1fe50798dbadd4eb5b98957290ca175f6b4870f # v4.0.2
+        with:
+          aqua_version: v2.53.6
+
+      - id: app-token
+        uses: actions/create-github-app-token@df432ceedc7162793a195dd1713ff69aefc7379e #2.0.6
+        with:
+          app-id: ${{ secrets.TFACTION_APP_ID }}
+          private-key: ${{ secrets.TFACTION_PRIVATE_KEY }}
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@75d2e84710de30f6ff7268e08f310b60ef14033f #v3.0.0
+        with:
+          hugo-version: '0.123.7'
+
+      - name: Build
+        working-directory: web
+        run: hugo --minify
+
+      - uses: aws-actions/configure-aws-credentials@b47578312673ae6fa5b5096b330d9fbac3d116df #v4.2.1
+        with:
+          role-to-assume: arn:aws:iam::158677943024:role/github_cube-unit.net_web_deploy_production
+          aws-region: ap-northeast-1
+
+      - name: Deploy
+        working-directory: web
+        run: aws s3 sync --delete public s3://cube-unit.net

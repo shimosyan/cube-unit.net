@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ if not .IsHome }}{{ .Title }} - {{ end }}{{ .Site.Title }}{{ if and (.IsHome) (.Description) }} - {{ .Description }}{{ end }}</title>
+    <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+
+    <link rel="canonical" href="{{ .Permalink }}" />
+
+    <!-- Open Graph -->
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
+    <meta property="og:title" content="{{ if not .IsHome }}{{ .Title }} - {{ end }}{{ .Site.Title }}">
+    <meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+    <meta property="og:url" content="{{ .Permalink }}">
+    <meta property="og:site_name" content="{{ .Site.Title }}">
+
+    <meta property="og:image" content="{{ if .Params.image }}{{ .Params.image }}{{ else }}https://img.cube-unit.net/uploads/2024/01/favicon.png{{ end }}" />
+	<meta property="og:image:width" content="700" />
+	<meta property="og:image:height" content="700" />
+	<meta property="og:image:type" content="image/{{ if .Params.image }}{{ if eq (path.Ext .Params.image) ".png" }}png{{ else }}jpeg{{ end }}{{ else }}png{{ end }}" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@cube_unit">
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://img.cube-unit.net/uploads/2024/01/cropped-favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" href="https://img.cube-unit.net/uploads/2024/01/cropped-favicon-192x192.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="https://img.cube-unit.net/uploads/2024/01/cropped-favicon-180x180.png" />
+    <meta name="msapplication-TileImage" content="https://img.cube-unit.net/uploads/2024/01/cropped-favicon-270x270.png" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style_pc.css" media="screen and (min-width: 771px)">
+    <link rel="stylesheet" href="/css/style_sp.css" media="screen and (max-width: 770px)">
+    <link rel="stylesheet" href="/css/japanese.css">
+    <link rel="stylesheet" href="/css/wordpress-blocks.css">
+    <link rel="stylesheet" href="/css/custom-links.css">
+    <link rel="stylesheet" href="/css/flexslider.css">
+    <link rel="stylesheet" href="/css/cookie-law-info-public.css">
+    <link rel="stylesheet" href="/css/cookie-law-info-gdpr.css">
+
+    <!-- Feed -->
+    <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }} RSS Feed" href="{{ .Site.BaseURL }}index.xml">
+
+    {{ block "head" . }}{{ end }}
+</head>
+<body>
+    {{ partial "header.html" . }}
+
+    <main>
+        {{ block "main" . }}{{ end }}
+    </main>
+
+    {{ partial "footer.html" . }}
+    {{ partial "cookie-consent.html" . }}
+    {{ partial "analytics.html" . }}
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="/js/rollover.js"></script>
+    <script src="/js/jscript.js"></script>
+    <script src="/js/cookie-law-info-public.js"></script>
+
+    {{ block "scripts" . }}{{ end }}
+</body>
+</html>

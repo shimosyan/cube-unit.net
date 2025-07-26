@@ -1,0 +1,68 @@
+<!-- Cookie Law Info -->
+<script type="text/javascript">
+var Cli_Data = {"nn_cookie_ids":["_gid","_ga"],"cookielist":[],"non_necessary_cookies":{"analytics":["_gid","_ga"]},"ccpaEnabled":"","ccpaRegionBased":"","ccpaBarEnabled":"","strictlyEnabled":["necessary","obligatoire"],"ccpaType":"gdpr","js_blocking":"1","custom_integration":"","triggerDomRefresh":"","secure_cookies":""};
+var cli_cookiebar_settings = {"animate_speed_hide":"500","animate_speed_show":"500","background":"#FFF","border":"#b1a6a6c2","border_on":"","button_1_button_colour":"#444444","button_1_button_hover":"#363636","button_1_link_colour":"#fff","button_1_as_button":"1","button_1_new_win":"","button_2_button_colour":"#333","button_2_button_hover":"#292929","button_2_link_colour":"#444","button_2_as_button":"","button_2_hidebar":"","button_3_button_colour":"#dedfe0","button_3_button_hover":"#b2b2b3","button_3_link_colour":"#333333","button_3_as_button":"1","button_3_new_win":"","button_4_button_colour":"#dedfe0","button_4_button_hover":"#b2b2b3","button_4_link_colour":"#333333","button_4_as_button":"1","button_7_button_colour":"#61a229","button_7_button_hover":"#4e8221","button_7_link_colour":"#fff","button_7_as_button":"1","button_7_new_win":"","font_family":"inherit","header_fix":"","notify_animate_hide":"","notify_animate_show":"","notify_div_id":"#cookie-law-info-bar","notify_position_horizontal":"right","notify_position_vertical":"bottom","scroll_close":"","scroll_close_reload":"","accept_close_reload":"","reject_close_reload":"","showagain_tab":"","showagain_background":"#fff","showagain_border":"#000","showagain_div_id":"#cookie-law-info-again","showagain_x_position":"100px","text":"#333333","show_once_yn":"","show_once":"10000","logging_on":"","as_popup":"","popup_overlay":"1","bar_heading_text":"","cookie_bar_as":"banner","popup_showagain_position":"bottom-right","widget_position":"left"};
+</script>
+
+<div id="cookie-law-info-bar" data-nosnippet="true">
+    <span>当サイトでは利便性向上や閲覧の追跡のためにGoogle・他提携サービスによりCookieが使用されています。サイトの閲覧を続けた場合Cookieの使用に同意したことになります
+        <a href="/privacy-policy/" id="CONSTANT_OPEN_URL" class="cli-plugin-main-link" style="margin:5px 20px 5px 20px">プライバシーポリシー</a><br>
+        <a role='button' data-cli_action="accept" id="cookie_action_close_header" class="medium cli-plugin-button cli-plugin-main-button cookie_action_close_header cli_action_button wt-cli-accept-btn" style="margin:5px">同意する</a>
+        <a role='button' id="cookie_action_close_header_reject" class="medium cli-plugin-button cli-plugin-main-button cookie_action_close_header_reject cli_action_button wt-cli-reject-btn" data-cli_action="reject" style="margin:5px">拒否する</a>
+    </span>
+</div>
+
+<div id="cookie-law-info-again" data-nosnippet="true">
+    <span id="cookie_hdr_showagain">Manage consent</span>
+</div>
+
+<script type="text/javascript">
+// Enhanced cookie consent handling for Google Analytics
+document.addEventListener('DOMContentLoaded', function() {
+    // Function to trigger Google Analytics loading
+    function triggerAnalyticsLoad() {
+        if (typeof window.loadGoogleAnalytics === 'function') {
+            window.loadGoogleAnalytics();
+            console.log('Triggered Google Analytics loading after consent');
+        } else {
+            console.warn('loadGoogleAnalytics function not found');
+        }
+    }
+
+    // Listen for CLI cookie library events
+    document.addEventListener('cli_accept_event', function() {
+        console.log('CLI accept event triggered');
+        triggerAnalyticsLoad();
+    });
+
+    // Direct button click listener as backup
+    var acceptBtn = document.getElementById('cookie_action_close_header');
+    if (acceptBtn) {
+        acceptBtn.addEventListener('click', function(e) {
+            console.log('Accept button clicked');
+            // Give time for cookie to be set by the library
+            setTimeout(function() {
+                triggerAnalyticsLoad();
+            }, 1500);
+        });
+    }
+
+    // Monitor for cookies being set (additional safety check)
+    var checkInterval = setInterval(function() {
+        var cookieConsent = document.cookie.split(';').find(function(cookie) {
+            return cookie.trim().startsWith('viewed_cookie_policy=yes');
+        });
+
+        if (cookieConsent && !window.googleAnalyticsLoaded) {
+            console.log('Cookie consent detected via monitoring');
+            triggerAnalyticsLoad();
+            clearInterval(checkInterval);
+        }
+    }, 1000);
+
+    // Clear interval after 30 seconds to prevent infinite checking
+    setTimeout(function() {
+        clearInterval(checkInterval);
+    }, 30000);
+});
+</script>
