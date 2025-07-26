@@ -5,4 +5,9 @@ tfvars
 tfstate
 terraformrc
 reviewdog
+soundcloud
 suzuki-shunsuke
+applice
+melonbooks
+toranoana
+lnkto
