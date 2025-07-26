@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - .github/workflow/**
+      - .github/workflows/**
       - web/**
 
 concurrency:
