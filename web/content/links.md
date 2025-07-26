@@ -27,9 +27,6 @@ description: "原作者や同人サークルへのリンク集"
 **神乃木製作所** – 神乃木リュウイチ様
 [![神乃木製作所](http://kaminogi.jp/banner.png)](http://kaminogi.jp/)
 
-**はるとりみなと** – ヴォストク様
-[![はるとりみなと](https://img.cube-unit.net/uploads/2015/04/harumina150124.png)](http://harutori.yu-yake.com/)
-
 ---
 
 当サイトへリンクをご希望の方は、[このサイトについて](/spec/)をご覧ください。

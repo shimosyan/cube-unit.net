@@ -8,3 +8,8 @@ googleAnalytics = 'G-QGTYH7SE5W'  # Replace with actual GA4 measurement ID
 
 [params]
   description = '楽曲製作を主とする同人サークルです。'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      hardWraps = true
