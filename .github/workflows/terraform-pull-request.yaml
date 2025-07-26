@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - .github/workflows/**
+      - .github/workflows/terraform**
       - terraform/**
       - tfaction-root.yaml
 
@@ -80,7 +80,7 @@ jobs:
         with:
           github_token: ${{ steps.app-token.outputs.token }}
 
-      # terraform format などの準備を行う Action
+      # terraform fmt を実行する Action
       - uses: suzuki-shunsuke/tfaction/terraform-fmt@ff86e9200d26a237d1f59953c554804920c27d2f # v1.18.2
         with:
           github_token: ${{ steps.app-token.outputs.token }}
