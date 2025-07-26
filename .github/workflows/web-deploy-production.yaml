@@ -10,7 +10,7 @@ on:
 
 concurrency:
   group: ${{ github.workflow }}-web-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: false # 本番環境は WF の順番待ちを許可する
 
 jobs:
   deploy-production:
