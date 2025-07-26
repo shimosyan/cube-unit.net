@@ -5,7 +5,13 @@ on:
     branches:
       - main
     paths:
+      - .github/workflow/**
       - terraform/**
+      - tfaction-root.yaml
+
+concurrency:
+  group: ${{ github.workflow }}-terraform-${{ github.ref }}
+  cancel-in-progress: true
 
 env:
   TFACTION_IS_APPLY: "true"

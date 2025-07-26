@@ -1,0 +1,24 @@
+exec:
+  build-hugo:
+    - when: ExitCode == 0
+      dont_comment: true
+      template: |
+        command is succeeded
+    - when: ExitCode != 0
+      template: |
+        ## :x: Build Failed
+
+        <details><pre><code>{{.CombinedOutput | AvoidHTMLEscape}}</code></pre></details>
+
+  deploy-to-s3:
+    - when: ExitCode == 0
+      dont_comment: true
+      template: |
+        ## :white_check_mark: Deploy Succeeded
+
+        <details><pre><code>{{.CombinedOutput | AvoidHTMLEscape}}</code></pre></details>
+    - when: ExitCode != 0
+      template: |
+        ## :x: Deploy Failed
+
+        <details><pre><code>{{.CombinedOutput | AvoidHTMLEscape}}</code></pre></details>
