@@ -49,6 +49,9 @@ jobs:
           role-to-assume: arn:aws:iam::158677943024:role/github_cube-unit.net_web_deploy_production
           aws-region: ap-northeast-1
 
+      - name: Purge Cache
+        run: aws cloudfront create-invalidation --distribution-id E34AL3HHOWXR5P --paths "/*"
+
       - name: Deploy
         working-directory: web
         run: github-comment exec -k deploy-to-s3 -var env:Production -- aws s3 sync --delete public s3://cube-unit.net
