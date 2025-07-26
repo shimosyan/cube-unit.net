@@ -10,8 +10,8 @@ on:
       - tfaction-root.yaml
 
 concurrency:
-  group: ${{ github.workflow }}-terraform-${{ github.ref }}
-  cancel-in-progress: true
+  group: ${{ github.workflow }}-terraform-${{ github.ref }}  # デプロイしないため PR レベルの排他制御
+  cancel-in-progress: true # PR の更新があった場合は前のジョブをキャンセルする
 
 permissions:
   id-token: write

@@ -9,7 +9,7 @@ on:
       - web/**
 
 concurrency:
-  group: ${{ github.workflow }}-web-${{ github.ref }}
+  group: web-staging # デプロイ先が1つしかないため repo 内で排他制御
   cancel-in-progress: true
 
 jobs:

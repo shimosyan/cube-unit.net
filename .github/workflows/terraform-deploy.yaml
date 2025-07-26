@@ -10,7 +10,7 @@ on:
       - tfaction-root.yaml
 
 concurrency:
-  group: ${{ github.workflow }}-terraform-${{ github.ref }}
+  group: terraform-deploy # デプロイ先が1つしかないため repo 内で排他制御
   cancel-in-progress: true
 
 env:
