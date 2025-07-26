@@ -10,7 +10,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 
   comment                         = local.domain
   continuous_deployment_policy_id = null
-  default_root_object             = null
+  default_root_object             = "index.html"
   enabled                         = true
   http_version                    = "http2"
   is_ipv6_enabled                 = true
@@ -38,12 +38,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     target_origin_id           = "${local.domain}.s3-ap-northeast-1.amazonaws.com"
     trusted_key_groups         = []
     trusted_signers            = []
-    viewer_protocol_policy     = "allow-all"
-
-    function_association {
-      event_type   = "viewer-request"
-      function_arn = "arn:aws:cloudfront::${local.account_id}:function/cloudfront-s3-redirect"
-    }
+    viewer_protocol_policy     = "redirect-to-https"
 
     grpc_config {
       enabled = false
