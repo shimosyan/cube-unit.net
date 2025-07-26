@@ -1,8 +1,4 @@
 resource "aws_cloudfront_distribution" "s3_distribution" {
-  depends_on = [
-    aws_s3_bucket.main,
-  ]
-
   aliases                         = [
     local.domain
   ]
@@ -41,12 +37,27 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 
     function_association {
       event_type   = "viewer-request"
-      function_arn = "arn:aws:cloudfront::${local.account_id}:function/cloudfront-s3-redirect"
+      function_arn = aws_cloudfront_function.asset_redirect.arn
     }
 
     grpc_config {
       enabled = false
     }
+  }
+
+  # カスタムエラーページ設定
+  custom_error_response {
+    error_code            = 403
+    response_code         = 301
+    response_page_path    = "/redirect-to-404"
+    error_caching_min_ttl = 0
+  }
+
+  custom_error_response {
+    error_code            = 404
+    response_code         = 301
+    response_page_path    = "/redirect-to-404"
+    error_caching_min_ttl = 0
   }
 
   origin {
