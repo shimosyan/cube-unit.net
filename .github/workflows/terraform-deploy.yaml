@@ -26,6 +26,7 @@ jobs:
   # plan.yaml と同様に setup で変更のあった作業ディレクトリを取得し、outputs で出力する
   setup:
     runs-on: ubuntu-latest
+    environment: main
     outputs:
       targets: ${{ steps.list-targets.outputs.targets }}
     steps:
@@ -43,6 +44,7 @@ jobs:
   # apply で setup で取得した変更のある作業ディレクトリを並列に実行する
   apply:
     name: "terraform apply (${{ matrix.target.target }})"
+    environment: main
     runs-on: ${{ matrix.target.runs_on }}
     needs: setup
 
