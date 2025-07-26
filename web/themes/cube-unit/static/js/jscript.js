@@ -91,8 +91,13 @@ $(window).bind("resize orientationchange", function() {
   mediaQueryClass(document.documentElement.clientWidth);
 })
 
-// ページ上部へ戻るボタンのアニメーション
+// ページ上部へ戻るボタンのアニメーション（PC版のみ）
 $(window).scroll(function() {
+  // スマートフォン版では処理しない
+  if ($("html").hasClass("mobile")) {
+    return;
+  }
+
   if ($(this).scrollTop() > 100) {
     $('#return_top').fadeIn();
   } else {
@@ -100,8 +105,13 @@ $(window).scroll(function() {
   }
 });
 
-// ページ上部へ戻るボタンのスムーススクロール
+// ページ上部へ戻るボタンのスムーススクロール（PC版のみ）
 $('#return_top').click(function() {
+  // スマートフォン版では処理しない
+  if ($("html").hasClass("mobile")) {
+    return false;
+  }
+
   $('body,html').animate({
     scrollTop: 0
   }, 800);
