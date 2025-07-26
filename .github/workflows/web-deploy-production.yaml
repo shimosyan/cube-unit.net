@@ -9,8 +9,8 @@ on:
       - web/**
 
 concurrency:
-  group: ${{ github.workflow }}-web-${{ github.ref }}
-  cancel-in-progress: false # 本番環境は WF の順番待ちを許可する
+  group: web-production # デプロイ先が1つしかないため repo 内で排他制御
+  cancel-in-progress: true
 
 jobs:
   deploy-production:

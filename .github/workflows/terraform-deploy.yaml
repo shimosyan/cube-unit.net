@@ -10,8 +10,8 @@ on:
       - tfaction-root.yaml
 
 concurrency:
-  group: ${{ github.workflow }}-terraform-${{ github.ref }}
-  cancel-in-progress: false # 本番環境は WF の順番待ちを許可する
+  group: terraform-deploy # デプロイ先が1つしかないため repo 内で排他制御
+  cancel-in-progress: true
 
 env:
   TFACTION_IS_APPLY: "true"
