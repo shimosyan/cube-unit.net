@@ -1,16 +1,12 @@
 
 resource "aws_cloudfront_distribution" "s3_distribution" {
-  depends_on = [
-    aws_s3_bucket.main,
-  ]
-
   aliases                         = [
     local.domain
   ]
 
   comment                         = local.domain
   continuous_deployment_policy_id = null
-  default_root_object             = null
+  default_root_object             = "index.html"
   enabled                         = true
   http_version                    = "http2"
   is_ipv6_enabled                 = true
@@ -35,14 +31,14 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     realtime_log_config_arn    = null
     response_headers_policy_id = null
     smooth_streaming           = false
-    target_origin_id           = "${local.domain}.s3.amazonaws.com"
+    target_origin_id           = "${local.domain}.s3-ap-northeast-1.amazonaws.com"
     trusted_key_groups         = []
     trusted_signers            = []
-    viewer_protocol_policy     = "allow-all"
+    viewer_protocol_policy     = "redirect-to-https"
 
     function_association {
       event_type   = "viewer-request"
-      function_arn = "arn:aws:cloudfront::${local.account_id}:function/cloudfront-s3-redirect"
+      function_arn = aws_cloudfront_function.url_rewrite.arn
     }
 
     grpc_config {
@@ -50,12 +46,25 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     }
   }
 
+  # カスタムエラーページ設定
+  custom_error_response {
+    error_code         = 403
+    response_code      = 404
+    response_page_path = "/404.html"
+  }
+
+  custom_error_response {
+    error_code         = 404
+    response_code      = 404
+    response_page_path = "/404.html"
+  }
+
   origin {
     connection_attempts      = 3
     connection_timeout       = 10
-    domain_name              = "${local.domain}.s3.amazonaws.com"
+    domain_name              = "${local.domain}.s3-ap-northeast-1.amazonaws.com"
     origin_access_control_id = aws_cloudfront_origin_access_control.s3_distribution.id
-    origin_id                = "${local.domain}.s3.amazonaws.com"
+    origin_id                = "${local.domain}.s3-ap-northeast-1.amazonaws.com"
     origin_path              = null
   }
 
@@ -77,7 +86,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 
 resource "aws_cloudfront_origin_access_control" "s3_distribution" {
   description                       = null
-  name                              = "${local.domain}.s3.amazonaws.com"
+  name                              = "${local.domain}.s3-ap-northeast-1.amazonaws.com"
   origin_access_control_origin_type = "s3"
   signing_behavior                  = "always"
   signing_protocol                  = "sigv4"
