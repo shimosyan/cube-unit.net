@@ -43,7 +43,7 @@ jobs:
 
       - name: Build
         working-directory: web
-        run: github-comment exec -k build-hugo -- hugo
+        run: github-comment exec -k build-hugo -var env:Staging -- hugo
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
 
@@ -54,6 +54,6 @@ jobs:
 
       - name: Deploy
         working-directory: web
-        run: github-comment exec -k deploy-to-s3 -- aws s3 sync --delete public s3://stg.cube-unit.net
+        run: github-comment exec -k deploy-to-s3 -var env:Staging -- aws s3 sync --delete public s3://stg.cube-unit.net
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
