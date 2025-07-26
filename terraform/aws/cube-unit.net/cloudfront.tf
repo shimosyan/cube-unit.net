@@ -40,9 +40,27 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     trusted_signers            = []
     viewer_protocol_policy     = "redirect-to-https"
 
+    function_association {
+      event_type   = "viewer-request"
+      function_arn = aws_cloudfront_function.url_rewrite.arn
+    }
+
     grpc_config {
       enabled = false
     }
+  }
+
+  # カスタムエラーページ設定
+  custom_error_response {
+    error_code         = 403
+    response_code      = 404
+    response_page_path = "/404.html"
+  }
+
+  custom_error_response {
+    error_code         = 404
+    response_code      = 404
+    response_page_path = "/404.html"
   }
 
   origin {
