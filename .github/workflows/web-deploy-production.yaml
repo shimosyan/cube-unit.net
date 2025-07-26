@@ -41,6 +41,8 @@ jobs:
       - name: Build
         working-directory: web
         run: github-comment exec -k build-hugo -- hugo --minify
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
 
       - uses: aws-actions/configure-aws-credentials@b47578312673ae6fa5b5096b330d9fbac3d116df #v4.2.1
         with:
@@ -50,3 +52,5 @@ jobs:
       - name: Deploy
         working-directory: web
         run: github-comment exec -k deploy-to-s3 -- aws s3 sync --delete public s3://cube-unit.net
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
