@@ -1,6 +1,9 @@
 # macOS specific file, used to store custom attributes of a folder
 .DS_Store
 
+# VSCode files
+.vscode
+
 #
 # Hugo
 #
