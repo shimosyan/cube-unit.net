@@ -1,5 +1,6 @@
 vars:
   env: Staging
+  title: Example
 templates:
   base: |
     {{template "link" .}}
@@ -8,17 +9,10 @@ templates:
 
     {{template "hidden_combined_output" .}}
 exec:
-  check-markdown:
+  common-error:
     - when: ExitCode != 0
       template: |
-        ## {{template "status" .}} Check Markdown Failed ({{.Vars.env}})
-
-        {{template "base" .}}
-
-  build-hugo:
-    - when: ExitCode != 0
-      template: |
-        ## {{template "status" .}} Build Failed ({{.Vars.env}})
+        ## {{template "status" .}} {{.Vars.title}} ({{.Vars.env}})
 
         {{template "base" .}}
 

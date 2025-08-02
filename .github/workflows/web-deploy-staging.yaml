@@ -43,7 +43,7 @@ jobs:
         run: npm install -g markdownlint-cli2
 
       - name: Lint Markdown Files
-        run: github-comment exec -k check-markdown -var env:Staging -- markdownlint-cli2 "**/*.md" --config ".markdownlint.json"
+        run: github-comment exec -k common-error -var env:Staging -var title:"Check Markdown Failed" -- markdownlint-cli2 "**/*.md" --config ".markdownlint.json"
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
 
@@ -74,7 +74,7 @@ jobs:
 
       - name: Build
         working-directory: web
-        run: github-comment exec -k build-hugo -var env:Staging -- hugo
+        run: github-comment exec -k common-error -var env:Staging -var title:"Build Failed" -- hugo
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
 
