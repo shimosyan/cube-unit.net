@@ -1,33 +1,35 @@
 vars:
   env: Staging
+templates:
+  base: |
+    {{template "link" .}}
+
+    {{template "join_command" .}}
+
+    {{template "hidden_combined_output" .}}
 exec:
+  check-markdown:
+    - when: ExitCode != 0
+      template: |
+        ## {{template "status" .}} Check Markdown Failed ({{.Vars.env}})
+
+        {{template "base" .}}
+
   build-hugo:
     - when: ExitCode != 0
       template: |
         ## {{template "status" .}} Build Failed ({{.Vars.env}})
 
-        {{template "link" .}}
-
-        {{template "join_command" .}}
-
-        {{template "hidden_combined_output" .}}
+        {{template "base" .}}
 
   deploy-to-s3:
     - when: ExitCode == 0
       template: |
         ## {{template "status" .}} Deploy Succeeded ({{.Vars.env}})
 
-        {{template "link" .}}
-
-        {{template "join_command" .}}
-
-        {{template "hidden_combined_output" .}}
+        {{template "base" .}}
     - when: ExitCode != 0
       template: |
         ## {{template "status" .}} Deploy Failed ({{.Vars.env}})
 
-        {{template "link" .}}
-
-        {{template "join_command" .}}
-
-        {{template "hidden_combined_output" .}}
+        {{template "base" .}}
