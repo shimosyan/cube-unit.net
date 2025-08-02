@@ -3,7 +3,7 @@ title: "LINKS"
 description: "原作者や同人サークルへのリンク集"
 ---
 
-# 原作者
+## 原作者
 
 **上海アリス幻樂団** – ZUN様
 [![上海アリス幻樂団](http://www16.big.or.jp/~zun/image/banner.gif)](http://www16.big.or.jp/~zun/)
