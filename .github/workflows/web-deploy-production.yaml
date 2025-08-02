@@ -29,13 +29,13 @@ jobs:
           aqua_version: v2.53.8
 
       - id: app-token
-        uses: actions/create-github-app-token@df432ceedc7162793a195dd1713ff69aefc7379e #2.0.6
+        uses: actions/create-github-app-token@df432ceedc7162793a195dd1713ff69aefc7379e # v2.0.6
         with:
           app-id: ${{ secrets.APP_ID }}
           private-key: ${{ secrets.PRIVATE_KEY }}
 
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@75d2e84710de30f6ff7268e08f310b60ef14033f #v3.0.0
+        uses: peaceiris/actions-hugo@75d2e84710de30f6ff7268e08f310b60ef14033f # v3.0.0
         with:
           hugo-version: '0.123.7'
 
@@ -45,7 +45,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
 
-      - uses: aws-actions/configure-aws-credentials@b47578312673ae6fa5b5096b330d9fbac3d116df #v4.2.1
+      - uses: aws-actions/configure-aws-credentials@b47578312673ae6fa5b5096b330d9fbac3d116df # v4.2.1
         with:
           role-to-assume: arn:aws:iam::158677943024:role/github_cube-unit.net_web_deploy_production
           aws-region: ap-northeast-1
