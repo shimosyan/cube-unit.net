@@ -91,3 +91,12 @@ jobs:
 
       - name: Purge Cache
         run: aws cloudfront create-invalidation --distribution-id E27GH5YU41F43Y --paths "/*"
+
+  success:
+    needs: deploy-staging
+    if: ${{ !failure() }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo "Success!!"
+
