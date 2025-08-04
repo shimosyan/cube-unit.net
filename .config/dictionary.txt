@@ -8,6 +8,7 @@ terraformrc
 reviewdog
 soundcloud
 suzuki-shunsuke
+jakejarvis
 applice
 melonbooks
 toranoana
