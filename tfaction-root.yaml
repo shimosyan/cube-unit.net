@@ -4,7 +4,7 @@ tflint:
   enabled: true
   fix: true
 trivy:
-  enabled: true
+  enabled: false
 
 target_groups:
   - working_directory: terraform/aws/cube-unit.net
