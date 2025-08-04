@@ -38,7 +38,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 
     function_association {
       event_type   = "viewer-request"
-      function_arn = "arn:aws:cloudfront::${local.account_id}:function/cloudfront-s3-redirect"
+      function_arn = aws_cloudfront_function.asset_redirect.arn
     }
 
     grpc_config {
