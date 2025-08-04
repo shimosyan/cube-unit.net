@@ -1,0 +1,11 @@
+# CloudFront logging requires S3 storage costs
+AVD-AWS-0010
+
+# S3 bucket logging requires S3 storage costs
+s3-bucket-logging
+
+# Customer managed KMS keys incur charges
+AVD-AWS-0132
+
+# S3 bucket name DNS compliance would require domain name changes
+AVD-AWS-0320
