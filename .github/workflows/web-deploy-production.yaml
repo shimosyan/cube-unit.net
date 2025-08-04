@@ -12,6 +12,11 @@ concurrency:
   group: web-production # デプロイ先が1つしかないため repo 内で排他制御
   cancel-in-progress: true
 
+env:
+  BASE_URL: https://cube-unit.net
+  S3_URL: s3://cube-unit.net
+  DISTRIBUTION_ID: E34AL3HHOWXR5P
+
 jobs:
   deploy-production:
     environment: main
@@ -52,12 +57,19 @@ jobs:
 
       - name: Deploy
         working-directory: web
-        run: github-comment exec -k deploy-to-s3 -var env:Production -- aws s3 sync --delete public s3://cube-unit.net
+        run: github-comment exec -k deploy-to-s3 -var env:Production -- aws s3 sync --delete public ${{ env.S3_URL }}
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
 
-      - name: Purge Cache
-        run: aws cloudfront create-invalidation --distribution-id E34AL3HHOWXR5P --paths "/*"
+      - name: Purge Cache - Cloudfront
+        run: aws cloudfront create-invalidation --distribution-id ${{env.DISTRIBUTION_ID}} --paths "/*"
+
+      - name: Purge Cache - Cloudflare
+        uses: jakejarvis/cloudflare-purge-action@eee6dba0236093358f25bb1581bd615dc8b3d8e3 # v0.3.0
+        env:
+          CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE_ID }}
+          CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_CACHE_PURGE_API_TOKEN }}
+          PURGE_URLS: '["${{ env.BASE_URL }}", "${{ env.BASE_URL }}/"]'
 
   success:
     needs: deploy-production
