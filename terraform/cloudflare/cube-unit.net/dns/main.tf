@@ -10,7 +10,7 @@ terraform {
   backend "s3" {
     bucket  = "terraform.cube-unit.net"
     region  = "ap-northeast-1"
-    key     = "cube-unit.net/cloudflare/cube-unit.net/domain/terraform.tfstate"
+    key     = "cube-unit.net/cloudflare/cube-unit.net/dns/terraform.tfstate"
     encrypt = true
   }
 
