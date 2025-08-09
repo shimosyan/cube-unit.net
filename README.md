@@ -40,10 +40,15 @@
 │   ├── themes/cube-unit/         # Custom theme
 │   └── static/                   # Static assets
 ├── terraform/                    # Infrastructure as Code
-│   └── aws/
-│       ├── cube-unit.net/        # Main site infrastructure
-│       ├── img.cube-unit.net/    # Asset domain infrastructure
-│       └── static.cube-unit.net/ # Static webpage domain
+│   ├── aws/
+│   │   ├── cube-unit.net/        # Main site infrastructure
+│   │   ├── img.cube-unit.net/    # Asset domain infrastructure
+│   │   └── static.cube-unit.net/ # Static webpage domain
+│   └── cloudflare/
+│       ├── cube-unit.net/
+│       │   └── dns/              # Dns records of current domain
+│       └── micmnis.net/
+│           └── dns/              # Dns records of old domain
 └── .github/workflows/            # CI/CD pipelines
 ```
 
