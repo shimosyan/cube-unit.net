@@ -7,8 +7,11 @@ trivy:
   enabled: true
 
 target_groups:
+#
+# AWS
+#
   - working_directory: terraform/aws/cube-unit.net
-    target: cube-unit.net
+    target: terraform/aws/cube-unit.net
     aws_region: ap-northeast-1
     terraform_plan_config:
       aws_assume_role_arn: arn:aws:iam::158677943024:role/github_cube-unit.net_terraform_plan
@@ -16,7 +19,7 @@ target_groups:
       aws_assume_role_arn: arn:aws:iam::158677943024:role/github_cube-unit.net_terraform_apply
 
   - working_directory: terraform/aws/stg.cube-unit.net
-    target: stg.cube-unit.net
+    target: terraform/aws/stg.cube-unit.net
     aws_region: ap-northeast-1
     terraform_plan_config:
       aws_assume_role_arn: arn:aws:iam::158677943024:role/github_cube-unit.net_terraform_plan
@@ -24,7 +27,7 @@ target_groups:
       aws_assume_role_arn: arn:aws:iam::158677943024:role/github_cube-unit.net_terraform_apply
 
   - working_directory: terraform/aws/img.cube-unit.net
-    target: img.cube-unit.net
+    target: terraform/aws/img.cube-unit.net
     aws_region: ap-northeast-1
     terraform_plan_config:
       aws_assume_role_arn: arn:aws:iam::158677943024:role/github_cube-unit.net_terraform_plan
@@ -32,9 +35,26 @@ target_groups:
       aws_assume_role_arn: arn:aws:iam::158677943024:role/github_cube-unit.net_terraform_apply
 
   - working_directory: terraform/aws/static.cube-unit.net
-    target: static.cube-unit.net
+    target: terraform/aws/static.cube-unit.net
     aws_region: ap-northeast-1
     terraform_plan_config:
       aws_assume_role_arn: arn:aws:iam::158677943024:role/github_cube-unit.net_terraform_plan
     terraform_apply_config:
       aws_assume_role_arn: arn:aws:iam::158677943024:role/github_cube-unit.net_terraform_apply
+
+#
+# Cloudflare
+#
+  - working_directory: terraform/cloudflare/cube-unit.net/dns
+    target: terraform/cloudflare/cube-unit.net/dns
+    aws_region: ap-northeast-1
+    terraform_plan_config:
+      aws_assume_role_arn: arn:aws:iam::158677943024:role/github_cube-unit.net_terraform_plan
+      secrets:
+        - env_name: CLOUDFLARE_API_TOKEN
+          secret_name: CLOUDFLARE_READ_ONLY_API_TOKEN
+    terraform_apply_config:
+      aws_assume_role_arn: arn:aws:iam::158677943024:role/github_cube-unit.net_terraform_apply
+      secrets:
+        - env_name: CLOUDFLARE_API_TOKEN
+          secret_name: CLOUDFLARE_WRITABLE_API_TOKEN
