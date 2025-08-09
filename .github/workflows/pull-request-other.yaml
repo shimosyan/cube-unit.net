@@ -1,0 +1,23 @@
+name: pull-request-other
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - .github/workflows/terraform**
+      - .github/workflows/web**
+      - terraform/**
+      - tfaction-root.yaml
+      - web/**
+
+concurrency:
+  group: ${{ github.workflow }}-other-${{ github.ref }}  # デプロイしないため PR レベルの排他制御
+  cancel-in-progress: true # PR の更新があった場合は前のジョブをキャンセルする
+
+jobs:
+  success:
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo "Success!!"
