@@ -51,10 +51,10 @@ target_groups:
     terraform_plan_config:
       aws_assume_role_arn: arn:aws:iam::158677943024:role/github_cube-unit.net_terraform_plan
       secrets:
-        - env_name: CLOUDFLARE_API_KEY
+        - env_name: CLOUDFLARE_API_TOKEN
           secret_name: CLOUDFLARE_READ_ONLY_API_TOKEN
     terraform_apply_config:
       aws_assume_role_arn: arn:aws:iam::158677943024:role/github_cube-unit.net_terraform_apply
       secrets:
-        - env_name: CLOUDFLARE_API_KEY
+        - env_name: CLOUDFLARE_API_TOKEN
           secret_name: CLOUDFLARE_WRITABLE_API_TOKEN
