@@ -10,7 +10,7 @@ on:
 
 concurrency:
   group: web-production # デプロイ先が1つしかないため repo 内で排他制御
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 env:
   BASE_URL: https://cube-unit.net
