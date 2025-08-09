@@ -81,7 +81,7 @@ resource "cloudflare_dns_record" "_google-alt4_mx" {
   type     = "MX"
   priority = 10
   proxied  = false
-  content  = "alt4.aspmx.l.google.com"
+  content  = "alt4.aspmx.l.google.comaaaa"
 
   comment = null
   data    = null
