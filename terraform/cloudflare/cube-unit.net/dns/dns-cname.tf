@@ -79,7 +79,6 @@ resource "cloudflare_dns_record" "static_cname" {
 #
 # AWS Certificate Manager
 #
-
 resource "cloudflare_dns_record" "_8242618cab64b01cdf547a3d364ba166_cname" {
   zone_id = local.zone
   name    = "_8242618cab64b01cdf547a3d364ba166.${local.domain}"
