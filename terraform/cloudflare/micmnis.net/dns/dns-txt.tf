@@ -6,8 +6,8 @@ resource "cloudflare_dns_record" "_spf_txt" {
   name    = local.domain
   ttl     = 1
   type    = "TXT"
-  proxied  = false
-  content  = "\"v=spf1 include:aspmx.googlemail.com ~all\""
+  proxied = false
+  content = "\"v=spf1 include:aspmx.googlemail.com ~all\""
 
   comment  = null
   data     = null
@@ -17,7 +17,7 @@ resource "cloudflare_dns_record" "_spf_txt" {
     ipv4_only     = null
     ipv6_only     = null
   }
-  tags    = []
+  tags = []
 }
 
 #
@@ -25,11 +25,11 @@ resource "cloudflare_dns_record" "_spf_txt" {
 #
 resource "cloudflare_dns_record" "google__domainkey_txt" {
   zone_id = local.zone
-  name     = "google._domainkey.${local.domain}"
+  name    = "google._domainkey.${local.domain}"
   ttl     = 1
   type    = "TXT"
-  proxied  = false
-  content  = "\"v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAg+7Na1XmwmtD6vVL7kqsHNeBvru3XoulHnApyr0Y/0Vh5nkC6k1dbiYNDyBcHZKVzjf8izyaj6MqmuCO9tL5iAF+W7bEkCvzCwH7Mbq+xlYqb+NM8bUSal0X1fjYJpAgcsPpXcoMmXwdTHyRhn9Ihx3AUZN/U3FJLNP1qiE2CimkfjOpJR0TEWyKwC6TpcE32\" \"MP89tzqE0FSp+1snCImLOzMl276Rnws9Z4OtE+K70twjW1Ass5Mvh0AeeEJn4HxyXXXVCnrcfp5+S69LG4x2fh/kttB5/jyZWFxgKdflHuMK73AouMvr6GG0vHIcMvh1uSVlwi9u09qDm+nklf6uQIDAQAB\""
+  proxied = false
+  content = "\"v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAg+7Na1XmwmtD6vVL7kqsHNeBvru3XoulHnApyr0Y/0Vh5nkC6k1dbiYNDyBcHZKVzjf8izyaj6MqmuCO9tL5iAF+W7bEkCvzCwH7Mbq+xlYqb+NM8bUSal0X1fjYJpAgcsPpXcoMmXwdTHyRhn9Ihx3AUZN/U3FJLNP1qiE2CimkfjOpJR0TEWyKwC6TpcE32\" \"MP89tzqE0FSp+1snCImLOzMl276Rnws9Z4OtE+K70twjW1Ass5Mvh0AeeEJn4HxyXXXVCnrcfp5+S69LG4x2fh/kttB5/jyZWFxgKdflHuMK73AouMvr6GG0vHIcMvh1uSVlwi9u09qDm+nklf6uQIDAQAB\""
 
   comment  = null
   data     = null
@@ -39,7 +39,7 @@ resource "cloudflare_dns_record" "google__domainkey_txt" {
     ipv4_only     = null
     ipv6_only     = null
   }
-  tags    = []
+  tags = []
 }
 
 #
@@ -47,11 +47,11 @@ resource "cloudflare_dns_record" "google__domainkey_txt" {
 #
 resource "cloudflare_dns_record" "_dmarc_txt" {
   zone_id = local.zone
-  name     = "_dmarc.${local.domain}"
+  name    = "_dmarc.${local.domain}"
   ttl     = 1
   type    = "TXT"
-  proxied  = false
-  content  = "\"v=DMARC1; p=quarantine; rua=mailto:dmarc_agg@vali.email;\""
+  proxied = false
+  content = "\"v=DMARC1; p=quarantine; rua=mailto:dmarc_agg@vali.email;\""
 
   comment  = null
   data     = null
@@ -61,7 +61,7 @@ resource "cloudflare_dns_record" "_dmarc_txt" {
     ipv4_only     = null
     ipv6_only     = null
   }
-  tags    = []
+  tags = []
 }
 
 #
@@ -72,8 +72,8 @@ resource "cloudflare_dns_record" "_google-site-verification-1_txt" {
   name    = local.domain
   ttl     = 1
   type    = "TXT"
-  proxied  = false
-  content  = "\"google-site-verification=1W9EBIyYxFc1qOJrEHiTPmpghv-83FMhMD0rgyZmIMk\""
+  proxied = false
+  content = "\"google-site-verification=1W9EBIyYxFc1qOJrEHiTPmpghv-83FMhMD0rgyZmIMk\""
 
   comment  = null
   data     = null
@@ -83,7 +83,7 @@ resource "cloudflare_dns_record" "_google-site-verification-1_txt" {
     ipv4_only     = null
     ipv6_only     = null
   }
-  tags    = []
+  tags = []
 }
 
 resource "cloudflare_dns_record" "_google-site-verification-2_txt" {
@@ -91,8 +91,8 @@ resource "cloudflare_dns_record" "_google-site-verification-2_txt" {
   name    = local.domain
   ttl     = 1
   type    = "TXT"
-  proxied  = false
-  content  = "\"google-site-verification=CXad2TpNsyoiJgj3k75jYZ2aN5zYd9I6Ry7Q6M-65VQ\""
+  proxied = false
+  content = "\"google-site-verification=CXad2TpNsyoiJgj3k75jYZ2aN5zYd9I6Ry7Q6M-65VQ\""
 
   comment  = null
   data     = null
@@ -102,5 +102,5 @@ resource "cloudflare_dns_record" "_google-site-verification-2_txt" {
     ipv4_only     = null
     ipv6_only     = null
   }
-  tags    = []
+  tags = []
 }
