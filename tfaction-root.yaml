@@ -45,8 +45,8 @@ target_groups:
 #
 # Cloudflare
 #
-  - working_directory: terraform\cloudflare\cube-unit.net\domain
-    target: terraform\cloudflare\cube-unit.net\domain
+  - working_directory: terraform/cloudflare/cube-unit.net/domain
+    target: terraform/cloudflare/cube-unit.net/domain
     aws_region: ap-northeast-1
     terraform_plan_config:
       aws_assume_role_arn: arn:aws:iam::158677943024:role/github_cube-unit.net_terraform_plan
