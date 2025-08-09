@@ -71,6 +71,11 @@ jobs:
           app-id: ${{ secrets.APP_ID }}
           private-key: ${{ secrets.PRIVATE_KEY }}
 
+      # GitHub Secrets を TFAction に渡す
+      - uses: suzuki-shunsuke/tfaction/export-secrets@ff86e9200d26a237d1f59953c554804920c27d2f # v1.18.2
+        with:
+          secrets: ${{ toJSON(secrets) }}
+
       # terraform init などの準備を行う Action
       - uses: suzuki-shunsuke/tfaction/setup@ff86e9200d26a237d1f59953c554804920c27d2f # v1.18.2
         with:
