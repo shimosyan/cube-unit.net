@@ -1,0 +1,107 @@
+name: Detect drift
+
+on:
+  workflow_dispatch:
+    inputs: {}
+  schedule:
+    # hourly
+    - cron: "0 * * * *"
+
+jobs:
+  pick-out-drift-issues:
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      issues: write # To close issues
+
+    outputs:
+      issues: ${{steps.pick-out-drift-issues.outputs.issues}}
+      has_issues: ${{steps.pick-out-drift-issues.outputs.has_issues}}
+
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+
+      - id: app-token
+        uses: actions/create-github-app-token@df432ceedc7162793a195dd1713ff69aefc7379e # v2.0.6
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.PRIVATE_KEY }}
+
+      - uses: aquaproj/aqua-installer@d1fe50798dbadd4eb5b98957290ca175f6b4870f # v4.0.2
+        with:
+          aqua_version: v2.53.9
+        env:
+          AQUA_GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+
+      - run: tfaction pick-out-drift-issues
+        id: pick-out-drift-issues
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+
+  detect-drift:
+    timeout-minutes: 30
+    name: "detect-drift (${{matrix.issue.target}})"
+
+    runs-on: ${{matrix.issue.runs_on}}
+    needs: pick-out-drift-issues
+
+    permissions:
+      issues: write # For github-comment and tfcmt
+      contents: write # To push commits
+      id-token: write # For OIDC
+
+    if: fromJSON(needs.pick-out-drift-issues.outputs.has_issues)
+
+    strategy:
+      fail-fast: false
+      matrix:
+        issue: ${{fromJSON(needs.pick-out-drift-issues.outputs.issues)}}
+
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+
+      - id: app-token
+        uses: actions/create-github-app-token@df432ceedc7162793a195dd1713ff69aefc7379e # v2.0.6
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.PRIVATE_KEY }}
+
+      - uses: aquaproj/aqua-installer@d1fe50798dbadd4eb5b98957290ca175f6b4870f # v4.0.2
+        with:
+          aqua_version: v2.53.9
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+
+      - uses: suzuki-shunsuke/tfaction/set-drift-env@199e524698561cce9e340d94d3b3aac08ba9f99f # v1.18.3
+        with:
+          issue: ${{toJSON(matrix.issue)}}
+
+      - uses: suzuki-shunsuke/tfaction/setup@199e524698561cce9e340d94d3b3aac08ba9f99f # v1.18.3
+        with:
+          github_token: ${{ steps.app-token.outputs.token }}
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+
+      - uses: suzuki-shunsuke/tfaction/test@199e524698561cce9e340d94d3b3aac08ba9f99f # v1.18.3
+        with:
+          github_token: ${{ steps.app-token.outputs.token }}
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+
+      - uses: suzuki-shunsuke/tfaction/terraform-plan@199e524698561cce9e340d94d3b3aac08ba9f99f # v1.18.3
+        with:
+          github_token: ${{ steps.app-token.outputs.token }}
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+
+      - uses: suzuki-shunsuke/tfaction/update-drift-issue@199e524698561cce9e340d94d3b3aac08ba9f99f # v1.18.3
+        if: always()
+        with:
+          status: ${{job.status}}
+          github_token: ${{ steps.app-token.outputs.token }}
