@@ -46,9 +46,13 @@
 │   │   └── static.cube-unit.net/ # Static webpage domain
 │   └── cloudflare/
 │       ├── cube-unit.net/
-│       │   └── dns/              # Dns records of current domain
+│       │   ├── dns/              # Dns records of current domain
+│       │   ├── zero-trust/       # Authentication configuration for internal applications
+│       │   └── zone/             # Common configuration
 │       └── micmnis.net/
-│           └── dns/              # Dns records of old domain
+│           ├── dns/              # Dns records of old domain
+│           ├── page-rules/       # Redirect configuration of micmnis.net to cube-unit.net
+│           └── zone/             # Common configuration
 └── .github/workflows/            # CI/CD pipelines
 ```
 
