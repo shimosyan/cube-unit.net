@@ -18,7 +18,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "main" {
 resource "aws_s3_bucket_versioning" "main" {
   bucket = aws_s3_bucket.main.id
   versioning_configuration {
-    status = "Enabled"
+    status = "Suspended"
   }
 }
 

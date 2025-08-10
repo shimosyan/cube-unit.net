@@ -9,3 +9,6 @@ AVD-AWS-0132
 
 ## S3 bucket name DNS compliance would require domain name changes
 AVD-AWS-0320
+
+## Not required due to frequent deployment and quick recovery
+AVD-AWS-0090
