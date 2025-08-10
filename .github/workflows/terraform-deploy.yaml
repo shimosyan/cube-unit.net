@@ -23,7 +23,7 @@ permissions:
   actions: read # artifact を取得するために必要
 
 jobs:
-  # plan.yaml と同様に setup で変更のあった作業ディレクトリを取得し、outputs で出力する
+  # terraform-pull-request.yaml と同様に setup で変更のあった作業ディレクトリを取得し、outputs で出力する
   setup:
     runs-on: ubuntu-latest
     environment: main
