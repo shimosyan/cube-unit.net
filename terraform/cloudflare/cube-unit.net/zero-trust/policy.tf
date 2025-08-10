@@ -1,7 +1,7 @@
 resource "cloudflare_zero_trust_access_policy" "google_workspace_sso" {
-  account_id        = local.account_id
-  name                           = "GoogleWS SSO"
-  decision          = "allow"
+  account_id       = local.account_id
+  name             = "GoogleWS SSO"
+  decision         = "allow"
   session_duration = "24h"
 
   require = [
@@ -32,10 +32,10 @@ resource "cloudflare_zero_trust_access_policy" "google_workspace_sso" {
       ip                      = null
       ip_list                 = null
       linked_app_token        = null
-      oidc          = null
-      okta          = null
-      saml          = null
-      service_token = null
+      oidc                    = null
+      okta                    = null
+      saml                    = null
+      service_token           = null
     },
   ]
 
@@ -51,9 +51,9 @@ resource "cloudflare_zero_trust_access_policy" "google_workspace_sso" {
 }
 
 resource "cloudflare_zero_trust_access_policy" "github_actions_self_host_runner" {
-  account_id        = local.account_id
-  name                           = "Github Actions"
-  decision          = "non_identity"
+  account_id       = local.account_id
+  name             = "Github Actions"
+  decision         = "non_identity"
   session_duration = "24h"
 
   require = [
