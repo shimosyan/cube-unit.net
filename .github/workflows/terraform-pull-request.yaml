@@ -94,16 +94,22 @@ jobs:
       - uses: suzuki-shunsuke/tfaction/setup@199e524698561cce9e340d94d3b3aac08ba9f99f # v1.18.3
         with:
           github_token: ${{ steps.app-token.outputs.token }}
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
 
       # terraform fmt 等を実行する Action
       - uses: suzuki-shunsuke/tfaction/test@199e524698561cce9e340d94d3b3aac08ba9f99f # v1.18.3
         with:
           github_token: ${{ steps.app-token.outputs.token }}
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
 
       # terraform plan を実行する Action
       - uses: suzuki-shunsuke/tfaction/plan@199e524698561cce9e340d94d3b3aac08ba9f99f # v1.18.3
         with:
           github_token: ${{ steps.app-token.outputs.token }}
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
 
   success:
     needs: plan
