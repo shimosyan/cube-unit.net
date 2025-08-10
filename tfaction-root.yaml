@@ -60,6 +60,20 @@ target_groups:
         - env_name: CLOUDFLARE_API_TOKEN
           secret_name: CLOUDFLARE_WRITABLE_API_TOKEN
 
+  - working_directory: terraform/cloudflare/cube-unit.net/zone
+    target: terraform/cloudflare/cube-unit.net/zone
+    aws_region: ap-northeast-1
+    terraform_plan_config:
+      aws_assume_role_arn: arn:aws:iam::158677943024:role/github_cube-unit.net_terraform_plan
+      secrets:
+        - env_name: CLOUDFLARE_API_TOKEN
+          secret_name: CLOUDFLARE_READ_ONLY_API_TOKEN
+    terraform_apply_config:
+      aws_assume_role_arn: arn:aws:iam::158677943024:role/github_cube-unit.net_terraform_apply
+      secrets:
+        - env_name: CLOUDFLARE_API_TOKEN
+          secret_name: CLOUDFLARE_WRITABLE_API_TOKEN
+
 #
 # Cloudflare
 # micmnis.net
@@ -80,6 +94,20 @@ target_groups:
 
   - working_directory: terraform/cloudflare/micmnis.net/page-rules
     target: terraform/cloudflare/micmnis.net/page-rules
+    aws_region: ap-northeast-1
+    terraform_plan_config:
+      aws_assume_role_arn: arn:aws:iam::158677943024:role/github_cube-unit.net_terraform_plan
+      secrets:
+        - env_name: CLOUDFLARE_API_TOKEN
+          secret_name: CLOUDFLARE_READ_ONLY_API_TOKEN
+    terraform_apply_config:
+      aws_assume_role_arn: arn:aws:iam::158677943024:role/github_cube-unit.net_terraform_apply
+      secrets:
+        - env_name: CLOUDFLARE_API_TOKEN
+          secret_name: CLOUDFLARE_WRITABLE_API_TOKEN
+
+  - working_directory: terraform/cloudflare/micmnis.net/zone
+    target: terraform/cloudflare/micmnis.net/zone
     aws_region: ap-northeast-1
     terraform_plan_config:
       aws_assume_role_arn: arn:aws:iam::158677943024:role/github_cube-unit.net_terraform_plan
