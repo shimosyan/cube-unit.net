@@ -591,3 +591,134 @@ hr{
 #copyright p { margin:0; float:none; font-size:10px; display: block; height: 50px; text-align: center; background: #999; color: #fff; line-height: 50px; }
 #copyright a { text-decoration:none; color:#fff; }
 #copyright a:hover { text-decoration:underline; }
+
+/**************************************************************
+【しもしゃんの設定】
+**************************************************************/
+.btn-parent {
+  display: block;
+  margin: 0 0 30px 0;
+}
+
+.btn {
+  display: block;
+  padding: 15px 15px;
+  margin: 0 0 8px 0;
+  background: #f8f8f8;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #333 !important;
+  transition: all 0.3s ease;
+  position: relative;
+  width: auto;
+}
+
+.btn:hover,
+.btn:active {
+  background: #e8e8e8;
+  border-color: #ccc;
+  text-decoration: none;
+}
+
+.btn i {
+  font-size: 18px;
+  margin-right: 12px;
+  width: 20px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.btn span {
+  font-size: 14px;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+.btn.lnk_to:hover {
+  background: #f5576c;
+  color: white !important;
+  border-color: #f5576c;
+}
+
+.btn.melonbooks:hover {
+  background: #2ea364;
+  color: white !important;
+  border-color: #2ea364;
+}
+
+.btn.toranoana:hover {
+  background: #ffc107;
+  color: #d82329 !important;
+  border-color: #ffc107;
+}
+
+.btn.booth:active {
+  background: #ea4c89;
+  color: white !important;
+  border-color: #ea4c89;
+}
+
+.btn.bandcamp:active {
+  background: #629aa0;
+  color: white !important;
+  border-color: #629aa0;
+}
+
+/* ----------------------------------------------------------------------
+ Streaming Services
+---------------------------------------------------------------------- */
+.streaming_services {
+  margin: 0 0 30px 0;
+}
+
+.streaming_link {
+  display: block;
+  padding: 15px 15px;
+  margin: 0 0 8px 0;
+  background: #f8f8f8;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #333;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.streaming_link:hover,
+.streaming_link:active {
+  background: #e8e8e8;
+  border-color: #ccc;
+  text-decoration: none;
+}
+
+.streaming_link i {
+  font-size: 18px;
+  margin-right: 12px;
+  width: 20px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.streaming_link span {
+  font-size: 14px;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+/* Service-specific colors for mobile */
+.streaming_link.apple_music:active {
+  background: #f5576c;
+  color: white;
+  border-color: #f5576c;
+}
+
+.streaming_link.youtube_music:active {
+  background: #ff0000;
+  color: white;
+  border-color: #cc0000;
+}
+
+.streaming_link.line_music:active {
+  background: #00c300;
+  color: white;
+  border-color: #00a000;
+}

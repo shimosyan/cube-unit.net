@@ -1,0 +1,29 @@
+<div class="btn-parent">
+  {{ with .Get "toranoana" }}
+  <a class="btn toranoana" href="https://ec.toranoana.shop/tora/ec/item/{{ . }}/" target="_blank" rel="noopener noreferrer">
+    <i class="fa-solid fa-cart-shopping"></i>
+    <span>とらのあな</span>
+  </a>
+  {{ end }}
+
+  {{ with .Get "melonbooks" }}
+  <a class="btn melonbooks" href="https://www.melonbooks.co.jp/detail/detail.php?product_id={{ . }}" target="_blank" rel="noopener noreferrer">
+    <i class="fa-solid fa-cart-shopping"></i>
+    <span>メロンブックス</span>
+  </a>
+  {{ end }}
+
+  {{ with .Get "booth" }}
+  <a class="btn booth" href="https://booth.pm/ja/items/{{ . }}" target="_blank" rel="noopener noreferrer">
+    <i class="fa-solid fa-cart-shopping"></i>
+    <span>BOOTH</span>
+  </a>
+  {{ end }}
+
+  {{ with .Get "bandcamp" }}
+  <a class="btn bandcamp" href="https://micmnis.bandcamp.com/album/{{ . }}" target="_blank" rel="noopener noreferrer">
+    <i class="fa-solid fa-cart-shopping"></i>
+    <span>Bandcamp</span>
+  </a>
+  {{ end }}
+</div>

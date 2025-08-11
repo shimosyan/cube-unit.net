@@ -59,4 +59,4 @@ This album is a fan-made of "Blue Archive" by NEXON Games & Yostar.
 
 ### Shop
 
-{{< melonbooks-button 2474018 >}}
+{{< shop-button melonbooks="2474018" >}}

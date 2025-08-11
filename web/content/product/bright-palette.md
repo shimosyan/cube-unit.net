@@ -52,7 +52,7 @@ ZUN ([上海アリス幻樂団](http://www16.big.or.jp/~zun/))
 
 ### Shop
 
-{{< melonbooks-button 1155734 >}}
+{{< shop-button melonbooks="1155734" >}}
 
 ### Download & Subscription Streaming
 

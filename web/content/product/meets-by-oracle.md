@@ -70,4 +70,4 @@ MICMNISが贈るPSO2 5周年記念作品
 
 ## Store
 
-{{< melonbooks-button 266733 >}}
+{{< shop-button melonbooks="266733" >}}
