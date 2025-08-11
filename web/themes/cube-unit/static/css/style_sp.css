@@ -415,22 +415,51 @@ a.menu_button:hover{ background: #333; }
 
 
 /* next prev post link */
-/*#previous_next_post { margin:0 0 25px 0; padding:0; }
-#previous_next_post a { }
-#previous_post, #next_post { margin:0 0 5px 0; }
-#previous_post a { margin:0; line-height:140%; font-size:11px; background:url(img/common/arrow_left.gif) no-repeat left 2px; padding:7px 0 18px 30px; border-bottom:1px dotted #ccc; margin:0 0 10px 0; display:block; }
-#next_post a { margin:0; line-height:140%; font-size:11px; background:url(img/common/arrow_right.gif) no-repeat right 2px; padding:7px 30px 8px 0; display:block; }*/
-#previous_next_post{ display: flex; flex-wrap: wrap; margin:0; font-size: 12px; }
-#previous_next_post p{ display: block; width: calc(50% - 2px); border: solid 1px #ddd; text-align: center; float: none; }
-#previous_next_post p:empty{ border: none; }
-#previous_next_post p a{ display: block; height: 50px; line-height: 50px; background: none; width: 100%; padding: 0; position: relative; text-decoration: none; }
-#previous_next_post p a:before{
-  font-family: 'Font Awesome 7 Free'; color:#ccc; font-size:14px; display:inline; position:absolute;
-  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+#previous_next_post {
+  margin: 0 0 25px 0;
+  padding: 0;
+  display: flex;
+  border-top: 1px solid #ddd;
 }
-#previous_next_post #next_post{ margin-left: -1px; }
-#previous_next_post #previous_post a:before { content:'\f053'; font-weight: 900; top:0px; left:10px; } /* fa-chevron-left */
-#previous_next_post #next_post a:before { content:'\f054'; font-weight: 900; top:0px; right:10px; } /* fa-chevron-right */
+#previous_next_post a { margin: 0; padding: 0; }
+#previous_next_post a {
+  display: block;
+  height: 60px;
+  line-height: 60px;
+  width: 100%;
+  padding: 0 15px;
+  position: relative;
+  text-decoration: none;
+  font-size: 12px;
+  box-sizing: border-box;
+  text-align: center;
+}
+#previous_next_post a:hover {
+  background: #eee;
+}
+#previous_next_post a:before {
+  font-family: 'Font Awesome 7 Free';
+  color: #999;
+  font-size: 14px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 900;
+}
+#previous_next_post #previous_post { flex: 1; }
+#previous_next_post #previous_post a:before {
+  content: '\f053'; /* fa-chevron-left */
+  left: 15px;
+}
+#previous_next_post #next_post { flex: 1; }
+#previous_next_post #next_post a { border-left: 1px solid #ddd; }
+#previous_next_post #next_post:only-child a { border-left: none; }
+#previous_next_post #next_post a:before {
+  content: '\f054'; /* fa-chevron-right */
+  right: 15px;
+}
 
 
 /* comment box-sizing: content-box;?@*/
