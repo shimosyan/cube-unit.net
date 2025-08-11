@@ -357,12 +357,12 @@ body { margin:0; padding:0;
   border-radius: 100%;
 }
 #social_link li:before {
-  font-family:'design_plus'; color:#777777; font-size:14px; display:block; position:absolute; top:5px; left:5px;
+  font-family: 'Font Awesome 7 Brands'; color:#777777; font-size:14px; display:block; position:absolute; top:5px; left:5px;
   width:17px; height:17px; line-height:17px; z-index: 999;
   -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
 }
-#social_link li.twitter:before { content:'\e904'; }
-#social_link li.facebook:before { content:'\e902'; }
+#social_link li.twitter:before { content:'\e61b'; font-weight: 400; } /* fa-x-twitter */
+#social_link li.facebook:before { content:'\f09a'; font-weight: 400; } /* fa-facebook-f */
 #social_link li.insta:before { content:'\ea92'; }
 #social_link li.pint:before { content:'\e905'; }
 #social_link li.flickr:before { content:'\eaa4'; }
@@ -383,11 +383,11 @@ body { margin:0; padding:0;
   -webkit-transition-property:none; -moz-transition-property:none; -o-transition-property:none; 
 }
 #social_link li:before {
-  font-family:'design_plus'; color:#000; font-size:12px; display:block; position:absolute; top:5px; left:4px;
+  font-family: 'Font Awesome 7 Brands'; color:#000; font-size:12px; display:block; position:absolute; top:5px; left:4px;
   width:17px; height:17px; line-height:17px;
   -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
 }
-#social_link li.twitter:before { content:'\e904'; }
+#social_link li.twitter:before { content:'\e61b'; font-weight: 400; } /* fa-x-twitter */
 #social_link li.facebook:before { content:'\e902'; }
 #social_link li.insta:before { content:'\ea92'; }
 #social_link li.pint:before { content:'\e905'; }

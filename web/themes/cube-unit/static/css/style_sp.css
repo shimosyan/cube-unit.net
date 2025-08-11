@@ -77,9 +77,9 @@ body {
 .index_archive_link { width: 160px; height: 40px; display: block; margin: 20px auto 30px; }
 .index_archive_link a { position:relative; font-size:12px; text-decoration:none; width: 160px; height: 40px; display: block; line-height: 40px; text-align: center; color: #fff; background: #aaa; }
 .index_archive_link a:before{
-  font-family:'design_plus'; color:#fff; font-size:14px; display:inline; position:absolute;
+  font-family: 'Font Awesome 7 Free'; color:#fff; font-size:14px; display:inline; position:absolute;
   -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
-  content:'\e910'; top:0px; right:10px;
+  content:'\f054'; font-weight: 900; top:0px; right:10px; /* fa-chevron-right */
 }
 .index_archive_link a:hover {}
 
@@ -307,9 +307,9 @@ body {
 #header a.active { color:#fff; background:#aaa; box-shadow:1px 1px 2px rgba(0,0,0,0.2) inset; }*/
 
 a.menu_button:before{ 
-  font-family: 'design_plus';
+  font-family: 'Font Awesome 7 Free';
   color: #888; position: absolute; top: 17px; left: 19px; font-size: 18px; width: 24px; height: 24px; line-height: 24px;
-  content: '\f0c9'; text-align: center;
+  content: '\f0c9'; font-weight: 900; text-align: center; /* fa-bars */
 }
 a.menu_button{ position: absolute; right: 0px; top: 0px; z-index: 9; display: block; font-size: 11px; color: #333; width: 60px; height: 60px; line-height: 56px; text-decoration: none; }
 a.menu_button:hover:before{ color: #fff; }
@@ -390,12 +390,12 @@ a.menu_button:hover{ background: #333; }
 #previous_next_post p:empty{ border: none; }
 #previous_next_post p a{ display: block; height: 50px; line-height: 50px; background: none; width: 100%; padding: 0; position: relative; text-decoration: none; }
 #previous_next_post p a:before{
-  font-family:'design_plus'; color:#ccc; font-size:14px; display:inline; position:absolute;
+  font-family: 'Font Awesome 7 Free'; color:#ccc; font-size:14px; display:inline; position:absolute;
   -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
 }
 #previous_next_post #next_post{ margin-left: -1px; }
-#previous_next_post #previous_post a:before { content:'\e90f'; top:0px; left:10px; }
-#previous_next_post #next_post a:before { content:'\e910'; top:0px; right:10px; }
+#previous_next_post #previous_post a:before { content:'\f053'; font-weight: 900; top:0px; left:10px; } /* fa-chevron-left */
+#previous_next_post #next_post a:before { content:'\f054'; font-weight: 900; top:0px; right:10px; } /* fa-chevron-right */
 
 
 /* comment box-sizing: content-box;?@*/
@@ -501,7 +501,7 @@ hr{
   -webkit-transition-property:none; -moz-transition-property:none; -o-transition-property:none; 
 }
 #social_link li:before {
-  font-family:'design_plus'; color:#000; font-size:14px; display:block; position:absolute; top:10px; left:9px;
+  font-family: 'Font Awesome 7 Brands'; color:#000; font-size:14px; display:block; position:absolute; top:10px; left:9px;
   width:17px; height:17px; line-height:17px;
   -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
 }
