@@ -48,4 +48,4 @@ ZUN (上海アリス幻樂団)
 
 ### Shop
 
-{{< toranoana-button 040030367718 >}}
+{{< shop-button toranoana="040030367718" >}}

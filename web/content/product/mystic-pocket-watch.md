@@ -52,8 +52,7 @@ ZUN ([上海アリス幻樂団](http://www16.big.or.jp/~zun/))
 
 ### Shop
 
-{{< toranoana-button 040030655205 >}}
-{{< melonbooks-button 389669 >}}
+{{< shop-button toranoana="040030655205" melonbooks="389669" >}}
 
 #### [物理版購入した方向け楽曲のダウンロードはこちらから](https://mystic-pocket-watch.tumblr.com/)
 

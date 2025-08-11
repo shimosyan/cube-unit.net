@@ -50,8 +50,7 @@ ZUN ([上海アリス幻樂団](http://www16.big.or.jp/~zun/))
 
 ### Shop
 
-{{< toranoana-button 040030758620 >}}
-{{< melonbooks-button 528924 >}}
+{{< shop-button toranoana="040030758620" melonbooks="528924" >}}
 
 ### Download & Subscription Streaming
 
