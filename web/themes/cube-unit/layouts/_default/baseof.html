@@ -34,20 +34,87 @@
     <meta name="msapplication-TileImage" content="https://img.cube-unit.net/uploads/2024/01/cropped-favicon-270x270.png" />
 
     <!-- Font Awesome (Self-hosted) -->
-    {{ $fontAwesome := resources.Get "css/all.min.css" | fingerprint }}
-    <link rel="stylesheet" href="{{ $fontAwesome.RelPermalink }}">
+    {{ $fontAwesome := resources.Get "css/all.min.css" }}
+    {{ if $fontAwesome }}
+        {{ $fontAwesome = $fontAwesome | fingerprint }}
+        <link rel="stylesheet" href="{{ $fontAwesome.RelPermalink }}">
+    {{ else }}
+        <link rel="stylesheet" href="/css/all.min.css">
+    {{ end }}
 
     <!-- Main Stylesheets -->
-    {{ $mainStyle := resources.Get "css/style.css" | fingerprint }}
-    <link rel="stylesheet" href="{{ $mainStyle.RelPermalink }}">
-    {{ $pcStyle := resources.Get "css/style_pc.css" | fingerprint }}
-    <link rel="stylesheet" href="{{ $pcStyle.RelPermalink }}" media="screen and (min-width: 771px)">
-    {{ $spStyle := resources.Get "css/style_sp.css" | fingerprint }}
-    <link rel="stylesheet" href="{{ $spStyle.RelPermalink }}" media="screen and (max-width: 770px)">
+    {{ $mainStyle := resources.Get "css/style.css" }}
+    {{ if $mainStyle }}
+        {{ $mainStyle = $mainStyle | fingerprint }}
+        <link rel="stylesheet" href="{{ $mainStyle.RelPermalink }}">
+    {{ else }}
+        <link rel="stylesheet" href="/css/style.css">
+    {{ end }}
 
-    <!-- Additional Stylesheets -->
-    {{ $additionalStyles := slice (resources.Get "css/japanese.css") (resources.Get "css/wordpress-blocks.css") (resources.Get "css/custom-links.css") (resources.Get "css/flexslider.css") (resources.Get "css/cookie-law-info-public.css") (resources.Get "css/cookie-law-info-gdpr.css") | resources.Concat "css/additional.css" | fingerprint }}
-    <link rel="stylesheet" href="{{ $additionalStyles.RelPermalink }}">
+    {{ $pcStyle := resources.Get "css/style_pc.css" }}
+    {{ if $pcStyle }}
+        {{ $pcStyle = $pcStyle | fingerprint }}
+        <link rel="stylesheet" href="{{ $pcStyle.RelPermalink }}" media="screen and (min-width: 771px)">
+    {{ else }}
+        <link rel="stylesheet" href="/css/style_pc.css" media="screen and (min-width: 771px)">
+    {{ end }}
+
+    {{ $spStyle := resources.Get "css/style_sp.css" }}
+    {{ if $spStyle }}
+        {{ $spStyle = $spStyle | fingerprint }}
+        <link rel="stylesheet" href="{{ $spStyle.RelPermalink }}" media="screen and (max-width: 770px)">
+    {{ else }}
+        <link rel="stylesheet" href="/css/style_sp.css" media="screen and (max-width: 770px)">
+    {{ end }}
+
+    <!-- Additional Stylesheets with individual fingerprinting -->
+    {{ $japaneseStyle := resources.Get "css/japanese.css" }}
+    {{ if $japaneseStyle }}
+        {{ $japaneseStyle = $japaneseStyle | fingerprint }}
+        <link rel="stylesheet" href="{{ $japaneseStyle.RelPermalink }}">
+    {{ else }}
+        <link rel="stylesheet" href="/css/japanese.css">
+    {{ end }}
+
+    {{ $blocksStyle := resources.Get "css/wordpress-blocks.css" }}
+    {{ if $blocksStyle }}
+        {{ $blocksStyle = $blocksStyle | fingerprint }}
+        <link rel="stylesheet" href="{{ $blocksStyle.RelPermalink }}">
+    {{ else }}
+        <link rel="stylesheet" href="/css/wordpress-blocks.css">
+    {{ end }}
+
+    {{ $customLinksStyle := resources.Get "css/custom-links.css" }}
+    {{ if $customLinksStyle }}
+        {{ $customLinksStyle = $customLinksStyle | fingerprint }}
+        <link rel="stylesheet" href="{{ $customLinksStyle.RelPermalink }}">
+    {{ else }}
+        <link rel="stylesheet" href="/css/custom-links.css">
+    {{ end }}
+
+    {{ $flexsliderStyle := resources.Get "css/flexslider.css" }}
+    {{ if $flexsliderStyle }}
+        {{ $flexsliderStyle = $flexsliderStyle | fingerprint }}
+        <link rel="stylesheet" href="{{ $flexsliderStyle.RelPermalink }}">
+    {{ else }}
+        <link rel="stylesheet" href="/css/flexslider.css">
+    {{ end }}
+
+    {{ $cookieStyle := resources.Get "css/cookie-law-info-public.css" }}
+    {{ if $cookieStyle }}
+        {{ $cookieStyle = $cookieStyle | fingerprint }}
+        <link rel="stylesheet" href="{{ $cookieStyle.RelPermalink }}">
+    {{ else }}
+        <link rel="stylesheet" href="/css/cookie-law-info-public.css">
+    {{ end }}
+
+    {{ $cookieGdprStyle := resources.Get "css/cookie-law-info-gdpr.css" }}
+    {{ if $cookieGdprStyle }}
+        {{ $cookieGdprStyle = $cookieGdprStyle | fingerprint }}
+        <link rel="stylesheet" href="{{ $cookieGdprStyle.RelPermalink }}">
+    {{ else }}
+        <link rel="stylesheet" href="/css/cookie-law-info-gdpr.css">
+    {{ end }}
 
     <!-- Feed -->
     <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }} RSS Feed" href="{{ .Site.BaseURL }}index.xml">
@@ -67,12 +134,29 @@
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    {{ $rolloverJs := resources.Get "js/rollover.js" | fingerprint }}
-    <script src="{{ $rolloverJs.RelPermalink }}"></script>
-    {{ $jscriptJs := resources.Get "js/jscript.js" | fingerprint }}
-    <script src="{{ $jscriptJs.RelPermalink }}"></script>
-    {{ $cookieJs := resources.Get "js/cookie-law-info-public.js" | fingerprint }}
-    <script src="{{ $cookieJs.RelPermalink }}"></script>
+    {{ $rolloverJs := resources.Get "js/rollover.js" }}
+    {{ if $rolloverJs }}
+        {{ $rolloverJs = $rolloverJs | fingerprint }}
+        <script src="{{ $rolloverJs.RelPermalink }}"></script>
+    {{ else }}
+        <script src="/js/rollover.js"></script>
+    {{ end }}
+
+    {{ $jscriptJs := resources.Get "js/jscript.js" }}
+    {{ if $jscriptJs }}
+        {{ $jscriptJs = $jscriptJs | fingerprint }}
+        <script src="{{ $jscriptJs.RelPermalink }}"></script>
+    {{ else }}
+        <script src="/js/jscript.js"></script>
+    {{ end }}
+
+    {{ $cookieJs := resources.Get "js/cookie-law-info-public.js" }}
+    {{ if $cookieJs }}
+        {{ $cookieJs = $cookieJs | fingerprint }}
+        <script src="{{ $cookieJs.RelPermalink }}"></script>
+    {{ else }}
+        <script src="/js/cookie-law-info-public.js"></script>
+    {{ end }}
 
     {{ block "scripts" . }}{{ end }}
 </body>

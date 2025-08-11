@@ -109,8 +109,22 @@
 
 {{ define "scripts" }}
 <!-- FlexSlider -->
-<script src="/js/jquery.flexslider-min.js"></script>
-<script src="/js/jquery.easing.js"></script>
+{{ $flexsliderJs := resources.Get "js/jquery.flexslider-min.js" }}
+{{ if $flexsliderJs }}
+    {{ $flexsliderJs = $flexsliderJs | fingerprint }}
+    <script src="{{ $flexsliderJs.RelPermalink }}"></script>
+{{ else }}
+    <script src="/js/jquery.flexslider-min.js"></script>
+{{ end }}
+
+{{ $easingJs := resources.Get "js/jquery.easing.js" }}
+{{ if $easingJs }}
+    {{ $easingJs = $easingJs | fingerprint }}
+    <script src="{{ $easingJs.RelPermalink }}"></script>
+{{ else }}
+    <script src="/js/jquery.easing.js"></script>
+{{ end }}
+
 <script>
 jQuery(window).on('load', function() {
   jQuery('.flexslider').flexslider({
