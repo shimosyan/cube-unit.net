@@ -421,7 +421,7 @@ input[type="text"], input[type="password"], textarea, select { outline: none; }
 }
 #bread_crumb li.home:after { display:none; }
 #bread_crumb li.home a:before { content:'\f015'; font-weight: 900; } /* fa-home */
-#bread_crumb li.home a:hover:before { color:#fff; }
+/*#bread_crumb li.home a:hover:before { color:#fff; }*/
 #bread_crumb li { color:#727272; font-size:12px; display:inline; padding:0 15px 0 0; margin:0 0 0 15px; line-height:160%; position:relative; }
 #bread_crumb li:after {
   font-family: 'Font Awesome 7 Free'; content:'\f054'; color:#727272; font-size:9px; display:block; position:absolute; left:-20px; top:-1px; font-weight: 900; /* fa-chevron-right */
@@ -433,29 +433,6 @@ input[type="text"], input[type="password"], textarea, select { outline: none; }
 /* ----------------------------------------------------------------------
  ソーシャルボタン
 ---------------------------------------------------------------------- */
-@font-face {
-    font-family: 'icomoon';
-    src:    url('../fonts/icomoon.eot?evfvw0');
-    src:    url('../fonts/icomoon.eot?evfvw0#iefix') format('embedded-opentype'),
-        url('../fonts/icomoon.ttf?evfvw0') format('truetype'),
-        url('../fonts/icomoon.woff?evfvw0') format('woff'),
-        url('../fonts/icomoon.svg?evfvw0#icomoon') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-[class^="icon-"], [class*=" icon-"] {
-    /* use !important to prevent issues with browser extensions that change fonts */
-    font-family: 'icomoon' !important;
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    /* Better Font Rendering =========== */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
 
 #share_top1 ul li a, #share_top2 ul li a, #share_btm1 ul li a, #share_btm2 ul li a { -webkit-transition:all 0.3s; -moz-transition:all 0.3s; -o-transition:all 0.3s; transition:all 0.3s; }
 
@@ -503,8 +480,8 @@ share_btm1（Style3）
 
 /*------------- share_top1 & share_btm1 button_color -------------*/
 /* X (Twitter) */
-#share_top1 ul li.twitter a, #share_btm1 ul li.twitter a { color:#fff; background-color:#000; }
-#share_top1 ul li.twitter a:hover, #share_btm1 ul li.twitter a:hover { background-color:#1a1a1a; }
+#share_top1 ul li.x-twitter a, #share_btm1 ul li.x-twitter a { color:#fff; background-color:#000; }
+#share_top1 ul li.x-twitter a:hover, #share_btm1 ul li.x-twitter a:hover { background-color:#1a1a1a; }
 /* Facebook */
 #share_top1 ul li.facebook a, #share_btm1 ul li.facebook a { background-color:#35629a; }
 #share_top1 ul li.facebook a:hover, #share_btm1 ul li.facebook a:hover { background-color:#1f3669; }
@@ -573,8 +550,8 @@ share_btm2（Style4）
 }
 /*------------- share_top2 & share_btm4 button_color -------------*/
 /* X (Twitter) */
-#share_top2 ul.type2 li.twitter a, #share_btm2 ul.type4 li.twitter a { color:#222 !important; background-color:#fafafa !important; }
-#share_top2 ul.type2 li.twitter a:hover, #share_btm2 ul.type4 li.twitter a:hover { color:#fff !important; background-color:#000 !important; }
+#share_top2 ul.type2 li.x-twitter a, #share_btm2 ul.type4 li.x-twitter a { color:#222 !important; background-color:#fafafa !important; }
+#share_top2 ul.type2 li.x-twitter a:hover, #share_btm2 ul.type4 li.x-twitter a:hover { color:#fff !important; background-color:#000 !important; }
 /* Facebook */
 #share_top2 ul.type2 li.facebook a, #share_btm2 ul.type4 li.facebook a { color:#222 !important; background-color:#fafafa !important; }
 #share_top2 ul.type2 li.facebook a:hover, #share_btm2 ul.type4 li.facebook a:hover { color:#fff !important; background-color:#35629a !important; }
@@ -605,7 +582,7 @@ share_top5（公式ボタン）
 #share5_btm { margin:20px 0 -30px; }
 .sns_default_top { margin:0; padding:0; overflow:hidden; list-style:none; }
 .sns_default_top ul li { display:inline-block; margin:0 5px 3px 0; line-height:1!important; overflow:hidden; vertical-align:top; }
-.sns_default_top ul li.twitter_button { width:73px; }
+.sns_default_top ul li.x-twitter_button { width:73px; }
 .sns_default_top ul li.fbshare_button:hover { text-decoration:none; }
 .sns_default_top ul li.google_button { width:58px; }
 .sns_default_top ul li.pocket_button { width:88px; }
@@ -614,7 +591,7 @@ share_top5（公式ボタン）
 	#share5_btm { margin:30px 0 -30px; }
 	.sns_default_top { margin:0; }
 	.sns_default_top ul li { margin-bottom:6px; }
-	.sns_default_top ul li.twitter_button { margin-left:0; }
+	.sns_default_top ul li.x-twitter_button { margin-left:0; }
 }
 
 /* ----------------------- TCD Advanced Style ------------------------ */

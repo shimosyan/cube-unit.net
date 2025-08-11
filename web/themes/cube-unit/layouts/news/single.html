@@ -21,6 +21,29 @@
     <div id="main_col">
       <h2 class="headline1"><span>お知らせ</span></h2>
 
+      <!-- sns button top -->
+      <div style="clear:both;">
+        <div id="share_top2">
+          <div class="sns">
+            <ul class="type2 clearfix">
+              <!--X（旧Twitter）ボタン-->
+              <li class="x-twitter">
+                <a href="https://x.com/intent/post?text={{ .Title | urlquery }}&url={{ .Permalink | urlquery }}&via=cube_unit" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600');return false;">
+                  <i class="fa-brands fa-x-twitter"></i><span class="ttl">Post</span><span class="share-count"></span>
+                </a>
+              </li>
+              <!--Facebookボタン-->
+              <li class="facebook">
+                <a href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink | urlquery }}&amp;t={{ .Title | urlquery }}" class="facebook-btn-icon-link" target="_blank" rel="nofollow">
+                  <i class="fa-brands fa-facebook-f"></i><span class="ttl">Share</span><span class="share-count"></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- /sns button top -->
+
       <div id="post_title" class="clearfix">
         <p class="post_date"><span class="date">{{ .Date.Format "1.2" }}</span><span class="month">{{ .Date.Format "2006" }}</span></p>
         <h2>{{ .Title }}</h2>
