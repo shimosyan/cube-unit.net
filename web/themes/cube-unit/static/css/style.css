@@ -479,10 +479,6 @@ input[type="text"], input[type="password"], textarea, select { outline: none; }
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-/* Font Awesome 7 Icon Support */
-.fa-brands, .fa-solid, .fa-regular {
-    font-family: 'Font Awesome 7 Brands', 'Font Awesome 7 Free', 'Font Awesome 7 Pro';
-}
 
 .icon-twitter:before { content: "\e904"; }
 .icon-facebook:before { content: "\e902"; }
@@ -541,9 +537,9 @@ share_btm1（Style3）
 }
 
 /*------------- share_top1 & share_btm1 button_color -------------*/
-/* Twitter */
-#share_top1 ul li.twitter a, #share_btm1 ul li.twitter a { color:#fff; background-color:#55acee; }
-#share_top1 ul li.twitter a:hover, #share_btm1 ul li.twitter a:hover { background-color:#468ec5; }
+/* X (Twitter) */
+#share_top1 ul li.twitter a, #share_btm1 ul li.twitter a { color:#fff; background-color:#000; }
+#share_top1 ul li.twitter a:hover, #share_btm1 ul li.twitter a:hover { background-color:#1a1a1a; }
 /* Facebook */
 #share_top1 ul li.facebook a, #share_btm1 ul li.facebook a { background-color:#35629a; }
 #share_top1 ul li.facebook a:hover, #share_btm1 ul li.facebook a:hover { background-color:#1f3669; }
@@ -576,7 +572,7 @@ share_top2（Style2）
 #share_top2 ul.type2 { margin:0; padding:0; list-style:none; }
 #share_top2 ul.type2 li { display:inline-block; padding:0; text-align:center; }
 #share_top2 ul.type2 li a { text-decoration:none; display:inline-block; margin:0 5px 5px 0; font-size:12px; font-weight:400; border-radius:2px; color:#222 !important; text-align:center; background:#fafafa !important; border:1px solid rgba(0,0,0,.1); box-shadow:0 1px 0 rgba(0,0,0,.03); text-shadow:none; line-height:25px; padding:1px 5px 0; }
-#share_top2 ul.type2 li a i { position:relative; top:3px; color:#222; font-size:1.3em; text-shadow:1px 1px 0 rgba(255, 255, 255, .1); }
+#share_top2 ul.type2 li a i { position:relative; top:1px; color:#222; font-size:1.1em; text-shadow:1px 1px 0 rgba(255, 255, 255, .1); }
 #share_top2 ul.type2 li a .ttl { margin:0 3px 0 2px; text-align:center; line-height:20px; }
 #share_top2 ul.type2 li a .share-count { color:#444; font-size:9px; padding:0; line-height:25px; margin:0; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; -o-box-sizing:border-box; -ms-box-sizing:border-box; box-sizing:border-box; }
 #share_top2 ul.type2 li a:hover, #share_top2 ul.type2 li a:hover i, #share_top2 ul.type2 li a:hover .share-count  { color:#fff !important; }
@@ -611,9 +607,9 @@ share_btm2（Style4）
 	#share_btm2 ul.type4 li:nth-child(4n) { margin-right:0; }
 }
 /*------------- share_top2 & share_btm4 button_color -------------*/
-/* Twitter */
+/* X (Twitter) */
 #share_top2 ul.type2 li.twitter a, #share_btm2 ul.type4 li.twitter a { color:#222 !important; background-color:#fafafa !important; }
-#share_top2 ul.type2 li.twitter a:hover, #share_btm2 ul.type4 li.twitter a:hover { color:#fff !important; background-color:#55acee !important; }
+#share_top2 ul.type2 li.twitter a:hover, #share_btm2 ul.type4 li.twitter a:hover { color:#fff !important; background-color:#000 !important; }
 /* Facebook */
 #share_top2 ul.type2 li.facebook a, #share_btm2 ul.type4 li.facebook a { color:#222 !important; background-color:#fafafa !important; }
 #share_top2 ul.type2 li.facebook a:hover, #share_btm2 ul.type4 li.facebook a:hover { color:#fff !important; background-color:#35629a !important; }
