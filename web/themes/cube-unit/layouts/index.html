@@ -89,16 +89,16 @@
     </div>
 
     <div id="side_col">
-
+      {{ if .Site.Params.social.x }}
       <div class="side_widget clearfix widget_block" id="block-7">
         <figure class="wp-block-embed is-type-rich is-provider-twitter wp-block-embed-twitter">
           <div class="wp-block-embed__wrapper">
-            <a class="twitter-timeline" data-height="750" data-dnt="true" href="https://twitter.com/cube_unit?ref_src=twsrc%5Etfw">Tweets by cube_unit</a>
+            <a class="twitter-timeline" data-height="750" data-dnt="true" href="https://twitter.com/{{ .Site.Params.social.x }}?ref_src=twsrc%5Etfw">Post by {{ .Site.Params.social.x }}</a>
             <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
           </div>
         </figure>
       </div>
-
+      {{ end }}
     </div>
 
   </div>
