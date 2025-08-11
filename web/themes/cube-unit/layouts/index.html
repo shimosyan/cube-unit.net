@@ -30,7 +30,7 @@
     <div id="main_col">
 
       <!-- index news -->
-      {{ $news := first 5 (where .Site.RegularPages "Section" "news") }}
+      {{ $news := first 5 (where .Site.RegularPages "Section" "news").ByDate.Reverse }}
       {{ if $news }}
       <div id="index_news">
         <h3 class="headline1"><span>NEWS</span></h3>
@@ -47,7 +47,7 @@
       {{ end }}
 
       <!-- product list -->
-      {{ $products := first 6 (where .Site.RegularPages "Section" "product") }}
+      {{ $products := first 6 (where .Site.RegularPages "Section" "product").ByDate.Reverse }}
       {{ if $products }}
       <div id="index_product">
         <h3 class="headline1"><span>NEW ITEMS</span></h3>
@@ -70,7 +70,7 @@
       {{ end }}
 
       <!-- blog list -->
-      {{ $blog := first 5 (where .Site.RegularPages "Section" "blog") }}
+      {{ $blog := first 5 (where .Site.RegularPages "Section" "blog").ByDate.Reverse }}
       {{ if $blog }}
       <div id="index_blog">
         <h3 class="headline1"><span>BLOG</span></h3>

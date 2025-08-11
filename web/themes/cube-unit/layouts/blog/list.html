@@ -24,7 +24,7 @@
       {{ end }}
 
       <div id="news_list">
-        {{ range .Paginator.Pages }}
+        {{ range (where .Site.RegularPages "Section" "blog").ByDate.Reverse }}
         <li class="clearfix">
           <p class="date">{{ .Date.Format "2006.1.2" }}</p>
           <p class="title"><a href="{{ .Permalink }}">{{ .Title }}</a></p>
@@ -39,8 +39,7 @@
       <div class="side_widget clearfix tcdw_product_list_widget" id="tcdw_product_list_widget-4">
         <h3 class="side_headline"><span>作品一覧</span></h3>
         <ol class="product_post_list">
-          {{ range first 5 .Site.RegularPages.ByDate.Reverse }}
-          {{ if eq .Section "product" }}
+          {{ range first 5 (where .Site.RegularPages "Section" "product").ByDate.Reverse }}
           <li class="clearfix">
             <a class="image" href="{{ .Permalink }}">
               {{ if .Params.image }}
@@ -51,7 +50,6 @@
               <a class="title" href="{{ .Permalink }}">{{ .Title }}</a>
             </div>
           </li>
-          {{ end }}
           {{ end }}
         </ol>
       </div>
