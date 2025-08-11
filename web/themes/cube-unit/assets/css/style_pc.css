@@ -416,3 +416,124 @@ body { margin:0; padding:0;
 
 /* copyright */
 #copyright p { margin:13px 0 0 0; float:right; font-size:12px; }
+
+/**************************************************************
+【しもしゃんの設定】
+**************************************************************/
+
+.btn-parent {
+  display: flex;
+  margin: 0 0 40px 0;
+}
+
+.btn {
+  display: block;
+  padding: 12px 15px;
+  margin: 0 0 8px 0;
+  background: #f8f8f8;
+  /*border: 1px solid #ddd;*/
+  border-radius: 8px;
+  text-decoration: none;
+  color: #333 !important;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: #ccc;
+  text-decoration: none;
+}
+
+.btn i {
+  font-size: 20px;
+  margin-right: 12px;
+  width: 24px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.btn span {
+  font-size: 14px;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+.btn.lnk_to:hover {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white !important;
+  border-color: #f5576c;
+}
+
+.btn.melonbooks:hover {
+  background: #2ea364;
+  color: white !important;
+  border-color: #2ea364;
+}
+
+.btn.toranoana:hover {
+  background: #ffc107;
+  color: #d82329 !important;
+  border-color: #ffc107;
+}
+
+/* ----------------------------------------------------------------------
+ Streaming Services
+---------------------------------------------------------------------- */
+.streaming_services {
+  margin: 0 0 40px 0;
+}
+
+.streaming_link {
+  display: block;
+  padding: 12px 15px;
+  margin: 0 0 8px 0;
+  background: #f8f8f8;
+  /*border: 1px solid #ddd;*/
+  border-radius: 8px;
+  text-decoration: none;
+  color: #333;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.streaming_link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: #ccc;
+  text-decoration: none;
+}
+
+.streaming_link i {
+  font-size: 20px;
+  margin-right: 12px;
+  width: 24px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.streaming_link span {
+  font-size: 14px;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+/* Service-specific colors */
+.streaming_link.apple_music:hover {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  border-color: #f5576c;
+}
+
+.streaming_link.youtube_music:hover {
+  background: #ff0000;
+  color: white;
+  border-color: #cc0000;
+}
+
+.streaming_link.line_music:hover {
+  background: #00c300;
+  color: white;
+  border-color: #00a000;
+}

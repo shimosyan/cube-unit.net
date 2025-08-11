@@ -13,11 +13,6 @@ Version:4.2.0
 【しもしゃんの設定】
 **************************************************************/
 
-.btn-parent {
-  display: flex;
-	margin-bottom: 16px;
-}
-
 /* SVGロゴのスタイリング */
 #logo_text {
   position: absolute;
@@ -52,39 +47,6 @@ Version:4.2.0
     position: static;
     float: left;
   }
-}
-
-@media screen and (max-width: 770px) {
-  .btn-parent {
-    display: block;
-  }
-
-  .btn {
-    display: block;
-		width: auto;
-  }
-}
-
-.btn {
-	margin: 8px;
-  padding: 8px 16px;
-  border: solid 2px #777;
-  background: #777;
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
-  color: #fff !important;
-  text-decoration: none;
-  font-size: 1em;
-  font-weight: bold;
-  line-height: 1.2em;
-  -webkit-transition: .12s;
-  transition: .12s;
-}
-.btn:hover {
-  background: #ffffff;
-  border: solid 2px #777;
-  color: #333 !important;
-  opacity: 0.8;
 }
 
 /* リンクをカード形式で表示させる時のスタイル */
