@@ -57,7 +57,7 @@ ul ul, ol ol  { margin:0 0 0 1em; }
 /* ---------- clearfix hack ---------- */
 .clearfix:after { content: "."; display:block; clear:both; height:0; font-size:0.1em; line-height:0; visibility:hidden; overflow:hidden; }
 .clearfix { display: inline-block; }
-/* exlude MacIE5 \*/
+/* exclude MacIE5 \*/
 * html .clearfix { height:1% }
 .clearfix {display:block;}
 /* end MacIE5 */

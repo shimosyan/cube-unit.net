@@ -152,6 +152,7 @@
 	padding: 0;
 	background-color: transparent;
 	border: 0;
+	appearance: none;
 	-webkit-appearance: none;
 	font-size: 1.5rem;
 	font-weight: 700;
@@ -465,6 +466,7 @@
 	padding: 0;
 	background-color: transparent !important;
 	border: 0;
+	appearance: none;
 	-webkit-appearance: none;
 	font-size: 1.5rem;
 	font-weight: 700;
@@ -1007,6 +1009,7 @@ color:inherit;
 	right: 0;
 	top: 0;
 	z-index: 1;
+	appearance: none;
 	-webkit-appearance: none;
 	width: 40px;
 	height: 40px;
