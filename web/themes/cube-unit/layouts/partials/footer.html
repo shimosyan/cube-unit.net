@@ -14,7 +14,9 @@
     <!-- social button -->
     <ul class="user_sns clearfix" id="social_link">
       <li class="rss"><a class="target_blank" href="/index.xml"><span>RSS</span></a></li>
-      <li class="twitter"><a href="https://twitter.com/cube_unit" target="_blank"><span>Twitter</span></a></li>
+      {{ if .Site.Params.social.x }}
+      <li class="x-twitter"><a href="https://x.com/{{ .Site.Params.social.x }}" target="_blank"><span>X (Twitter)</span></a></li>
+      {{ end }}
     </ul>
 
     <p>Copyright &copy;&nbsp; <a href="/">{{ .Site.Title }}</a></p>

@@ -9,6 +9,9 @@ googleAnalytics = 'G-QGTYH7SE5W'  # Replace with actual GA4 measurement ID
 [params]
   description = '楽曲製作を主とする同人サークルです。'
 
+  [params.social]
+    x = 'cube_unit'  # X (Twitter) username without @
+
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]

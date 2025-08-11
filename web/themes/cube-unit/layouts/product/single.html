@@ -26,16 +26,16 @@
         <div id="share_top2">
           <div class="sns">
             <ul class="type2 clearfix">
-              <!--Twitterボタン-->
-              <li class="twitter">
-                <a href="https://twitter.com/share?text={{ .Title | urlquery }}&url={{ .Permalink | urlquery }}&via=cube_unit&tw_p=tweetbutton&related=cube_unit" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600');return false;">
-                  <i class="icon-twitter"></i><span class="ttl">Tweet</span><span class="share-count"></span>
+              <!--X（旧Twitter）ボタン-->
+              <li class="x-twitter">
+                <a href="https://x.com/intent/post?text={{ .Title | urlquery }}&url={{ .Permalink | urlquery }}&via=cube_unit" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600');return false;">
+                  <i class="fa-brands fa-x-twitter"></i><span class="ttl">Post</span><span class="share-count"></span>
                 </a>
               </li>
               <!--Facebookボタン-->
               <li class="facebook">
                 <a href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink | urlquery }}&amp;t={{ .Title | urlquery }}" class="facebook-btn-icon-link" target="_blank" rel="nofollow">
-                  <i class="icon-facebook"></i><span class="ttl">Share</span><span class="share-count"></span>
+                  <i class="fa-brands fa-facebook-f"></i><span class="ttl">Share</span><span class="share-count"></span>
                 </a>
               </li>
             </ul>

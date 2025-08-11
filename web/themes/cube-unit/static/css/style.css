@@ -9,32 +9,9 @@ Text Domain:tcd-precious
 Version:4.2.0
 */
 
-/* --------------------------------------------------------------------------------
- web fonts　ウェブフォントファイルを変更した場合はv=1.0の数字を変更（キャッシュ対策）
--------------------------------------------------------------------------------- */
-@font-face {
-    font-family: 'design_plus';
-    src: url('../fonts/design_plus.eot?v=1.0');
-    src: url('../fonts/design_plus.eot?v=1.0#iefix') format('embedded-opentype'),
-         url('../fonts/design_plus.woff?v=1.0') format('woff'),
-         url('../fonts/design_plus.ttf?v=1.0') format('truetype'),
-         url('../fonts/design_plus.svg?v=1.0#design_plus') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
 /**************************************************************
 【しもしゃんの設定】
 **************************************************************/
-
-@font-face {
-  font-family: "LogoFont";
-  src: url("../fonts/NEUROTOX.eot?v=1.0") format('eot'),
-       url("../fonts/NEUROTOX.woff?v=1.0") format('woff');
-}
-.LogoFontClass {
-  font-family: "LogoFont";
-}
 
 .btn-parent {
   display: flex;
@@ -157,7 +134,7 @@ Version:4.2.0
   text-align: left;
 }
 
-.blogcard_link .icon-external-link-alt::before {
+.blogcard_link .fa-external-link-alt::before {
   font-size: 0.75em;
 }
 
@@ -438,16 +415,16 @@ input[type="text"], input[type="password"], textarea, select { outline: none; }
 }
 #bread_crumb li.home a span { text-indent:100%; white-space:nowrap; overflow:hidden; display:block; }
 #bread_crumb li.home a:before {
-  font-family:'design_plus'; color:#888; font-size:14px; display:block; position:absolute; top:0px; left:0px;
+  font-family: 'Font Awesome 7 Free'; color:#888; font-size:14px; display:block; position:absolute; top:0px; left:0px;
   width:17px; height:17px; line-height:17px;
   -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
 }
 #bread_crumb li.home:after { display:none; }
-#bread_crumb li.home a:before { content:'\e90c'; }
-#bread_crumb li.home a:hover:before { color:#fff; }
+#bread_crumb li.home a:before { content:'\f015'; font-weight: 900; } /* fa-home */
+/*#bread_crumb li.home a:hover:before { color:#fff; }*/
 #bread_crumb li { color:#727272; font-size:12px; display:inline; padding:0 15px 0 0; margin:0 0 0 15px; line-height:160%; position:relative; }
 #bread_crumb li:after {
-  font-family:'design_plus'; content:'\e910'; color:#727272; font-size:9px; display:block; position:absolute; left:-20px; top:-1px;
+  font-family: 'Font Awesome 7 Free'; content:'\f054'; color:#727272; font-size:9px; display:block; position:absolute; left:-20px; top:-1px; font-weight: 900; /* fa-chevron-right */
   -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
 }
 #bread_crumb li a { color:#888; text-decoration: none; }
@@ -456,41 +433,7 @@ input[type="text"], input[type="password"], textarea, select { outline: none; }
 /* ----------------------------------------------------------------------
  ソーシャルボタン
 ---------------------------------------------------------------------- */
-@font-face {
-    font-family: 'icomoon';
-    src:    url('../fonts/icomoon.eot?evfvw0');
-    src:    url('../fonts/icomoon.eot?evfvw0#iefix') format('embedded-opentype'),
-        url('../fonts/icomoon.ttf?evfvw0') format('truetype'),
-        url('../fonts/icomoon.woff?evfvw0') format('woff'),
-        url('../fonts/icomoon.svg?evfvw0#icomoon') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-[class^="icon-"], [class*=" icon-"] {
-    /* use !important to prevent issues with browser extensions that change fonts */
-    font-family: 'icomoon' !important;
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    /* Better Font Rendering =========== */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-.icon-feedly:before { content: "\e907"; }
-.icon-hatebu:before { content: "\e908"; }
-.icon-line:before { content: "\e909"; }
-.icon-pocket:before { content: "\e90a"; }
-.icon-google-plus:before { content: "\e900"; }
-.icon-google-plus2:before { content: "\e901"; }
-.icon-facebook:before { content: "\e902"; }
-.icon-facebook2:before { content: "\e903"; }
-.icon-twitter:before { content: "\e904"; }
-.icon-rss:before { content: "\e90b"; }
-.icon-rss2:before { content: "\e906"; }
-.icon-pinterest:before { content: "\e905"; }
+
 #share_top1 ul li a, #share_top2 ul li a, #share_btm1 ul li a, #share_btm2 ul li a { -webkit-transition:all 0.3s; -moz-transition:all 0.3s; -o-transition:all 0.3s; transition:all 0.3s; }
 
 /*--------------------------------
@@ -536,9 +479,9 @@ share_btm1（Style3）
 }
 
 /*------------- share_top1 & share_btm1 button_color -------------*/
-/* Twitter */
-#share_top1 ul li.twitter a, #share_btm1 ul li.twitter a { color:#fff; background-color:#55acee; }
-#share_top1 ul li.twitter a:hover, #share_btm1 ul li.twitter a:hover { background-color:#468ec5; }
+/* X (Twitter) */
+#share_top1 ul li.x-twitter a, #share_btm1 ul li.x-twitter a { color:#fff; background-color:#000; }
+#share_top1 ul li.x-twitter a:hover, #share_btm1 ul li.x-twitter a:hover { background-color:#1a1a1a; }
 /* Facebook */
 #share_top1 ul li.facebook a, #share_btm1 ul li.facebook a { background-color:#35629a; }
 #share_top1 ul li.facebook a:hover, #share_btm1 ul li.facebook a:hover { background-color:#1f3669; }
@@ -571,7 +514,7 @@ share_top2（Style2）
 #share_top2 ul.type2 { margin:0; padding:0; list-style:none; }
 #share_top2 ul.type2 li { display:inline-block; padding:0; text-align:center; }
 #share_top2 ul.type2 li a { text-decoration:none; display:inline-block; margin:0 5px 5px 0; font-size:12px; font-weight:400; border-radius:2px; color:#222 !important; text-align:center; background:#fafafa !important; border:1px solid rgba(0,0,0,.1); box-shadow:0 1px 0 rgba(0,0,0,.03); text-shadow:none; line-height:25px; padding:1px 5px 0; }
-#share_top2 ul.type2 li a i { position:relative; top:3px; color:#222; font-size:1.3em; text-shadow:1px 1px 0 rgba(255, 255, 255, .1); }
+#share_top2 ul.type2 li a i { position:relative; top:1px; color:#222; font-size:1.1em; text-shadow:1px 1px 0 rgba(255, 255, 255, .1); }
 #share_top2 ul.type2 li a .ttl { margin:0 3px 0 2px; text-align:center; line-height:20px; }
 #share_top2 ul.type2 li a .share-count { color:#444; font-size:9px; padding:0; line-height:25px; margin:0; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; -o-box-sizing:border-box; -ms-box-sizing:border-box; box-sizing:border-box; }
 #share_top2 ul.type2 li a:hover, #share_top2 ul.type2 li a:hover i, #share_top2 ul.type2 li a:hover .share-count  { color:#fff !important; }
@@ -606,9 +549,9 @@ share_btm2（Style4）
 	#share_btm2 ul.type4 li:nth-child(4n) { margin-right:0; }
 }
 /*------------- share_top2 & share_btm4 button_color -------------*/
-/* Twitter */
-#share_top2 ul.type2 li.twitter a, #share_btm2 ul.type4 li.twitter a { color:#222 !important; background-color:#fafafa !important; }
-#share_top2 ul.type2 li.twitter a:hover, #share_btm2 ul.type4 li.twitter a:hover { color:#fff !important; background-color:#55acee !important; }
+/* X (Twitter) */
+#share_top2 ul.type2 li.x-twitter a, #share_btm2 ul.type4 li.x-twitter a { color:#222 !important; background-color:#fafafa !important; }
+#share_top2 ul.type2 li.x-twitter a:hover, #share_btm2 ul.type4 li.x-twitter a:hover { color:#fff !important; background-color:#000 !important; }
 /* Facebook */
 #share_top2 ul.type2 li.facebook a, #share_btm2 ul.type4 li.facebook a { color:#222 !important; background-color:#fafafa !important; }
 #share_top2 ul.type2 li.facebook a:hover, #share_btm2 ul.type4 li.facebook a:hover { color:#fff !important; background-color:#35629a !important; }
@@ -639,7 +582,7 @@ share_top5（公式ボタン）
 #share5_btm { margin:20px 0 -30px; }
 .sns_default_top { margin:0; padding:0; overflow:hidden; list-style:none; }
 .sns_default_top ul li { display:inline-block; margin:0 5px 3px 0; line-height:1!important; overflow:hidden; vertical-align:top; }
-.sns_default_top ul li.twitter_button { width:73px; }
+.sns_default_top ul li.x-twitter_button { width:73px; }
 .sns_default_top ul li.fbshare_button:hover { text-decoration:none; }
 .sns_default_top ul li.google_button { width:58px; }
 .sns_default_top ul li.pocket_button { width:88px; }
@@ -648,7 +591,7 @@ share_top5（公式ボタン）
 	#share5_btm { margin:30px 0 -30px; }
 	.sns_default_top { margin:0; }
 	.sns_default_top ul li { margin-bottom:6px; }
-	.sns_default_top ul li.twitter_button { margin-left:0; }
+	.sns_default_top ul li.x-twitter_button { margin-left:0; }
 }
 
 /* ----------------------- TCD Advanced Style ------------------------ */
