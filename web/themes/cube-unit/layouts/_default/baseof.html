@@ -34,18 +34,20 @@
     <meta name="msapplication-TileImage" content="https://img.cube-unit.net/uploads/2024/01/cropped-favicon-270x270.png" />
 
     <!-- Font Awesome (Self-hosted) -->
-    <link rel="stylesheet" href="/css/all.min.css">
+    {{ $fontAwesome := resources.Get "css/all.min.css" | fingerprint }}
+    <link rel="stylesheet" href="{{ $fontAwesome.RelPermalink }}">
 
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/style_pc.css" media="screen and (min-width: 771px)">
-    <link rel="stylesheet" href="/css/style_sp.css" media="screen and (max-width: 770px)">
-    <link rel="stylesheet" href="/css/japanese.css">
-    <link rel="stylesheet" href="/css/wordpress-blocks.css">
-    <link rel="stylesheet" href="/css/custom-links.css">
-    <link rel="stylesheet" href="/css/flexslider.css">
-    <link rel="stylesheet" href="/css/cookie-law-info-public.css">
-    <link rel="stylesheet" href="/css/cookie-law-info-gdpr.css">
+    <!-- Main Stylesheets -->
+    {{ $mainStyle := resources.Get "css/style.css" | fingerprint }}
+    <link rel="stylesheet" href="{{ $mainStyle.RelPermalink }}">
+    {{ $pcStyle := resources.Get "css/style_pc.css" | fingerprint }}
+    <link rel="stylesheet" href="{{ $pcStyle.RelPermalink }}" media="screen and (min-width: 771px)">
+    {{ $spStyle := resources.Get "css/style_sp.css" | fingerprint }}
+    <link rel="stylesheet" href="{{ $spStyle.RelPermalink }}" media="screen and (max-width: 770px)">
+
+    <!-- Additional Stylesheets -->
+    {{ $additionalStyles := slice (resources.Get "css/japanese.css") (resources.Get "css/wordpress-blocks.css") (resources.Get "css/custom-links.css") (resources.Get "css/flexslider.css") (resources.Get "css/cookie-law-info-public.css") (resources.Get "css/cookie-law-info-gdpr.css") | resources.Concat "css/additional.css" | fingerprint }}
+    <link rel="stylesheet" href="{{ $additionalStyles.RelPermalink }}">
 
     <!-- Feed -->
     <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }} RSS Feed" href="{{ .Site.BaseURL }}index.xml">
@@ -65,9 +67,12 @@
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="/js/rollover.js"></script>
-    <script src="/js/jscript.js"></script>
-    <script src="/js/cookie-law-info-public.js"></script>
+    {{ $rolloverJs := resources.Get "js/rollover.js" | fingerprint }}
+    <script src="{{ $rolloverJs.RelPermalink }}"></script>
+    {{ $jscriptJs := resources.Get "js/jscript.js" | fingerprint }}
+    <script src="{{ $jscriptJs.RelPermalink }}"></script>
+    {{ $cookieJs := resources.Get "js/cookie-law-info-public.js" | fingerprint }}
+    <script src="{{ $cookieJs.RelPermalink }}"></script>
 
     {{ block "scripts" . }}{{ end }}
 </body>
