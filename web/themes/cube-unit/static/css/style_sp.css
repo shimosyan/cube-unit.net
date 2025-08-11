@@ -505,6 +505,20 @@ hr{
   width:17px; height:17px; line-height:17px;
   -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
 }
+
+/* Font Awesome 7 Icons for Social Links */
+#social_link li.twitter .fa-x-twitter { color:#16b9dc; font-size:14px; }
+#social_link li.facebook .fa-facebook-f { color:#3B5998; font-size:14px; }
+#social_link li.insta .fa-instagram { color:#8a3ab9; font-size:14px; }
+#social_link li.pint .fa-pinterest { color:#cb2027; font-size:14px; }
+#social_link li.flickr .fa-flickr { color:#ff0084; font-size:14px; }
+#social_link li.tumblr .fa-tumblr { color:#34526f; font-size:14px; }
+#social_link li.rss .fa-rss { color:#ffcc00; font-size:14px; }
+
+/* Alternative X icon support (Font Awesome 7 may have fa-x) */
+#social_link li.twitter .fa-x { color:#16b9dc; font-size:14px; }
+
+/* Legacy design_plus icons (for backward compatibility) */
 #social_link li.twitter:before { content:'\e904'; }
 #social_link li.facebook:before { content:'\e902'; }
 #social_link li.insta:before { content:'\ea92'; top:11px; }

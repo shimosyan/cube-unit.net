@@ -479,18 +479,23 @@ input[type="text"], input[type="password"], textarea, select { outline: none; }
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+/* Font Awesome 7 Icon Support */
+.fa-brands, .fa-solid, .fa-regular {
+    font-family: 'Font Awesome 7 Brands', 'Font Awesome 7 Free', 'Font Awesome 7 Pro';
+}
+
+.icon-twitter:before { content: "\e904"; }
+.icon-facebook:before { content: "\e902"; }
+.icon-facebook2:before { content: "\e903"; }
+.icon-google-plus:before { content: "\e900"; }
+.icon-google-plus2:before { content: "\e901"; }
+.icon-pinterest:before { content: "\e905"; }
+.icon-rss:before { content: "\e90b"; }
+.icon-rss2:before { content: "\e906"; }
 .icon-feedly:before { content: "\e907"; }
 .icon-hatebu:before { content: "\e908"; }
 .icon-line:before { content: "\e909"; }
 .icon-pocket:before { content: "\e90a"; }
-.icon-google-plus:before { content: "\e900"; }
-.icon-google-plus2:before { content: "\e901"; }
-.icon-facebook:before { content: "\e902"; }
-.icon-facebook2:before { content: "\e903"; }
-.icon-twitter:before { content: "\e904"; }
-.icon-rss:before { content: "\e90b"; }
-.icon-rss2:before { content: "\e906"; }
-.icon-pinterest:before { content: "\e905"; }
 #share_top1 ul li a, #share_top2 ul li a, #share_btm1 ul li a, #share_btm2 ul li a { -webkit-transition:all 0.3s; -moz-transition:all 0.3s; -o-transition:all 0.3s; transition:all 0.3s; }
 
 /*--------------------------------
