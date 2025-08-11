@@ -429,9 +429,8 @@ body { margin:0; padding:0;
 .btn {
   display: block;
   padding: 12px 15px;
-  margin: 0 0 8px 0;
+  margin: 0 8px 8px 0;
   background: #f8f8f8;
-  /*border: 1px solid #ddd;*/
   border-radius: 8px;
   text-decoration: none;
   color: #333 !important;
@@ -467,7 +466,7 @@ body { margin:0; padding:0;
 }
 
 .btn.melonbooks:hover {
-  background: #2ea364;
+  background: linear-gradient(135deg, #27ae60 0%, #2ea364 100%);
   color: white !important;
   border-color: #2ea364;
 }
@@ -476,6 +475,18 @@ body { margin:0; padding:0;
   background: #ffc107;
   color: #d82329 !important;
   border-color: #ffc107;
+}
+
+.btn.booth:hover {
+  background: #ea4c89;
+  color: white !important;
+  border-color: #ea4c89;
+}
+
+.btn.bandcamp:hover {
+  background: #629aa0;
+  color: white !important;
+  border-color: #629aa0;
 }
 
 /* ----------------------------------------------------------------------
@@ -490,7 +501,6 @@ body { margin:0; padding:0;
   padding: 12px 15px;
   margin: 0 0 8px 0;
   background: #f8f8f8;
-  /*border: 1px solid #ddd;*/
   border-radius: 8px;
   text-decoration: none;
   color: #333;

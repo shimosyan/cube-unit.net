@@ -605,7 +605,6 @@ hr{
   padding: 15px 15px;
   margin: 0 0 8px 0;
   background: #f8f8f8;
-  /*border: 1px solid #ddd;*/
   border-radius: 8px;
   text-decoration: none;
   color: #333 !important;
@@ -653,6 +652,18 @@ hr{
   border-color: #ffc107;
 }
 
+.btn.booth:active {
+  background: #ea4c89;
+  color: white !important;
+  border-color: #ea4c89;
+}
+
+.btn.bandcamp:active {
+  background: #629aa0;
+  color: white !important;
+  border-color: #629aa0;
+}
+
 /* ----------------------------------------------------------------------
  Streaming Services
 ---------------------------------------------------------------------- */
@@ -665,7 +676,6 @@ hr{
   padding: 15px 15px;
   margin: 0 0 8px 0;
   background: #f8f8f8;
-  /*border: 1px solid #ddd;*/
   border-radius: 8px;
   text-decoration: none;
   color: #333;
