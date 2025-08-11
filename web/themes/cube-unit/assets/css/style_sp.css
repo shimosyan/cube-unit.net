@@ -95,10 +95,10 @@ body {
 #index_product ol li .image { display:block; background:#fff; }
 #index_product ol li .image img {
   display:block; width:100%; height:auto; border:1px solid #ccc;
-  transition-property:opacity; transition-duration:0.4s; transition-timing-function:ease;
   -webkit-transition-property:opacity; -webkit-transition-duration:0.4s; -webkit-transition-timing-function:ease;
   -moz-transition-property:opacity; -moz-transition-duration:0.4s; -moz-transition-timing-function:ease;
   -o-transition-property:opacity; -o-transition-duration:0.4s; -o-transition-timing-function:ease;
+  transition-property:opacity; transition-duration:0.4s; transition-timing-function:ease;
   -moz-box-sizing:border-box; -webkit-box-sizing:border-box; -o-box-sizing:border-box; -ms-box-sizing:border-box; box-sizing:border-box;
 }
 #index_product ol li .image:hover img { opacity:0.5; }
@@ -124,10 +124,10 @@ body {
 #index_blog ol li .image { float:left; margin:0 15px 0 0; background:#fff; width: 100px; height: 100px; }
 #index_blog ol li .image img {
   display:block;
-  transition-property:opacity; transition-duration:0.4s; transition-timing-function:ease;
   -webkit-transition-property:opacity; -webkit-transition-duration:0.4s; -webkit-transition-timing-function:ease;
   -moz-transition-property:opacity; -moz-transition-duration:0.4s; -moz-transition-timing-function:ease;
   -o-transition-property:opacity; -o-transition-duration:0.4s; -o-transition-timing-function:ease;
+  transition-property:opacity; transition-duration:0.4s; transition-timing-function:ease;
   width: 100%; height: auto;
 }
 #index_blog ol li .image:hover img { opacity:0.5; }
@@ -154,20 +154,20 @@ body {
 #product_list li .image { display:block; background:#fff; }
 #product_list li .image img {
   display:block; width:100%; height:auto; border:1px solid #ccc;
-  transition-property:opacity; transition-duration:0.4s; transition-timing-function:ease;
   -webkit-transition-property:opacity; -webkit-transition-duration:0.4s; -webkit-transition-timing-function:ease;
   -moz-transition-property:opacity; -moz-transition-duration:0.4s; -moz-transition-timing-function:ease;
   -o-transition-property:opacity; -o-transition-duration:0.4s; -o-transition-timing-function:ease;
+  transition-property:opacity; transition-duration:0.4s; transition-timing-function:ease;
   -moz-box-sizing:border-box; -webkit-box-sizing:border-box; -o-box-sizing:border-box; -ms-box-sizing:border-box; box-sizing:border-box;
 }
 #product_list li .image:hover img { opacity:0.5; }
 #product_list li .title { font-size:14px; margin:0 0 10px 0; }
 #product_list li .title a {
   text-decoration:none; display:block; padding:10px; background:#999; color:#fff; height:40px; overflow:hidden;
-  transition-property:background; transition-duration:0.4s; transition-timing-function:ease;
   -webkit-transition-property:background; -webkit-transition-duration:0.4s; -webkit-transition-timing-function:ease;
   -moz-transition-property:background; -moz-transition-duration:0.4s; -moz-transition-timing-function:ease;
   -o-transition-property:background; -o-transition-duration:0.4s; -o-transition-timing-function:ease;
+  transition-property:background; transition-duration:0.4s; transition-timing-function:ease;
 }
 #product_list li .title a:hover { background:#333; }
 
@@ -186,10 +186,10 @@ body {
 #post_list .image { display:block; background:#fff; margin:0 0 15px 0; }
 #post_list .image img {
   clear: both; display:block; width:100%; height:auto;
-  transition-property:opacity; transition-duration:0.4s; transition-timing-function:ease;
   -webkit-transition-property:opacity; -webkit-transition-duration:0.4s; -webkit-transition-timing-function:ease;
   -moz-transition-property:opacity; -moz-transition-duration:0.4s; -moz-transition-timing-function:ease;
   -o-transition-property:opacity; -o-transition-duration:0.4s; -o-transition-timing-function:ease;
+  transition-property:opacity; transition-duration:0.4s; transition-timing-function:ease;
 }
 #post_list .image:hover img { opacity:0.5 }
 /*#post_list .info { }*/
@@ -241,11 +241,11 @@ body {
 /* no slider */
 #product_image {
   background:#f2f2f2; padding:10px;
-  box-sizing:border-box;
   -moz-box-sizing:border-box;
   -webkit-box-sizing:border-box;
   -o-box-sizing:border-box;
   -ms-box-sizing:border-box;
+  box-sizing:border-box;
 }
 #product_image img { display:block; width:100%; height:auto; }
 
@@ -402,10 +402,10 @@ a.menu_button:hover{ background: #333; }
 #related_post .image { float:left; margin:0 15px 0 0; background:#fff; }
 #related_post .image img {
   width:100px; height:100px; display:block;
-  transition-property:opacity; transition-duration:0.4s; transition-timing-function:ease;
   -webkit-transition-property:opacity; -webkit-transition-duration:0.4s; -webkit-transition-timing-function:ease;
   -moz-transition-property:opacity; -moz-transition-duration:0.4s; -moz-transition-timing-function:ease;
   -o-transition-property:opacity; -o-transition-duration:0.4s; -o-transition-timing-function:ease;
+  transition-property:opacity; transition-duration:0.4s; transition-timing-function:ease;
 }
 #related_post .image:hover img { opacity:0.5; }
 /*#related_post .info { }*/
@@ -562,7 +562,7 @@ hr{
 #social_link li { display:inline-block; margin:0; position:relative; }
 #social_link li a {
   display:block; text-indent:-200px; overflow:hidden; width:30px; height:30px; position:relative;
-  transition-property:none; -webkit-transition-property:none; -moz-transition-property:none; -o-transition-property:none;
+  -webkit-transition-property:none; -moz-transition-property:none; -o-transition-property:none; transition-property:none;
 }
 #social_link li:before {
   font-family: 'Font Awesome 7 Brands'; color:#000; font-size:14px; display:block; position:absolute; top:10px; left:9px;
