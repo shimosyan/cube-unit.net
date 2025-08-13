@@ -1,0 +1,37 @@
+User-agent: *
+Allow: /
+Disallow: /categories/
+Disallow: /tags/
+
+{{ with .Site.BaseURL }}
+Sitemap: {{ . }}sitemap.xml
+{{ end }}
+
+# Allow common search engines
+User-agent: Googlebot
+Allow: /
+Disallow: /categories/
+Disallow: /tags/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /categories/
+Disallow: /tags/
+
+User-agent: YandexBot
+Allow: /
+Disallow: /categories/
+Disallow: /tags/
+
+# Block SEO crawlers and bots that don't respect crawl-delay
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
