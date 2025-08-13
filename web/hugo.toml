@@ -3,6 +3,9 @@ languageCode = 'ja'
 title = 'Cube-Unit'
 theme = 'cube-unit'
 
+# Enable robots.txt generation
+enableRobotsTXT = true
+
 # Google Analytics (Google Tag Manager ID or GA4 Measurement ID)
 googleAnalytics = 'G-QGTYH7SE5W'  # Replace with actual GA4 measurement ID
 
