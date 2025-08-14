@@ -91,21 +91,32 @@
     <div id="side_col">
       <h3 class="headline1"><span>Spotify</span></h3>
       <iframe data-testid="embed-iframe" style="border-radius:12px; margin-bottom: 40px;" src="https://open.spotify.com/embed/artist/3qXGnM2Hx52uw9qsERMrXw?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-      <h3 class="headline1"><span>Streaming Service</span></h3>
-      <div class="streaming_services">
-        <a href="https://music.apple.com/jp/artist/micmnis/1546201638" class="streaming_link apple_music" target="_blank">
+      <h3 class="headline1"><span>STREAMING</span></h3>
+      <div class="streaming_and_sns_services">
+        <a href="https://music.apple.com/jp/artist/micmnis/1546201638" class="streaming_and_sns_link apple_music" target="_blank">
           <i class="fa-brands fa-apple"></i>
           <span>Apple Music</span>
         </a>
-        <a href="https://music.youtube.com/channel/UC1c5Qio5AX2sq88u0TcjrGQ" class="streaming_link youtube_music" target="_blank">
+        <a href="https://music.youtube.com/channel/UC1c5Qio5AX2sq88u0TcjrGQ" class="streaming_and_sns_link youtube_music" target="_blank">
           <i class="fa-brands fa-youtube"></i>
           <span>YouTube Music</span>
         </a>
-        <a href="https://music.line.me/webapp/artist/mi00000000167e7c53" class="streaming_link line_music" target="_blank">
+        <a href="https://music.line.me/webapp/artist/mi00000000167e7c53" class="streaming_and_sns_link line_music" target="_blank">
           <i class="fa-brands fa-line"></i>
           <span>LINE Music</span>
         </a>
       </div>
+      {{ if .Site.Params.social }}
+      <h3 class="headline1"><span>SNS</span></h3>
+      <div class="streaming_and_sns_services">
+        {{ if .Site.Params.social.x }}
+        <a href="https://x.com/{{ .Site.Params.social.x }}" class="streaming_and_sns_link x" target="_blank">
+          <i class="fa-brands fa-x-twitter"></i>
+          <span>@{{ .Site.Params.social.x }}</span>
+        </a>
+        {{ end }}
+      </div>
+      {{ end }}
     </div>
 
   </div>

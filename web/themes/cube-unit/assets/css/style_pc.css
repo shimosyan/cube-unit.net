@@ -503,13 +503,13 @@ body { margin:0; padding:0;
 }
 
 /* ----------------------------------------------------------------------
- Streaming Services
+ Streaming and SNS Services
 ---------------------------------------------------------------------- */
-.streaming_services {
+.streaming_and_sns_services {
   margin: 0 0 40px 0;
 }
 
-.streaming_link {
+.streaming_and_sns_link {
   display: block;
   padding: 12px 15px;
   margin: 0 0 8px 0;
@@ -521,14 +521,14 @@ body { margin:0; padding:0;
   position: relative;
 }
 
-.streaming_link:hover {
+.streaming_and_sns_link:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border-color: #ccc;
   text-decoration: none;
 }
 
-.streaming_link i {
+.streaming_and_sns_link i {
   font-size: 20px;
   margin-right: 12px;
   width: 24px;
@@ -536,27 +536,33 @@ body { margin:0; padding:0;
   vertical-align: middle;
 }
 
-.streaming_link span {
+.streaming_and_sns_link span {
   font-size: 14px;
   font-weight: 600;
   vertical-align: middle;
 }
 
 /* Service-specific colors */
-.streaming_link.apple_music:hover {
+.streaming_and_sns_link.apple_music:hover {
   background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
   color: white;
   border-color: #f5576c;
 }
 
-.streaming_link.youtube_music:hover {
+.streaming_and_sns_link.youtube_music:hover {
   background: #ff0000;
   color: white;
   border-color: #cc0000;
 }
 
-.streaming_link.line_music:hover {
+.streaming_and_sns_link.line_music:hover {
   background: #00c300;
   color: white;
   border-color: #00a000;
+}
+
+.streaming_and_sns_link.x:hover {
+  background: #1a1a1a;
+  color: white;
+  border-color: #1a1a1a;
 }
