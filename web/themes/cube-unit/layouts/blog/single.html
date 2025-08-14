@@ -32,7 +32,7 @@
               <ul class="type2 clearfix">
                 <!--X（旧Twitter）ボタン-->
                 <li class="x-twitter">
-                  <a href="https://x.com/intent/post?text={{ .Title | urlquery }}&url={{ .Permalink | urlquery }}&via=cube_unit" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600');return false;">
+                  <a href="https://x.com/intent/post?text={{ .Title | urlquery }}&url={{ .Permalink | urlquery }}{{ if .Site.Params.social.x }}&via={{ .Site.Params.social.x }}{{ end }}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600');return false;">
                     <i class="fa-brands fa-x-twitter"></i><span class="ttl">Post</span><span class="share-count"></span>
                   </a>
                 </li>
