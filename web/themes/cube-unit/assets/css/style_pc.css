@@ -380,7 +380,15 @@ body { margin:0; padding:0;
 
 /* sns link */
 #social_link { margin:11px 0 0 15px; padding:0; text-align:center; float: right; }
-#social_link li { display:block; margin:0 0 0 5px; position:relative; background: #fff; border-radius: 100%; float: left; }
+#social_link li {
+  display:block;
+  margin:0 0 0 5px;
+  position:relative;
+  background: #fff;
+  border-radius: 100%;
+  float: left;
+  transition: all 0.3s ease;
+}
 #social_link li a {
   display:block; text-indent:-200px; overflow:hidden; width:24px; height:24px; position:relative;
   -webkit-transition-property:none; -moz-transition-property:none; -o-transition-property:none; transition-property:none;
@@ -397,6 +405,11 @@ body { margin:0; padding:0;
 #social_link li.flickr:before { content:'\f16e'; font-weight: 400; } /* fa-flickr */
 #social_link li.tumblr:before { content:'\f173'; font-weight: 400; } /* fa-tumblr */
 #social_link li.rss:before { font-family: 'Font Awesome 7 Free'; content:'\f09e'; font-weight: 900; } /* fa-rss solid */
+
+#social_link li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
 
 #social_link li.x-twitter:hover { background-color:#1a1a1a; }
 #social_link li.x-twitter:hover:before { color:#fff }
@@ -490,13 +503,13 @@ body { margin:0; padding:0;
 }
 
 /* ----------------------------------------------------------------------
- Streaming Services
+ Streaming and SNS Services
 ---------------------------------------------------------------------- */
-.streaming_services {
+.streaming_and_sns_services {
   margin: 0 0 40px 0;
 }
 
-.streaming_link {
+.streaming_and_sns_link {
   display: block;
   padding: 12px 15px;
   margin: 0 0 8px 0;
@@ -508,14 +521,14 @@ body { margin:0; padding:0;
   position: relative;
 }
 
-.streaming_link:hover {
+.streaming_and_sns_link:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border-color: #ccc;
   text-decoration: none;
 }
 
-.streaming_link i {
+.streaming_and_sns_link i {
   font-size: 20px;
   margin-right: 12px;
   width: 24px;
@@ -523,27 +536,33 @@ body { margin:0; padding:0;
   vertical-align: middle;
 }
 
-.streaming_link span {
+.streaming_and_sns_link span {
   font-size: 14px;
   font-weight: 600;
   vertical-align: middle;
 }
 
 /* Service-specific colors */
-.streaming_link.apple_music:hover {
+.streaming_and_sns_link.apple_music:hover {
   background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
   color: white;
   border-color: #f5576c;
 }
 
-.streaming_link.youtube_music:hover {
+.streaming_and_sns_link.youtube_music:hover {
   background: #ff0000;
   color: white;
   border-color: #cc0000;
 }
 
-.streaming_link.line_music:hover {
+.streaming_and_sns_link.line_music:hover {
   background: #00c300;
   color: white;
   border-color: #00a000;
+}
+
+.streaming_and_sns_link.x:hover {
+  background: #1a1a1a;
+  color: white;
+  border-color: #1a1a1a;
 }
