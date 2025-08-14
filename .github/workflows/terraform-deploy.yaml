@@ -40,7 +40,7 @@ jobs:
           aqua_version: v2.53.9
 
       # 変更のあった作業ディレクトリを取得する Action
-      - uses: suzuki-shunsuke/tfaction/list-targets@199e524698561cce9e340d94d3b3aac08ba9f99f # v1.18.3
+      - uses: suzuki-shunsuke/tfaction/list-targets@80af9c060a3870868c12c31a674e9d8b26278118 # v1.19.1
         id: list-targets
 
   # apply で setup で取得した変更のある作業ディレクトリを並列に実行する
@@ -81,7 +81,7 @@ jobs:
           AQUA_GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
 
       # GitHub Secrets を TFAction に渡す Action
-      - uses: suzuki-shunsuke/tfaction/js@199e524698561cce9e340d94d3b3aac08ba9f99f # v1.18.3
+      - uses: suzuki-shunsuke/tfaction/js@80af9c060a3870868c12c31a674e9d8b26278118 # v1.19.1
         with:
           action: export-secrets
           secrets: ${{ toJSON(secrets) }}
@@ -93,25 +93,25 @@ jobs:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
 
       # terraform init などの準備を行う Action
-      - uses: suzuki-shunsuke/tfaction/setup@199e524698561cce9e340d94d3b3aac08ba9f99f # v1.18.3
+      - uses: suzuki-shunsuke/tfaction/setup@80af9c060a3870868c12c31a674e9d8b26278118 # v1.19.1
         with:
           github_token: ${{ steps.app-token.outputs.token }}
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
 
       # terraform apply を実行する Action
-      - uses: suzuki-shunsuke/tfaction/apply@199e524698561cce9e340d94d3b3aac08ba9f99f # v1.18.3
+      - uses: suzuki-shunsuke/tfaction/apply@80af9c060a3870868c12c31a674e9d8b26278118 # v1.19.1
         with:
           github_token: ${{ steps.app-token.outputs.token }}
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
 
-      - uses: suzuki-shunsuke/tfaction/create-follow-up-pr@199e524698561cce9e340d94d3b3aac08ba9f99f # v1.18.3
+      - uses: suzuki-shunsuke/tfaction/create-follow-up-pr@80af9c060a3870868c12c31a674e9d8b26278118 # v1.19.1
         if: failure()
         with:
           github_token: ${{ steps.app-token.outputs.token }}
 
-      - uses: suzuki-shunsuke/tfaction/update-drift-issue@199e524698561cce9e340d94d3b3aac08ba9f99f # v1.18.3
+      - uses: suzuki-shunsuke/tfaction/update-drift-issue@80af9c060a3870868c12c31a674e9d8b26278118 # v1.19.1
         # CHECK: You can remove this step if you don't use drift detection
         if: always()
         with:
