@@ -70,12 +70,12 @@ target_groups:
       aws_assume_role_arn: arn:aws:iam::158677943024:role/github_cube-unit.net_terraform_plan
       secrets:
         - env_name: CLOUDFLARE_API_TOKEN
-          secret_name: CLOUDFLARE_READ_ONLY_API_TOKEN
+          secret_name: CLOUDFLARE_READ_ONLY_API_TOKEN # Account Scope API Token は利用できないため、User Scope API Token が必要
     terraform_apply_config:
       aws_assume_role_arn: arn:aws:iam::158677943024:role/github_cube-unit.net_terraform_apply
       secrets:
         - env_name: CLOUDFLARE_API_TOKEN
-          secret_name: CLOUDFLARE_WRITABLE_API_TOKEN
+          secret_name: CLOUDFLARE_WRITABLE_API_TOKEN # Account Scope API Token は利用できないため、User Scope API Token が必要
 
   - working_directory: terraform/cloudflare/cube-unit.net/zero-trust
     target: terraform/cloudflare/cube-unit.net/zero-trust
@@ -130,12 +130,12 @@ target_groups:
       aws_assume_role_arn: arn:aws:iam::158677943024:role/github_cube-unit.net_terraform_plan
       secrets:
         - env_name: CLOUDFLARE_API_TOKEN
-          secret_name: CLOUDFLARE_READ_ONLY_API_TOKEN
+          secret_name: CLOUDFLARE_READ_ONLY_API_TOKEN # Account Scope API Token は利用できないため、User Scope API Token が必要
     terraform_apply_config:
       aws_assume_role_arn: arn:aws:iam::158677943024:role/github_cube-unit.net_terraform_apply
       secrets:
         - env_name: CLOUDFLARE_API_TOKEN
-          secret_name: CLOUDFLARE_WRITABLE_API_TOKEN
+          secret_name: CLOUDFLARE_WRITABLE_API_TOKEN # Account Scope API Token は利用できないため、User Scope API Token が必要
 
   - working_directory: terraform/cloudflare/micmnis.net/zone
     target: terraform/cloudflare/micmnis.net/zone
