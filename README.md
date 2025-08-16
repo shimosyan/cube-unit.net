@@ -1,5 +1,8 @@
 # cube-unit.net
 
+[![Terraform Deploy](https://github.com/shimosyan/cube-unit.net/actions/workflows/terraform-deploy.yaml/badge.svg?branch=main)](https://github.com/shimosyan/cube-unit.net/actions/workflows/terraform-deploy.yaml)
+[![Web Deploy](https://github.com/shimosyan/cube-unit.net/actions/workflows/web-deploy-production.yaml/badge.svg?branch=main)](https://github.com/shimosyan/cube-unit.net/actions/workflows/web-deploy-production.yaml)
+
 同人サークル「Cube-Unit」の公式ウェブサイトのソースコードです。
 
 ## 🎵 About Cube-Unit
