@@ -117,11 +117,10 @@ jobs:
       - name: Check job result
         run: |
           RESULT="${{ needs.deploy-staging.result }}"
-          if [[ $RESULT == "success" || $RESULT == "skipped" ]]; then
-            echo "Web staging deployment succeeded!"
-            exit 0
-          else
-            echo "Web staging deployment failed or was cancelled!"
+          if [[ $RESULT != "success" && $RESULT != "skipped" ]]; then
+            echo "This workflow failed or was cancelled!"
             exit 1
           fi
 
+          echo "Success!!"
+          exit 0
