@@ -59,10 +59,10 @@ jobs:
       - name: Check job result
         run: |
           RESULT="${{ needs.check-documentation.result }}"
-          if [[ $RESULT == "success" || $RESULT == "skipped" ]]; then
-            echo "Documentation check succeeded!"
-            exit 0
-          else
-            echo "Documentation check failed or was cancelled!"
+          if [[ $RESULT != "success" && $RESULT != "skipped" ]]; then
+            echo "This workflow failed or was cancelled!"
             exit 1
           fi
+
+          echo "Success!!"
+          exit 0
