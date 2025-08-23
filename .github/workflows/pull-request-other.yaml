@@ -58,7 +58,8 @@ jobs:
     steps:
       - name: Check job result
         run: |
-          if [[ "${{ needs.check-documentation.result }}" == "success" ]]; then
+          RESULT="${{ needs.check-documentation.result }}"
+          if [[ $RESULT == "success" || $RESULT == "skipped" ]]; then
             echo "Documentation check succeeded!"
             exit 0
           else

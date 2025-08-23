@@ -119,8 +119,9 @@ jobs:
     steps:
       - name: Check job result
         run: |
-          if [[ "${{ needs.plan.result }}" == "success" ]]; then
-            echo "Terraform plan succeeded!"
+          RESULT="${{ needs.plan.result }}"
+          if [[ $RESULT == "success" || $RESULT == "skipped" ]]; then
+            echo "Terraform plan succeeded or was skipped (no targets)!"
             exit 0
           else
             echo "Terraform plan failed or was cancelled!"
