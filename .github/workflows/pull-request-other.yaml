@@ -52,8 +52,16 @@ jobs:
 
   success:
     needs: check-documentation
-    if: ${{ !failure() }}
+    if: ${{ always() }}
     runs-on: ubuntu-latest
 
     steps:
-      - run: echo "Success!!"
+      - name: Check job result
+        run: |
+          if [[ "${{ needs.check-documentation.result }}" == "success" ]]; then
+            echo "Documentation check succeeded!"
+            exit 0
+          else
+            echo "Documentation check failed or was cancelled!"
+            exit 1
+          fi
