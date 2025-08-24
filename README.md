@@ -50,6 +50,7 @@
 │   └── cloudflare/
 │       ├── cube-unit.net/
 │       │   ├── dns/              # Dns records of current domain
+│       │   ├── page-rules/       # Redirect configuration
 │       │   ├── zero-trust/       # Authentication configuration for internal applications
 │       │   └── zone/             # Common configuration
 │       └── micmnis.net/
@@ -95,8 +96,8 @@ hugo server
 Custom theme is located in `web/themes/cube-unit/`:
 
 - `layouts/`: HTML templates
-- `static/css/`: Stylesheets (PC/Mobile)
-- `static/js/`: JavaScript files
+- `assets/css/`: Stylesheets (PC/Mobile)
+- `assets/js/`: JavaScript files
 - `static/img/`: Theme images
 
 ## 🌐 Deployment
@@ -184,7 +185,10 @@ Amazon S3 (Static Files)
 
 ## 🛠️ Development History
 
-- **2025**: WordPress → Hugo migration
+- **2013**: First Launch Wordpress (Self Hosted)
+- **2017**: Wordpress (Self Hosted) → Wordpress (VPS Hosted) migration
+- **2022**: WordPress (VPS Hosted) → Headless WordPress migration
+- **2025**: Headless WordPress → Hugo migration
 
 ## 📝 License
 
@@ -193,7 +197,3 @@ This project is proprietary software of Cube-Unit. All rights reserved.
 ## 👥 Contributors
 
 - **shimosyan** - Infrastructure & Development
-
----
-
-💫 Made with ❤️ by Cube-Unit
