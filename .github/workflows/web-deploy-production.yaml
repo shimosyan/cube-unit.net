@@ -40,7 +40,9 @@ jobs:
     needs:
       - check-need-deploy
 
-    environment: production
+    environment:
+      name: production
+      url: ${{ vars.BASE_URL }}
 
     permissions:
       id-token: write
