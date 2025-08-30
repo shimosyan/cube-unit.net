@@ -9,6 +9,12 @@ templates:
 
     {{template "hidden_combined_output" .}}
 exec:
+  common:
+    - template: |
+        ## {{template "status" .}} {{.Vars.title}}
+
+        {{template "base" .}}
+
   common-error:
     - when: ExitCode != 0
       template: |
