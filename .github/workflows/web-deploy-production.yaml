@@ -49,7 +49,7 @@ jobs:
 
       - name: Build
         working-directory: web
-        run: github-comment exec -k common -var env:Production -var title:"Build Failed" -- hugo --minify
+        run: github-comment exec -k common -var env:Production -var title:"Build" -- hugo --minify
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
 

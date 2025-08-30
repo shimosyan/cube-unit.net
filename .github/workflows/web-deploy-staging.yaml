@@ -43,7 +43,7 @@ jobs:
 
       - name: Build
         working-directory: web
-        run: github-comment exec -k common -var env:Staging -var title:"Build Failed" -- hugo --baseURL "${{ env.BASE_URL }}"
+        run: github-comment exec -k common -var env:Staging -var title:"Build" -- hugo --baseURL "${{ env.BASE_URL }}"
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
 
