@@ -13,16 +13,41 @@ concurrency:
   group: ${{ github.workflow }}-web-staging-${{ github.ref }} # 特定の条件しかデプロイしないため PR レベルの排他制御
   cancel-in-progress: true # PR の更新があった場合は前のジョブをキャンセルする
 
-env:
-  BASE_URL: https://stg.cube-unit.net
-
 jobs:
-  web-build:
+  check-need-deploy:
+    environment: staging
+
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      paths: ${{ steps.filter.outputs.paths }}
+    permissions:
+      pull-requests: read
+      contents: read
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+
+      - name: Filter paths
+        uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36 # v3.0.2
+        id: filter
+        with:
+          # 変更したファイルがいずれかにマッチすれば true
+          filters: |
+            paths:
+              - 'web/**'
+
+  web-build-and-deploy-staging:
+    needs:
+      - check-need-deploy
+
+    environment: staging
+
     permissions:
       id-token: write
       contents: read
       pull-requests: write
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
@@ -43,89 +68,47 @@ jobs:
 
       - name: Build
         working-directory: web
-        run: github-comment exec -k common -var env:Staging -var title:"Build" -- hugo --baseURL "${{ env.BASE_URL }}"
+        run: github-comment exec -k common -var env:Staging -var title:"Build" -- hugo --baseURL "${{ vars.BASE_URL }}"
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
 
-  check-need-deploy:
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    outputs:
-      paths: ${{ steps.filter.outputs.paths }}
-    permissions:
-      pull-requests: read
-      contents: read
-    steps:
-      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
-
-      - name: Filter paths
-        uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36 # v3.0.2
-        id: filter
-        with:
-          # 変更したファイルがいずれかにマッチすれば true
-          filters: |
-            paths:
-              - 'web/**'
-
-  deploy-staging:
-    needs:
-      - web-build
-      - check-need-deploy
-    permissions:
-      id-token: write
-      contents: read
-      pull-requests: write
-    runs-on: ubuntu-latest
-
-    if: (!failure()) && (needs.check-need-deploy.outputs.paths == 'true')
-
-    env:
-      S3_URL: s3://stg.cube-unit.net
-      DISTRIBUTION_ID: E27GH5YU41F43Y
-
-    steps:
-      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
-
-      - uses: aquaproj/aqua-installer@d1fe50798dbadd4eb5b98957290ca175f6b4870f # v4.0.2
-        with:
-          aqua_version: v2.53.9
-
-      - id: app-token
-        uses: actions/create-github-app-token@a8d616148505b5069dccd32f177bb87d7f39123b # v2.1.1
-        with:
-          app-id: ${{ secrets.APP_ID }}
-          private-key: ${{ secrets.PRIVATE_KEY }}
-
       - uses: aws-actions/configure-aws-credentials@7474bc4690e29a8392af63c5b98e7449536d5c3a # v4.3.1
+        if: needs.check-need-deploy.outputs.paths == 'true'
         with:
           role-to-assume: arn:aws:iam::158677943024:role/github_cube-unit.net_web_deploy_staging
           aws-region: ap-northeast-1
 
       - name: Deploy
+        if: needs.check-need-deploy.outputs.paths == 'true'
         working-directory: web
-        run: github-comment exec -k deploy-to-s3 -var env:Staging -- aws s3 sync --delete public ${{ env.S3_URL }}
+        run: github-comment exec -k deploy-to-s3 -var env:Staging -- aws s3 sync --delete public ${{ vars.S3_URL }}
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
 
       - name: Purge Cache - Cloudfront
-        run: aws cloudfront create-invalidation --distribution-id ${{env.DISTRIBUTION_ID}} --paths "/*"
+        if: needs.check-need-deploy.outputs.paths == 'true'
+        run: aws cloudfront create-invalidation --distribution-id ${{vars.DISTRIBUTION_ID}} --paths "/*"
 
       - name: Purge Cache - Cloudflare
+        if: needs.check-need-deploy.outputs.paths == 'true'
         uses: jakejarvis/cloudflare-purge-action@eee6dba0236093358f25bb1581bd615dc8b3d8e3 # v0.3.0
         env:
           CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE_ID }}
           CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_CACHE_PURGE_API_TOKEN }}
-          PURGE_URLS: '["${{ env.BASE_URL }}", "${{ env.BASE_URL }}/"]'
+          PURGE_URLS: '["${{ vars.BASE_URL }}", "${{ vars.BASE_URL }}/"]'
 
   success:
-    needs: web-build
+    needs: web-build-and-deploy-staging
+
+    environment: staging
+
     if: ${{ always() }}
     runs-on: ubuntu-latest
 
     steps:
       - name: Check job result
         run: |
-          RESULT="${{ needs.web-build.result }}"
+          RESULT="${{ needs.web-build-and-deploy-staging.result }}"
           if [[ $RESULT != "success" && $RESULT != "skipped" ]]; then
             echo "This workflow failed or was cancelled!"
             exit 1
