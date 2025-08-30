@@ -9,10 +9,22 @@ templates:
 
     {{template "hidden_combined_output" .}}
 exec:
+  common:
+    - when: ExitCode == 0
+      template: |
+        ## {{template "status" .}} {{.Vars.title}} Success ({{.Vars.env}})
+
+        {{template "base" .}}
+    - when: ExitCode != 0
+      template: |
+        ## {{template "status" .}} {{.Vars.title}} Failed ({{.Vars.env}})
+
+        {{template "base" .}}
+
   common-error:
     - when: ExitCode != 0
       template: |
-        ## {{template "status" .}} {{.Vars.title}} ({{.Vars.env}})
+        ## {{template "status" .}} {{.Vars.title}} Failed ({{.Vars.env}})
 
         {{template "base" .}}
 

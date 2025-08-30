@@ -8,6 +8,7 @@ on:
       - .github/workflows/terraform**
       - terraform/**
       - tfaction-root.yaml
+      - aqua.yaml
 
 concurrency:
   group: terraform-deploy # デプロイ先が1つしかないため repo 内で排他制御
@@ -26,7 +27,8 @@ jobs:
   # terraform-pull-request.yaml と同様に setup で変更のあった作業ディレクトリを取得し、outputs で出力する
   setup:
     runs-on: ubuntu-latest
-    environment: main
+
+    environment: production
 
     outputs:
       targets: ${{ steps.list-targets.outputs.targets }}
@@ -45,10 +47,12 @@ jobs:
 
   # apply で setup で取得した変更のある作業ディレクトリを並列に実行する
   apply:
-    name: "terraform apply (${{ matrix.target.target }})"
-    environment: main
-    runs-on: ${{ matrix.target.runs_on }}
     needs: setup
+
+    environment: production
+
+    name: "terraform apply (${{ matrix.target.target }})"
+    runs-on: ${{ matrix.target.runs_on }}
 
     # setup で取得した変更のある作業ディレクトリが空の場合は実行しない
     if: join(fromJSON(needs.setup.outputs.targets), '') != ''
@@ -119,6 +123,8 @@ jobs:
           github_token: ${{ steps.app-token.outputs.token }}
 
   success:
+    environment: production
+
     needs: apply
     if: ${{ !failure() }}
     runs-on: ubuntu-latest

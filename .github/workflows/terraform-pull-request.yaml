@@ -8,6 +8,7 @@ on:
       - .github/workflows/terraform**
       - terraform/**
       - tfaction-root.yaml
+      - aqua.yaml
 
 concurrency:
   group: ${{ github.workflow }}-terraform-${{ github.ref }}  # デプロイしないため PR レベルの排他制御
@@ -22,6 +23,8 @@ jobs:
   # setup で変更のあった作業ディレクトリを取得する
   setup:
     runs-on: ubuntu-latest
+
+    environment: staging
 
     outputs:
       targets: ${{ steps.list-targets.outputs.targets }}
@@ -50,9 +53,11 @@ jobs:
 
   # plan で setup で取得した変更のある作業ディレクトリを並列に実行する
   plan:
+    needs: setup
+    environment: staging
+
     name: "terraform plan (${{ matrix.target.target }})"
     runs-on: ${{ matrix.target.runs_on }}
-    needs: setup
 
     # setup で取得した変更のある作業ディレクトリが空の場合は実行しない
     if: join(fromJSON(needs.setup.outputs.targets), '') != ''
