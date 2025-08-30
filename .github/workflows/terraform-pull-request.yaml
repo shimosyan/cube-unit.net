@@ -8,6 +8,7 @@ on:
       - .github/workflows/terraform**
       - terraform/**
       - tfaction-root.yaml
+      - aqua.yaml
 
 concurrency:
   group: ${{ github.workflow }}-terraform-${{ github.ref }}  # デプロイしないため PR レベルの排他制御

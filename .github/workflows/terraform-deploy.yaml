@@ -8,6 +8,7 @@ on:
       - .github/workflows/terraform**
       - terraform/**
       - tfaction-root.yaml
+      - aqua.yaml
 
 concurrency:
   group: terraform-deploy # デプロイ先が1つしかないため repo 内で排他制御
