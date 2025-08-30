@@ -1,3 +1,6 @@
+/**
+* Cloudflare を用いた認証付きアクセス管理 (Zero Trust Application)
+*/
 locals {
   zero_trust_application_config = {
     stg = {
