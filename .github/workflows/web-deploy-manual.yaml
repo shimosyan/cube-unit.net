@@ -1,4 +1,4 @@
-name: web-deploy-staging-manual
+name: web-deploy-manual
 
 on:
   workflow_dispatch:
