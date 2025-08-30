@@ -10,7 +10,7 @@ templates:
     {{template "hidden_combined_output" .}}
 exec:
   common:
-    - when: ExitCode = 0
+    - when: ExitCode == 0
       template: |
         ## {{template "status" .}} {{.Vars.title}} Success ({{.Vars.env}})
 
