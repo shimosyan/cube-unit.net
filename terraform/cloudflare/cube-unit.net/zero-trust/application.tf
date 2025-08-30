@@ -15,7 +15,7 @@ locals {
       ]
     },
     proxmox = {
-      name   = "cube-unit Proxmox Service"
+      name   = "Cube-Unit Proxmox Service"
       domain = "proxmox.cube-unit.net"
       type   = "self_hosted"
       uris = [
@@ -108,14 +108,4 @@ resource "cloudflare_zero_trust_access_application" "main" {
   tags                            = []
   target_criteria                 = null
   zone_id                         = null
-}
-
-moved {
-  from = cloudflare_zero_trust_access_application.stg
-  to   = cloudflare_zero_trust_access_application.main["stg"]
-}
-
-moved {
-  from = cloudflare_zero_trust_access_application.proxmox
-  to   = cloudflare_zero_trust_access_application.main["proxmox"]
 }
