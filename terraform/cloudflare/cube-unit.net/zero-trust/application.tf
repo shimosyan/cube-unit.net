@@ -4,7 +4,7 @@ locals {
       name   = "Cube-Unit 公式サイト Staging環境"
       domain = "stg.cube-unit.net"
       type   = "self_hosted"
-      uris   = [
+      uris = [
         "stg.cube-unit.net"
       ]
       policies = [
@@ -18,7 +18,7 @@ locals {
       name   = "cube-unit Proxmox Service"
       domain = "proxmox.cube-unit.net"
       type   = "self_hosted"
-      uris   = [
+      uris = [
         "proxmox.cube-unit.net",
       ]
       policies = [
@@ -36,7 +36,7 @@ locals {
       name   = "Cube-Unit Internal Services"
       domain = "nas.cube-unit.net"
       type   = "self_hosted"
-      uris   = [
+      uris = [
         "nas.cube-unit.net",
         "vscode.cube-unit.net",
         "grafana.cube-unit.net",
@@ -51,7 +51,7 @@ locals {
   }
 }
 
-resource "cloudflare_zero_trust_access_application" "main"{
+resource "cloudflare_zero_trust_access_application" "main" {
   for_each = local.zero_trust_application_config
 
   account_id = local.account_id
@@ -64,7 +64,7 @@ resource "cloudflare_zero_trust_access_application" "main"{
   ]
 
   destinations = [
-    for url in  each.value.uris :
+    for url in each.value.uris :
     {
       cidr        = null
       hostname    = null
