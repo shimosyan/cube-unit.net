@@ -40,7 +40,9 @@ jobs:
     needs:
       - check-need-deploy
 
-    environment: staging
+    environment:
+      name: staging
+      url: ${{ vars.BASE_URL }}
 
     permissions:
       id-token: write
