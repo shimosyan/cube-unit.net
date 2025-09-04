@@ -1,4 +1,4 @@
-name: web-deploy-staging
+name: Web Deploy Staging
 
 on:
   pull_request:
