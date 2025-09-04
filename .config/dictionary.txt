@@ -54,3 +54,9 @@ NEXON
 Yostar
 cloudflareaccess
 cloudflared
+securefix
+dorny
+peaceiris
+elif
+unmatch
+gohugoio
