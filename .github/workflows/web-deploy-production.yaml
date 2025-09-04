@@ -1,4 +1,4 @@
-name: web-deploy-production
+name: Web Deploy Production
 
 on:
   push:

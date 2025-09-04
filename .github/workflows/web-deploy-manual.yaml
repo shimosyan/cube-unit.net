@@ -1,4 +1,4 @@
-name: web-deploy-manual
+name: Web Deploy Manual
 
 on:
   workflow_dispatch:
