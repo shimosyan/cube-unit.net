@@ -25,6 +25,5 @@
     "* 0 * * *"
   ],
   "timezone": "Asia/Tokyo",
-  "rebaseStalePRs": true,
   "dependencyDashboard": true
 }
