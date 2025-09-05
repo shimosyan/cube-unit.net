@@ -12,16 +12,6 @@
       "automerge": true
     },
     {
-      "matchManagers": ["aqua"],
-      "postUpgradeTasks": {
-        "commands": [
-          "aqua policy allow && aqua i -l && aqua update-checksum --all --prune"
-        ],
-        "fileFilters": ["aqua-checksums.json"],
-        "executionMode": "update"
-      }
-    },
-    {
       "matchDepTypes": ["action"],
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "pinDigests": true,
