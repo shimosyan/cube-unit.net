@@ -5,6 +5,11 @@ on:
     branches:
       - main
       - master
+    paths:
+      - .github/workflows/**
+      - terraform/**/.terraform.lock.hcl
+      - aqua.yaml
+      - aqua-checksums.json
   workflow_dispatch:
     inputs:
       pr_numbers:
