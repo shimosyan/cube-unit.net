@@ -78,7 +78,7 @@ jobs:
 
           mergeable=$(echo "$pr_info" | jq -r '.mergeable')
           state=$(echo "$pr_info" | jq -r '.state')
-          has_rebase_label=$(echo "$pr_info" | jq '.labels | map(.name) | contains([${{ env.TARGET_LABEL_NAME }}])')
+          has_rebase_label=$(echo "$pr_info" | jq '.labels | map(.name) | contains(["${{ env.TARGET_LABEL_NAME }}"])')
 
           echo "mergeable=$mergeable" >> $GITHUB_OUTPUT
           echo "state=$state" >> $GITHUB_OUTPUT
