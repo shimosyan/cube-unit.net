@@ -41,7 +41,7 @@ jobs:
               --repo ${{ github.repository }} \
               --state open \
               --json number,author,labels \
-              --jq '[.[] | select((.author.login == "renovate[bot]") or (.labels | map(.name) | contains(["dependencies", "renovate"]))) | .number]')
+              --jq '[.[] | select((.author.login == "app/renovate") or (.labels | map(.name) | contains(["dependencies", "renovate"]))) | .number]'
           fi
           echo "pr_numbers=$pr_json" >> $GITHUB_OUTPUT
 
