@@ -1,4 +1,4 @@
-name: Document Pull Request
+name: Enable Auto Merge for Renovate
 
 on:
   pull_request:
