@@ -47,11 +47,12 @@ jobs:
       pull-requests: write
 
   web-deploy-staging:
+    environment: staging
     uses: ./.github/workflows/wc-web-deploy-staging.yaml
     with:
       BASE_URL: ${{vars.BASE_URL}}
-      S3_URL: ${{vars.BASE_URL}}
-      DISTRIBUTION_ID: ${{vars.BASE_URL}}
+      S3_URL: ${{vars.S3_URL}}
+      DISTRIBUTION_ID: ${{vars.DISTRIBUTION_ID}}
     secrets:
       APP_ID: ${{secrets.APP_ID}}
       PRIVATE_KEY: ${{secrets.PRIVATE_KEY}}
@@ -63,6 +64,7 @@ jobs:
       pull-requests: write
 
   terraform-plan:
+    environment: staging
     uses: ./.github/workflows/wc-terraform-pull-request.yaml
     secrets:
       APP_ID: ${{secrets.APP_ID}}

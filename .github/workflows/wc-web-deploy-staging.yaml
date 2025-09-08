@@ -30,8 +30,6 @@ permissions:
 
 jobs:
   check-need-build:
-    environment: staging
-
     runs-on: ubuntu-latest
     timeout-minutes: 10
     outputs:
@@ -55,8 +53,6 @@ jobs:
               - aqua.yaml
 
   check-need-deploy:
-    environment: staging
-
     runs-on: ubuntu-latest
     timeout-minutes: 10
     outputs:
