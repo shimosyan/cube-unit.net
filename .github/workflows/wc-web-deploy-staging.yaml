@@ -2,16 +2,6 @@ name: Web Deploy Staging
 
 on:
   workflow_call:
-    inputs:
-      BASE_URL:
-        required: false
-        type: string
-      S3_URL:
-        required: false
-        type: string
-      DISTRIBUTION_ID:
-        required: false
-        type: string
     secrets:
       APP_ID:
         required: true
@@ -30,8 +20,6 @@ permissions:
 
 jobs:
   check-need-build:
-    environment: staging
-
     runs-on: ubuntu-latest
     timeout-minutes: 10
     outputs:
@@ -49,14 +37,13 @@ jobs:
           # 変更したファイルがいずれかにマッチすれば true
           filters: |
             test-files:
+              - .github/workflows/pull-request.yaml
               - .github/workflows/web**
               - .github/workflows/wc-web**
               - web/**
               - aqua.yaml
 
   check-need-deploy:
-    environment: staging
-
     runs-on: ubuntu-latest
     timeout-minutes: 10
     outputs:
@@ -84,7 +71,7 @@ jobs:
 
     environment:
       name: staging
-      url: ${{ inputs.BASE_URL }}
+      url: ${{ vars.BASE_URL }}
 
     runs-on: ubuntu-latest
 
@@ -108,7 +95,7 @@ jobs:
 
       - name: Build
         working-directory: web
-        run: github-comment exec -k common -var env:Staging -var title:"Build" -- hugo --baseURL "${{ inputs.BASE_URL }}"
+        run: github-comment exec -k common -var env:Staging -var title:"Build" -- hugo --baseURL "${{ vars.BASE_URL }}"
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
 
@@ -121,13 +108,13 @@ jobs:
       - name: Deploy
         if: needs.check-need-deploy.outputs.test-files == 'true'
         working-directory: web
-        run: github-comment exec -k deploy-to-s3 -var env:Staging -- aws s3 sync --delete public ${{ inputs.S3_URL }}
+        run: github-comment exec -k deploy-to-s3 -var env:Staging -- aws s3 sync --delete public ${{ vars.S3_URL }}
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
 
       - name: Purge Cache - Cloudfront
         if: needs.check-need-deploy.outputs.test-files == 'true'
-        run: aws cloudfront create-invalidation --distribution-id ${{inputs.DISTRIBUTION_ID}} --paths "/*"
+        run: aws cloudfront create-invalidation --distribution-id ${{vars.DISTRIBUTION_ID}} --paths "/*"
 
       - name: Purge Cache - Cloudflare
         if: needs.check-need-deploy.outputs.test-files == 'true'
@@ -135,4 +122,4 @@ jobs:
         env:
           CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE_ID }}
           CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_CACHE_PURGE_API_TOKEN }}
-          PURGE_URLS: '["${{ inputs.BASE_URL }}", "${{ inputs.BASE_URL }}/"]'
+          PURGE_URLS: '["${{ vars.BASE_URL }}", "${{ vars.BASE_URL }}/"]'

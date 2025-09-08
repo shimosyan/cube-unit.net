@@ -30,6 +30,7 @@ jobs:
         with:
           filters: |
             test-files:
+              - .github/workflows/pull-request.yaml
               - .github/workflows/terraform**
               - .github/workflows/wc-terraform**
               - terraform/**
@@ -43,8 +44,6 @@ jobs:
     if: needs.check-need-plan.outputs.test-files == 'true'
 
     runs-on: ubuntu-latest
-
-    environment: staging
 
     outputs:
       targets: ${{ steps.list-targets.outputs.targets }}
@@ -74,13 +73,14 @@ jobs:
   # plan で setup で取得した変更のある作業ディレクトリを並列に実行する
   plan:
     needs: setup
-    environment: staging
 
     name: "terraform plan (${{ matrix.target.target }})"
     runs-on: ${{ matrix.target.runs_on }}
 
     # setup で取得した変更のある作業ディレクトリが空の場合は実行しない
     if: join(fromJSON(needs.setup.outputs.targets), '') != ''
+
+    environment: staging
 
     strategy:
       fail-fast: false

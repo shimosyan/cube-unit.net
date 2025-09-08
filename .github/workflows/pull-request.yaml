@@ -48,10 +48,6 @@ jobs:
 
   web-deploy-staging:
     uses: ./.github/workflows/wc-web-deploy-staging.yaml
-    with:
-      BASE_URL: ${{vars.BASE_URL}}
-      S3_URL: ${{vars.BASE_URL}}
-      DISTRIBUTION_ID: ${{vars.BASE_URL}}
     secrets:
       APP_ID: ${{secrets.APP_ID}}
       PRIVATE_KEY: ${{secrets.PRIVATE_KEY}}
