@@ -1,26 +1,41 @@
 name: Web Deploy Staging
 
 on:
-  pull_request:
-    branches:
-      - main
-    paths:
-      - .github/workflows/web**
-      - web/**
-      - aqua.yaml
+  workflow_call:
+    inputs:
+      BASE_URL:
+        required: false
+        type: string
+      S3_URL:
+        required: false
+        type: string
+      DISTRIBUTION_ID:
+        required: false
+        type: string
+    secrets:
+      APP_ID:
+        required: true
+      PRIVATE_KEY:
+        required: true
+      CLOUDFLARE_ZONE_ID:
+        required: true
+      CLOUDFLARE_CACHE_PURGE_API_TOKEN:
+        required: true
 
-concurrency:
-  group: ${{ github.workflow }}-web-staging-${{ github.ref }} # 特定の条件しかデプロイしないため PR レベルの排他制御
-  cancel-in-progress: true # PR の更新があった場合は前のジョブをキャンセルする
+
+permissions:
+  id-token: write
+  contents: read
+  pull-requests: write
 
 jobs:
-  check-need-deploy:
+  check-need-build:
     environment: staging
 
     runs-on: ubuntu-latest
     timeout-minutes: 10
     outputs:
-      paths: ${{ steps.filter.outputs.paths }}
+      test-files: ${{ steps.filter.outputs.test-files }}
     permissions:
       pull-requests: read
       contents: read
@@ -33,21 +48,44 @@ jobs:
         with:
           # 変更したファイルがいずれかにマッチすれば true
           filters: |
-            paths:
-              - 'web/**'
+            test-files:
+              - .github/workflows/web**
+              - .github/workflows/wc-web**
+              - web/**
+              - aqua.yaml
+
+  check-need-deploy:
+    environment: staging
+
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      test-files: ${{ steps.filter.outputs.test-files }}
+    permissions:
+      pull-requests: read
+      contents: read
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+
+      - name: Filter paths
+        uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36 # v3.0.2
+        id: filter
+        with:
+          # 変更したファイルがいずれかにマッチすれば true
+          filters: |
+            test-files:
+              - web/**
 
   web-build-and-deploy-staging:
     needs:
+      - check-need-build
       - check-need-deploy
+    if: needs.check-need-build.outputs.test-files == 'true'
 
     environment:
       name: staging
-      url: ${{ vars.BASE_URL }}
+      url: ${{ inputs.BASE_URL }}
 
-    permissions:
-      id-token: write
-      contents: read
-      pull-requests: write
     runs-on: ubuntu-latest
 
     steps:
@@ -70,7 +108,7 @@ jobs:
 
       - name: Build
         working-directory: web
-        run: github-comment exec -k common -var env:Staging -var title:"Build" -- hugo --baseURL "${{ vars.BASE_URL }}"
+        run: github-comment exec -k common -var env:Staging -var title:"Build" -- hugo --baseURL "${{ inputs.BASE_URL }}"
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
 
@@ -81,40 +119,20 @@ jobs:
           aws-region: ap-northeast-1
 
       - name: Deploy
-        if: needs.check-need-deploy.outputs.paths == 'true'
+        if: needs.check-need-deploy.outputs.test-files == 'true'
         working-directory: web
-        run: github-comment exec -k deploy-to-s3 -var env:Staging -- aws s3 sync --delete public ${{ vars.S3_URL }}
+        run: github-comment exec -k deploy-to-s3 -var env:Staging -- aws s3 sync --delete public ${{ inputs.S3_URL }}
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
 
       - name: Purge Cache - Cloudfront
-        if: needs.check-need-deploy.outputs.paths == 'true'
-        run: aws cloudfront create-invalidation --distribution-id ${{vars.DISTRIBUTION_ID}} --paths "/*"
+        if: needs.check-need-deploy.outputs.test-files == 'true'
+        run: aws cloudfront create-invalidation --distribution-id ${{inputs.DISTRIBUTION_ID}} --paths "/*"
 
       - name: Purge Cache - Cloudflare
-        if: needs.check-need-deploy.outputs.paths == 'true'
+        if: needs.check-need-deploy.outputs.test-files == 'true'
         uses: jakejarvis/cloudflare-purge-action@eee6dba0236093358f25bb1581bd615dc8b3d8e3 # v0.3.0
         env:
           CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE_ID }}
           CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_CACHE_PURGE_API_TOKEN }}
-          PURGE_URLS: '["${{ vars.BASE_URL }}", "${{ vars.BASE_URL }}/"]'
-
-  success:
-    needs: web-build-and-deploy-staging
-
-    environment: staging
-
-    if: ${{ always() }}
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Check job result
-        run: |
-          RESULT="${{ needs.web-build-and-deploy-staging.result }}"
-          if [[ $RESULT != "success" && $RESULT != "skipped" ]]; then
-            echo "This workflow failed or was cancelled!"
-            exit 1
-          fi
-
-          echo "Success!!"
-          exit 0
+          PURGE_URLS: '["${{ inputs.BASE_URL }}", "${{ inputs.BASE_URL }}/"]'
