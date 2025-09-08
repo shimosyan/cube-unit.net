@@ -37,6 +37,7 @@ jobs:
           # 変更したファイルがいずれかにマッチすれば true
           filters: |
             test-files:
+              - .github/workflows/pull-request.yaml
               - .github/workflows/web**
               - .github/workflows/wc-web**
               - web/**

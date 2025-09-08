@@ -30,6 +30,7 @@ jobs:
         with:
           filters: |
             test-files:
+              - .github/workflows/pull-request.yaml
               - .github/workflows/terraform**
               - .github/workflows/wc-terraform**
               - terraform/**
