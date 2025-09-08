@@ -12,8 +12,6 @@ concurrency:
 
 permissions: {}
 
-environment: staging
-
 jobs:
   status-check:
     needs:
