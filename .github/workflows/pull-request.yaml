@@ -64,7 +64,6 @@ jobs:
 
   terraform-plan:
     uses: ./.github/workflows/wc-terraform-pull-request.yaml
-    with:
     secrets:
       APP_ID: ${{secrets.APP_ID}}
       PRIVATE_KEY: ${{secrets.PRIVATE_KEY}}
