@@ -5,7 +5,9 @@ on:
     branches:
       - main
     paths:
+      - .github/workflows/pull-request.yaml
       - .github/workflows/terraform**
+      - .github/workflows/wc-terraform**
       - terraform/**
       - tfaction-root.yaml
       - aqua.yaml

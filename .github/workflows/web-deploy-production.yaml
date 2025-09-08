@@ -5,7 +5,9 @@ on:
     branches:
       - main
     paths:
+      - .github/workflows/pull-request.yaml
       - .github/workflows/web**
+      - .github/workflows/wc-web**
       - web/**
       - aqua.yaml
 
