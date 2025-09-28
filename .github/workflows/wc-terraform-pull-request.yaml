@@ -67,7 +67,7 @@ jobs:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
 
       # 変更のあった作業ディレクトリを取得する Action
-      - uses: suzuki-shunsuke/tfaction/list-targets@87610cec60807dbed155594235862384ce4c9f01 # v1.19.4
+      - uses: suzuki-shunsuke/tfaction/list-targets@ab77216aa7cdec60c57b71cf970d6492ac241b1c # v1.19.5
         id: list-targets
 
   # plan で setup で取得した変更のある作業ディレクトリを並列に実行する
@@ -110,27 +110,27 @@ jobs:
           AQUA_GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
 
       # GitHub Secrets を TFAction に渡す Action
-      - uses: suzuki-shunsuke/tfaction/js@87610cec60807dbed155594235862384ce4c9f01 # v1.19.4
+      - uses: suzuki-shunsuke/tfaction/js@ab77216aa7cdec60c57b71cf970d6492ac241b1c # v1.19.5
         with:
           action: export-secrets
           secrets: ${{ toJSON(secrets) }}
 
       # terraform init などの準備を行う Action
-      - uses: suzuki-shunsuke/tfaction/setup@87610cec60807dbed155594235862384ce4c9f01 # v1.19.4
+      - uses: suzuki-shunsuke/tfaction/setup@ab77216aa7cdec60c57b71cf970d6492ac241b1c # v1.19.5
         with:
           github_token: ${{ steps.app-token.outputs.token }}
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
 
       # terraform fmt 等を実行する Action
-      - uses: suzuki-shunsuke/tfaction/test@87610cec60807dbed155594235862384ce4c9f01 # v1.19.4
+      - uses: suzuki-shunsuke/tfaction/test@ab77216aa7cdec60c57b71cf970d6492ac241b1c # v1.19.5
         with:
           github_token: ${{ steps.app-token.outputs.token }}
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
 
       # terraform plan を実行する Action
-      - uses: suzuki-shunsuke/tfaction/plan@87610cec60807dbed155594235862384ce4c9f01 # v1.19.4
+      - uses: suzuki-shunsuke/tfaction/plan@ab77216aa7cdec60c57b71cf970d6492ac241b1c # v1.19.5
         with:
           github_token: ${{ steps.app-token.outputs.token }}
         env:
