@@ -3,4 +3,6 @@ resource "cloudflare_zero_trust_access_service_token" "github_actions_self_host_
   name       = "Github Actions"
   duration   = "forever"
   zone_id    = null
+
+  client_secret_version = 1
 }
