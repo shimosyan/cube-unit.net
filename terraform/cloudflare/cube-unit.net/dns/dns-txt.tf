@@ -104,3 +104,22 @@ resource "cloudflare_dns_record" "_google-site-verification-2_txt" {
   }
   tags = []
 }
+
+resource "cloudflare_dns_record" "_apple-business-manager_txt" {
+  zone_id = local.zone
+  name    = local.domain
+  ttl     = 3600
+  type    = "TXT"
+  proxied = false
+  content = "\"apple-domain-verification=ZzH3yQaXcxZSsoim\""
+
+  comment  = null
+  data     = null
+  priority = null
+  settings = {
+    flatten_cname = null
+    ipv4_only     = null
+    ipv6_only     = null
+  }
+  tags = []
+}
