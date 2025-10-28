@@ -41,7 +41,7 @@ jobs:
       # aqua を使って必要なツールをインストールする
       - uses: aquaproj/aqua-installer@ea518c135a02fc11ff8024364510c181a5c6b342 # v4.0.3
         with:
-          aqua_version: v2.55.0
+          aqua_version: v2.55.1
 
       # 変更のあった作業ディレクトリを取得する Action
       - uses: suzuki-shunsuke/tfaction/list-targets@ab77216aa7cdec60c57b71cf970d6492ac241b1c # v1.19.5
@@ -82,7 +82,7 @@ jobs:
 
       - uses: aquaproj/aqua-installer@ea518c135a02fc11ff8024364510c181a5c6b342 # v4.0.3
         with:
-          aqua_version: v2.55.0
+          aqua_version: v2.55.1
         env:
           AQUA_GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
 
