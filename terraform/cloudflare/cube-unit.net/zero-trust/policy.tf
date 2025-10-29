@@ -1,3 +1,6 @@
+#
+# Google Workspace SSO
+#
 resource "cloudflare_zero_trust_access_policy" "google_workspace_sso" {
   account_id       = local.account_id
   name             = "GoogleWS SSO"
@@ -50,6 +53,9 @@ resource "cloudflare_zero_trust_access_policy" "google_workspace_sso" {
   purpose_justification_required = null
 }
 
+#
+# Github Actions Self-hosted Runner
+#
 resource "cloudflare_zero_trust_access_policy" "github_actions_self_host_runner" {
   account_id       = local.account_id
   name             = "Github Actions"
