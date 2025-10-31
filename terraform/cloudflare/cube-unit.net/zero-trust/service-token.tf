@@ -4,5 +4,6 @@ resource "cloudflare_zero_trust_access_service_token" "github_actions_self_host_
   duration   = "forever"
   zone_id    = null
 
-  client_secret_version = 1
+  client_secret_version             = 1
+  previous_client_secret_expires_at = "2014-01-01T05:20:00.12345Z"
 }
