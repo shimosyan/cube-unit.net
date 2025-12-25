@@ -26,23 +26,23 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/gohugoio/hugo/v0.153.1/hugo_0.153.1_linux-amd64.tar.gz",
-      "checksum": "2F53A9369478405B3F6AD5FE49DA207B13248A18272940AE3061F75E57DF3CC7",
+      "id": "github_release/github.com/gohugoio/hugo/v0.153.2/hugo_0.153.2_linux-amd64.tar.gz",
+      "checksum": "5382E83653AD1A4EED9E5CB7F09A6FEF15085301FCB5D009ADEE8BA6E0C8338A",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/gohugoio/hugo/v0.153.1/hugo_0.153.1_linux-arm64.tar.gz",
-      "checksum": "6A84C9634D7D73033D4040B88BBE2143BB07147471871052C2EC321B7241CC20",
+      "id": "github_release/github.com/gohugoio/hugo/v0.153.2/hugo_0.153.2_linux-arm64.tar.gz",
+      "checksum": "6F6724438791296CAE6373D35BA627804E3688105792B12366EC6EB55A69386A",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/gohugoio/hugo/v0.153.1/hugo_0.153.1_windows-amd64.zip",
-      "checksum": "A9818B3BC69BD705F626F6A4ABCCF5CAE63215359896DF0F9FAADAB1120EE061",
+      "id": "github_release/github.com/gohugoio/hugo/v0.153.2/hugo_0.153.2_windows-amd64.zip",
+      "checksum": "673DF8A4A9B325594C910ABB54973CE33382015123B40636964D4DF17908E6A4",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/gohugoio/hugo/v0.153.1/hugo_0.153.1_windows-arm64.zip",
-      "checksum": "9E609C6499DA8C052158842C0F37D2525083960283325375025D04A9A67D6CCC",
+      "id": "github_release/github.com/gohugoio/hugo/v0.153.2/hugo_0.153.2_windows-arm64.zip",
+      "checksum": "399B759BE68BC56429D944592F0AF85E8DDDEB477D53DF396386848DBC578826",
       "algorithm": "sha256"
     },
     {
