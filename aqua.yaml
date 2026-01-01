@@ -17,4 +17,4 @@ packages:
   - name: suzuki-shunsuke/tfaction-go@v0.2.3
   - name: suzuki-shunsuke/github-comment@v6.4.1
   - name: int128/ghcp@v1.15.1
-  - name: gohugoio/hugo@v0.153.3
+  - name: gohugoio/hugo@v0.153.4
