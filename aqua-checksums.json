@@ -1,28 +1,28 @@
 {
   "checksums": [
     {
-      "id": "github_release/github.com/gohugoio/hugo/v0.158.0/hugo_0.158.0_darwin-universal.pkg",
-      "checksum": "F5D9583387939C826802039A0EDB9DC45897A1D582C34DB12E3F3535E450067F",
+      "id": "github_release/github.com/gohugoio/hugo/v0.159.0/hugo_0.159.0_darwin-universal.pkg",
+      "checksum": "FDC33FD434C08B25C4E90DBFAEEA3F8E8DB86A2D00C646B46D18F8A84BFD797A",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/gohugoio/hugo/v0.158.0/hugo_0.158.0_linux-amd64.tar.gz",
-      "checksum": "D0D8F0735DCCEF76E900719A70102F269C418E010A02E3E0F9E206A208346E2F",
+      "id": "github_release/github.com/gohugoio/hugo/v0.159.0/hugo_0.159.0_linux-amd64.tar.gz",
+      "checksum": "7D469FFE216DC370F05E224E153CFCA3BA705A1EE10CC97D9D91B87CD087F035",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/gohugoio/hugo/v0.158.0/hugo_0.158.0_linux-arm64.tar.gz",
-      "checksum": "1B3C692A1E9B1EF55850894A8EFFFFE803AC17508E4781C120442A2279144725",
+      "id": "github_release/github.com/gohugoio/hugo/v0.159.0/hugo_0.159.0_linux-arm64.tar.gz",
+      "checksum": "ED6CC1F925896524DD0236255287C400AEFEFB32087BB7466012591A0888C753",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/gohugoio/hugo/v0.158.0/hugo_0.158.0_windows-amd64.zip",
-      "checksum": "C7E9477408C9EB97795BA8B48B45621C68E99B9C87D267FAADF0374539AF6AF7",
+      "id": "github_release/github.com/gohugoio/hugo/v0.159.0/hugo_0.159.0_windows-amd64.zip",
+      "checksum": "9D97CF0AAB1F2540BFC7D5AE55EA1F034A640EC40C96AD417226DBF9124B4C14",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/gohugoio/hugo/v0.158.0/hugo_0.158.0_windows-arm64.zip",
-      "checksum": "111978773D2BE69C98AC356582D92DEEF3894D8710F4F3852C0699A2D55907FB",
+      "id": "github_release/github.com/gohugoio/hugo/v0.159.0/hugo_0.159.0_windows-arm64.zip",
+      "checksum": "5BD2E4E01FB6DF10538C66AF71831E2ED851F609400DEE0F8412CEB247FCF206",
       "algorithm": "sha256"
     },
     {
