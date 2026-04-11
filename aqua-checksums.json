@@ -1,28 +1,28 @@
 {
   "checksums": [
     {
-      "id": "github_release/github.com/gohugoio/hugo/v0.160.0/hugo_0.160.0_darwin-universal.pkg",
-      "checksum": "A9184A01A421A18247B65DD6E1A0FA5911726ADF181145C79673A0E6601945C6",
+      "id": "github_release/github.com/gohugoio/hugo/v0.160.1/hugo_0.160.1_darwin-universal.pkg",
+      "checksum": "E2A1CC1859E7CA72C59AF1ED1AB42F8E4FC153A3076AD36E76FFA726682C8FE8",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/gohugoio/hugo/v0.160.0/hugo_0.160.0_linux-amd64.tar.gz",
-      "checksum": "2C49F8F153B159AC81EE76DDEB126E913FADF8D5376A9DDC479E8772766DBDE3",
+      "id": "github_release/github.com/gohugoio/hugo/v0.160.1/hugo_0.160.1_linux-amd64.tar.gz",
+      "checksum": "2F72FEFA6CE944907F74C36C35ABCAA306CDD22E64647A9EE5B328FC0BFB67BE",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/gohugoio/hugo/v0.160.0/hugo_0.160.0_linux-arm64.tar.gz",
-      "checksum": "9730889ACFDFE3E5FAED899E3621339D7364353FFE03837E4076789436E0A02A",
+      "id": "github_release/github.com/gohugoio/hugo/v0.160.1/hugo_0.160.1_linux-arm64.tar.gz",
+      "checksum": "2FA48CF16869C6DE4E8E83EB21DBF1AF4E10BE8E220AA327C6E9DB8906A1283A",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/gohugoio/hugo/v0.160.0/hugo_0.160.0_windows-amd64.zip",
-      "checksum": "19B2E41882E2B266387BF3BE8D791264CBD7B2349EEAFF6BFB322E855E412E43",
+      "id": "github_release/github.com/gohugoio/hugo/v0.160.1/hugo_0.160.1_windows-amd64.zip",
+      "checksum": "E73D65AB5D6576A69D51BED4A0DCC90BC2AC5875014CC1263D97A57ED88B81AD",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/gohugoio/hugo/v0.160.0/hugo_0.160.0_windows-arm64.zip",
-      "checksum": "74ADBA0B387693D43E864795D3BD8E487940C04C7458C19F10700E5E3E793B89",
+      "id": "github_release/github.com/gohugoio/hugo/v0.160.1/hugo_0.160.1_windows-arm64.zip",
+      "checksum": "480C3A9E91180A738642537B0EFEFDC2310284C0DC5327E6E899F6FF5EF33AE3",
       "algorithm": "sha256"
     },
     {
