@@ -29,7 +29,7 @@ jobs:
   document-test:
     uses: ./.github/workflows/wc-document-pull-request.yaml
     secrets:
-      APP_ID: ${{secrets.APP_ID}}
+      CLIENT_ID: ${{secrets.CLIENT_ID}}
       PRIVATE_KEY: ${{secrets.PRIVATE_KEY}}
     permissions:
       id-token: write
@@ -40,6 +40,7 @@ jobs:
     uses: ./.github/workflows/wc-update-aqua-checksums.yaml
     secrets:
       APP_ID: ${{secrets.APP_ID}}
+      CLIENT_ID: ${{secrets.CLIENT_ID}}
       PRIVATE_KEY: ${{secrets.PRIVATE_KEY}}
     permissions:
       id-token: write
@@ -49,7 +50,7 @@ jobs:
   web-deploy-staging:
     uses: ./.github/workflows/wc-web-deploy-staging.yaml
     secrets:
-      APP_ID: ${{secrets.APP_ID}}
+      CLIENT_ID: ${{secrets.CLIENT_ID}}
       PRIVATE_KEY: ${{secrets.PRIVATE_KEY}}
       CLOUDFLARE_ZONE_ID: ${{secrets.CLOUDFLARE_ZONE_ID}}
       CLOUDFLARE_CACHE_PURGE_API_TOKEN: ${{secrets.CLOUDFLARE_CACHE_PURGE_API_TOKEN}}
@@ -61,7 +62,7 @@ jobs:
   terraform-plan:
     uses: ./.github/workflows/wc-terraform-pull-request.yaml
     secrets:
-      APP_ID: ${{secrets.APP_ID}}
+      CLIENT_ID: ${{secrets.CLIENT_ID}}
       PRIVATE_KEY: ${{secrets.PRIVATE_KEY}}
       CLOUDFLARE_READ_ONLY_API_TOKEN: ${{secrets.CLOUDFLARE_READ_ONLY_API_TOKEN}}
       CLOUDFLARE_WRITABLE_API_TOKEN: ${{secrets.CLOUDFLARE_WRITABLE_API_TOKEN}}
