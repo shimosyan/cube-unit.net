@@ -2,6 +2,10 @@
 
 plan_workflow_name: pull-request.yaml
 
+available_providers:
+  - name: registry.terraform.io/hashicorp/aws
+  - name: registry.terraform.io/cloudflare/cloudflare
+
 tflint:
   enabled: true
   fix: true
