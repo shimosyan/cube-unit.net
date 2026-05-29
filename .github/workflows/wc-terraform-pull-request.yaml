@@ -3,7 +3,7 @@ name: Terraform Pull Request
 on:
   workflow_call:
     secrets:
-      APP_ID:
+      CLIENT_ID:
         required: true
       PRIVATE_KEY:
         required: true
@@ -25,7 +25,7 @@ jobs:
       test-files: ${{steps.changes.outputs.test-files}}
     runs-on: ubuntu-latest
     steps:
-      - uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36 # v3.0.2
+      - uses: dorny/paths-filter@fbd0ab8f3e69293af611ebaee6363fc25e6d187d # v4.0.1
         id: changes
         with:
           filters: |
@@ -54,12 +54,12 @@ jobs:
       # aqua を使って必要なツールをインストールする
       - uses: aquaproj/aqua-installer@11dd79b4e498d471a9385aa9fb7f62bb5f52a73c # v4.0.4
         with:
-          aqua_version: v2.56.7
+          aqua_version: v2.59.0
 
       - id: app-token
-        uses: actions/create-github-app-token@29824e69f54612133e76f7eaac726eef6c875baf # v2.2.1
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
         with:
-          app-id: ${{ secrets.APP_ID }}
+          client-id: ${{ secrets.CLIENT_ID }}
           private-key: ${{ secrets.PRIVATE_KEY }}
 
       - run: github-comment exec -- github-comment hide
@@ -67,8 +67,10 @@ jobs:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
 
       # 変更のあった作業ディレクトリを取得する Action
-      - uses: suzuki-shunsuke/tfaction/list-targets@4562d910bbacecf384c8aeda25332284fcf05f38 # v1.20.1
+      - uses: suzuki-shunsuke/tfaction@5d2ecf0f4898a0b3ecc6b536e9a3f4691f46bfad # v2.0.0
         id: list-targets
+        with:
+          action: list-targets
 
   # plan で setup で取得した変更のある作業ディレクトリを並列に実行する
   plan:
@@ -98,40 +100,38 @@ jobs:
           persist-credentials: false
 
       - id: app-token
-        uses: actions/create-github-app-token@29824e69f54612133e76f7eaac726eef6c875baf # v2.2.1
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
         with:
-          app-id: ${{ secrets.APP_ID }}
+          client-id: ${{ secrets.CLIENT_ID }}
           private-key: ${{ secrets.PRIVATE_KEY }}
 
       - uses: aquaproj/aqua-installer@11dd79b4e498d471a9385aa9fb7f62bb5f52a73c # v4.0.4
         with:
-          aqua_version: v2.56.7
+          aqua_version: v2.59.0
         env:
           AQUA_GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
 
-      # GitHub Secrets を TFAction に渡す Action
-      - uses: suzuki-shunsuke/tfaction/js@4562d910bbacecf384c8aeda25332284fcf05f38 # v1.20.1
-        with:
-          action: export-secrets
-          secrets: ${{ toJSON(secrets) }}
-
       # terraform init などの準備を行う Action
-      - uses: suzuki-shunsuke/tfaction/setup@4562d910bbacecf384c8aeda25332284fcf05f38 # v1.20.1
+      - uses: suzuki-shunsuke/tfaction@5d2ecf0f4898a0b3ecc6b536e9a3f4691f46bfad # v2.0.0
         with:
+          action: setup
           github_token: ${{ steps.app-token.outputs.token }}
-        env:
-          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+
+      - uses: aws-actions/configure-aws-credentials@61815dcd50bd041e203e49132bacad1fd04d2708 # v5.1.1
+        if: steps.setup.outputs.aws_assume_role_arn != ''
+        with:
+          role-to-assume: ${{ steps.setup.outputs.aws_assume_role_arn }}
+          role-session-name: ${{ steps.setup.outputs.aws_role_session_name }}
+          aws-region: ${{ steps.setup.outputs.aws_region }}
 
       # terraform fmt 等を実行する Action
-      - uses: suzuki-shunsuke/tfaction/test@4562d910bbacecf384c8aeda25332284fcf05f38 # v1.20.1
+      - uses: suzuki-shunsuke/tfaction@5d2ecf0f4898a0b3ecc6b536e9a3f4691f46bfad # v2.0.0
         with:
+          action: test
           github_token: ${{ steps.app-token.outputs.token }}
-        env:
-          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
 
       # terraform plan を実行する Action
-      - uses: suzuki-shunsuke/tfaction/plan@4562d910bbacecf384c8aeda25332284fcf05f38 # v1.20.1
+      - uses: suzuki-shunsuke/tfaction@5d2ecf0f4898a0b3ecc6b536e9a3f4691f46bfad # v2.0.0
         with:
+          action: plan
           github_token: ${{ steps.app-token.outputs.token }}
-        env:
-          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
