@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/suzuki-shunsuke/tfaction/refs/tags/v1.15.5/schema/tfaction-root.json
 
-plan_workflow_name: Pull Request
+plan_workflow_name: pull-request.yaml
 
 tflint:
   enabled: true
@@ -15,7 +15,7 @@ target_groups:
 #
 # AWS
 #
-  - working_directory: terraform/aws
+  - working_directory: terraform/aws/**
     target: aws
     aws_region: ap-northeast-1
     terraform_plan_config:
@@ -26,7 +26,7 @@ target_groups:
 #
 # Cloudflare
 #
-  - working_directory: terraform/cloudflare
+  - working_directory: terraform/cloudflare/**
     target: cloudflare
     aws_region: ap-northeast-1
     terraform_plan_config:
