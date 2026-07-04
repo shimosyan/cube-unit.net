@@ -7,11 +7,11 @@ checksum:
 #   - all
 registries:
 - type: standard
-  ref: v4.527.0 # renovate: depName=aquaproj/aqua-registry
+  ref: v4.530.0 # renovate: depName=aquaproj/aqua-registry
 packages:
   - name: hashicorp/terraform@v1.15.7
   - name: terraform-linters/tflint@v0.63.1
-  - name: aquasecurity/trivy@v0.71.2
+  - name: aquasecurity/trivy@v0.72.0
   - name: reviewdog/reviewdog@v0.21.0
   - name: terraform-docs/terraform-docs@v0.24.0
   - name: suzuki-shunsuke/tfaction-go@v0.2.3
