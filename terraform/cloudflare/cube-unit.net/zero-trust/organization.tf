@@ -16,6 +16,8 @@ resource "cloudflare_zero_trust_organization" "main" {
   auto_redirect_to_identity          = false
   custom_pages                       = null
   is_ui_read_only                    = false
+  mfa_configuration_allowed          = null
+  mfa_required_for_all_apps          = false
   session_duration                   = null
   ui_read_only_toggle_reason         = null
   user_seat_expiration_inactive_time = null
