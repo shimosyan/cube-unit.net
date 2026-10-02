@@ -26,28 +26,28 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/gohugoio/hugo/v0.166.0/hugo_0.166.0_darwin-universal.pkg",
-      "checksum": "387C90D4CC3FA4ADD9949DB0304C1DB52175A2E939A77353E2809DA15722B5A6",
+      "id": "github_release/github.com/gohugoio/hugo/v0.167.0/hugo_0.167.0_darwin-universal.pkg",
+      "checksum": "175D03751F836DDF9097053E85F970371C7E6231921F73F6AD79E2A86ED9248C",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/gohugoio/hugo/v0.166.0/hugo_0.166.0_linux-amd64.tar.gz",
-      "checksum": "45228F5A52EB118B0CA168068F01D7DF0447314A24056F1D29667ED9FC368308",
+      "id": "github_release/github.com/gohugoio/hugo/v0.167.0/hugo_0.167.0_linux-amd64.tar.gz",
+      "checksum": "4D84519B9F619E6D4C3FB45A50157ABEABEB724F859C60605F44C23DEF6E1169",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/gohugoio/hugo/v0.166.0/hugo_0.166.0_linux-arm64.tar.gz",
-      "checksum": "0E15CBC595E799401698C11AF39D2594B64292B39D9EC7A19665BD43E05FCB2C",
+      "id": "github_release/github.com/gohugoio/hugo/v0.167.0/hugo_0.167.0_linux-arm64.tar.gz",
+      "checksum": "D0DD0D1ED249842525A93413E10CA1EF6F3B63311EE1695B16A0CE488142CEC1",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/gohugoio/hugo/v0.166.0/hugo_0.166.0_windows-amd64.zip",
-      "checksum": "E572364734BD5EAD5F8C38D4AC99EA30D3DEFACE89D0A47528AABCDEC6800725",
+      "id": "github_release/github.com/gohugoio/hugo/v0.167.0/hugo_0.167.0_windows-amd64.zip",
+      "checksum": "F5ED1983B4373E719434CD721BF931907DEC8AD33A891A6912903E93CFDCCE98",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/gohugoio/hugo/v0.166.0/hugo_0.166.0_windows-arm64.zip",
-      "checksum": "9BD72E6C02FD6E527352964813154BC41C451E212ECB4779107A4EDE5BA12928",
+      "id": "github_release/github.com/gohugoio/hugo/v0.167.0/hugo_0.167.0_windows-arm64.zip",
+      "checksum": "649688F9C81E81BE66C57E8C79145E9E06CFC307314A1996C28794E283DB7469",
       "algorithm": "sha256"
     },
     {
