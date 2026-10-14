@@ -1,5 +1,5 @@
 baseURL = 'https://cube-unit.net/'
-languageCode = 'ja'
+locale = 'ja'
 title = 'Cube-Unit'
 theme = 'cube-unit'
 
