@@ -1,4 +1,4 @@
-{{ if .Site.GoogleAnalytics }}
+{{ if site.Config.Services.GoogleAnalytics.ID }}
 <!-- Google Analytics 4 - Load after cookie consent -->
 <script type="text/javascript">
 // Global function to load Google Analytics
@@ -15,13 +15,13 @@ window.loadGoogleAnalytics = function() {
     // Load gtag script
     var script = document.createElement('script');
     script.async = true;
-    script.src = 'https://www.googletagmanager.com/gtag/js?id={{ .Site.GoogleAnalytics }}';
+    script.src = 'https://www.googletagmanager.com/gtag/js?id={{ site.Config.Services.GoogleAnalytics.ID }}';
     document.head.appendChild(script);
 
     // Configure GA4
     script.onload = function() {
         gtag('js', new Date());
-        gtag('config', '{{ .Site.GoogleAnalytics }}');
+        gtag('config', '{{ site.Config.Services.GoogleAnalytics.ID }}');
         console.log('Google Analytics loaded successfully');
     };
 
