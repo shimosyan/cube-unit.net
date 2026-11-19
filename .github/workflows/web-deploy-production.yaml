@@ -28,6 +28,8 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
 
       - name: Filter paths
         uses: dorny/paths-filter@v4.0.3

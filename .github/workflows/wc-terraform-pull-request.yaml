@@ -50,6 +50,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
 
       # aqua を使って必要なツールをインストールする
       - uses: aquaproj/aqua-installer@v4.1.1

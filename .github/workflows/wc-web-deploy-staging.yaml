@@ -29,6 +29,8 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
 
       - name: Filter paths
         uses: dorny/paths-filter@v4.0.3
@@ -53,6 +55,8 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
 
       - name: Filter paths
         uses: dorny/paths-filter@v4.0.3
@@ -77,6 +81,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
 
       - uses: aquaproj/aqua-installer@v4.1.1
         with:
