@@ -54,13 +54,13 @@ workflows:
         - 'aws-actions/configure-aws-credentials@v6.3.0'
         - 'dorny/paths-filter@v4.0.3'
         - 'jakejarvis/cloudflare-purge-action@v0.3.0'
-        - 'peaceiris/actions-hugo@v3.2.1'
+        - 'peaceiris/actions-hugo@v3.3.0'
     '.github/workflows/web-deploy-manual.yaml':
         - 'actions/checkout@v7.0.1'
         - 'aquaproj/aqua-installer@v4.1.1'
         - 'aws-actions/configure-aws-credentials@v6.3.0'
         - 'jakejarvis/cloudflare-purge-action@v0.3.0'
-        - 'peaceiris/actions-hugo@v3.2.1'
+        - 'peaceiris/actions-hugo@v3.3.0'
     '.github/workflows/web-deploy-production.yaml':
         - 'actions/checkout@v7.0.1'
         - 'actions/create-github-app-token@v3.3.0'
@@ -68,7 +68,7 @@ workflows:
         - 'aws-actions/configure-aws-credentials@v6.3.0'
         - 'dorny/paths-filter@v4.0.3'
         - 'jakejarvis/cloudflare-purge-action@v0.3.0'
-        - 'peaceiris/actions-hugo@v3.2.1'
+        - 'peaceiris/actions-hugo@v3.3.0'
 dependencies:
     'actions/checkout@v7.0.1':
         ref: 'v7.0.1'
@@ -105,9 +105,9 @@ dependencies:
         commit: 'sha1-eee6dba0236093358f25bb1581bd615dc8b3d8e3'
         owner_id: 1703673
         repo_id: 203578147
-    'peaceiris/actions-hugo@v3.2.1':
-        ref: 'v3.2.1'
-        commit: 'sha1-2752ce1d29631191ea3f27c23495fa06139a5b78'
+    'peaceiris/actions-hugo@v3.3.0':
+        ref: 'v3.3.0'
+        commit: 'sha1-d1c81a15d4e6dca7086a17b9c2565cb70fd576bf'
         owner_id: 30958501
         repo_id: 187902720
     'suzuki-shunsuke/commit-action@v1.1.0':
