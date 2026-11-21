@@ -7,7 +7,7 @@ on:
       - master
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}  # デプロイしないため PR レベルの排他制御
+  group: ${{ github.workflow }}-${{ github.ref }} # デプロイしないため PR レベルの排他制御
   cancel-in-progress: true # PR の更新があった場合は前のジョブをキャンセルする
 
 permissions: {}
@@ -28,30 +28,24 @@ jobs:
       - run: exit 1
 
   document-test:
-    uses: ./.github/workflows/wc-document-pull-request.yaml
-    secrets:
-      CLIENT_ID: ${{secrets.CLIENT_ID}}
-      PRIVATE_KEY: ${{secrets.PRIVATE_KEY}}
+    uses: shimosyan/.github/.github/workflows/wc-document-pull-request.yaml@bc3ed1de3b27f64e0adef836c21a808ce44624fc # main
+    secrets: inherit
     permissions:
       id-token: write
       contents: read
       pull-requests: write
 
   update-aqua-checksums:
-    uses: ./.github/workflows/wc-update-aqua-checksums.yaml
-    secrets:
-      CLIENT_ID: ${{secrets.CLIENT_ID}}
-      PRIVATE_KEY: ${{secrets.PRIVATE_KEY}}
+    uses: shimosyan/.github/.github/workflows/wc-update-aqua-checksums.yaml@bc3ed1de3b27f64e0adef836c21a808ce44624fc # main
+    secrets: inherit
     permissions:
       id-token: write
       contents: read
       pull-requests: write
 
   update-actions-lock:
-    uses: ./.github/workflows/wc-update-actions-lock.yaml
-    secrets:
-      CLIENT_ID: ${{ secrets.CLIENT_ID }}
-      PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+    uses: shimosyan/.github/.github/workflows/wc-update-actions-lock.yaml@bc3ed1de3b27f64e0adef836c21a808ce44624fc # main
+    secrets: inherit
     permissions:
       id-token: write
       contents: read
@@ -60,10 +54,10 @@ jobs:
   web-deploy-staging:
     uses: ./.github/workflows/wc-web-deploy-staging.yaml
     secrets:
-      CLIENT_ID: ${{secrets.CLIENT_ID}}
-      PRIVATE_KEY: ${{secrets.PRIVATE_KEY}}
-      CLOUDFLARE_ZONE_ID: ${{secrets.CLOUDFLARE_ZONE_ID}}
-      CLOUDFLARE_CACHE_PURGE_API_TOKEN: ${{secrets.CLOUDFLARE_CACHE_PURGE_API_TOKEN}}
+      CLIENT_ID: ${{ secrets.CLIENT_ID }}
+      PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+      CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
+      CLOUDFLARE_CACHE_PURGE_API_TOKEN: ${{ secrets.CLOUDFLARE_CACHE_PURGE_API_TOKEN }}
     permissions:
       id-token: write
       contents: read
@@ -72,10 +66,10 @@ jobs:
   terraform-plan:
     uses: ./.github/workflows/wc-terraform-pull-request.yaml
     secrets:
-      CLIENT_ID: ${{secrets.CLIENT_ID}}
-      PRIVATE_KEY: ${{secrets.PRIVATE_KEY}}
-      CLOUDFLARE_READ_ONLY_API_TOKEN: ${{secrets.CLOUDFLARE_READ_ONLY_API_TOKEN}}
-      CLOUDFLARE_WRITABLE_API_TOKEN: ${{secrets.CLOUDFLARE_WRITABLE_API_TOKEN}}
+      CLIENT_ID: ${{ secrets.CLIENT_ID }}
+      PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+      CLOUDFLARE_READ_ONLY_API_TOKEN: ${{ secrets.CLOUDFLARE_READ_ONLY_API_TOKEN }}
+      CLOUDFLARE_WRITABLE_API_TOKEN: ${{ secrets.CLOUDFLARE_WRITABLE_API_TOKEN }}
     permissions:
       id-token: write
       contents: read
